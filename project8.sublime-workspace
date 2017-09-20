@@ -1,0 +1,1473 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ex",
+				"explode"
+			],
+			[
+				"preg_",
+				"preg_match〔function〕"
+			],
+			[
+				"pad",
+				"padding-bottom"
+			],
+			[
+				"impl",
+				"implode〔function〕"
+			],
+			[
+				"strp",
+				"strpos〔function〕"
+			],
+			[
+				"count",
+				"countCart"
+			],
+			[
+				"pa",
+				"path"
+			],
+			[
+				"ti",
+				"title"
+			],
+			[
+				"se",
+				"select"
+			],
+			[
+				"extra",
+				"extraTpl"
+			],
+			[
+				"extr",
+				"extraTpl"
+			],
+			[
+				"atl_room",
+				"atl_roomtype_desc"
+			],
+			[
+				"sel",
+				"selected"
+			],
+			[
+				"end",
+				"endforeach"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"bor",
+				"border-top"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"removeA",
+				"removeAttr"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"info",
+				"$infoRoomType〔variable〕"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"location",
+				"location_type"
+			],
+			[
+				"ru",
+				"$ruleDisplay〔variable〕"
+			],
+			[
+				"ser",
+				"services"
+			],
+			[
+				"delete",
+				"deleteAccomodation"
+			],
+			[
+				"service",
+				"service_status"
+			],
+			[
+				"data",
+				"dataResult"
+			],
+			[
+				"sh",
+				"sheetsWidth"
+			],
+			[
+				"fun",
+				"function〔keyword〕"
+			],
+			[
+				"ass",
+				"assets〔function〕"
+			],
+			[
+				"id",
+				"$idParent〔variable〕"
+			],
+			[
+				"user",
+				"user_email"
+			],
+			[
+				"comm",
+				"comm-section\tComment - Full section comment"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"set",
+				"setInterval〔function〕"
+			],
+			[
+				"get",
+				"getInstance〔function〕"
+			],
+			[
+				"Get",
+				"getInstance〔function〕"
+			],
+			[
+				"clas",
+				"clasest"
+			],
+			[
+				"limi",
+				"limitPage"
+			],
+			[
+				"total",
+				"totalRow"
+			],
+			[
+				"page",
+				"pageStart"
+			],
+			[
+				"next",
+				"nextLink"
+			],
+			[
+				"tag",
+				"tagOpen"
+			],
+			[
+				"con",
+				"config"
+			],
+			[
+				"ma",
+				"$matcher〔variable〕"
+			],
+			[
+				"config",
+				"$config〔variable〕"
+			],
+			[
+				"file",
+				"file"
+			],
+			[
+				"en",
+				"entityManager"
+			],
+			[
+				"at",
+				"$attributes〔variable〕"
+			],
+			[
+				"atl",
+				"atl-framework"
+			],
+			[
+				"in",
+				"instances"
+			],
+			[
+				"al",
+				"$allRoutes〔variable〕"
+			],
+			[
+				"pl",
+				"$plus〔variable〕"
+			],
+			[
+				"def",
+				"define〔keyword〕"
+			],
+			[
+				"strto",
+				"strtotime〔function〕"
+			],
+			[
+				"start",
+				"start_date"
+			],
+			[
+				"getB",
+				"getBookings"
+			],
+			[
+				"check",
+				"$checkData〔variable〕"
+			],
+			[
+				"key",
+				"$keyf〔variable〕"
+			],
+			[
+				"role",
+				"$roleItem〔variable〕"
+			],
+			[
+				"_",
+				"$_SESSION〔variable〕"
+			],
+			[
+				"pt",
+				"padding-top"
+			],
+			[
+				"place",
+				"placeholderFirst"
+			],
+			[
+				"fa",
+				"fadeOut"
+			],
+			[
+				"seti",
+				"setTimeout〔function〕"
+			],
+			[
+				"imp",
+				"implode〔function〕"
+			],
+			[
+				"par",
+				"parent〔keyword〕"
+			],
+			[
+				"expo",
+				"$export〔variable〕"
+			],
+			[
+				"requi",
+				"require_once〔keyword〕"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"op",
+				"option\tTag"
+			],
+			[
+				"bo",
+				"border"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"sy",
+				"style\tAttr"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"hea",
+				"header"
+			],
+			[
+				"html",
+				"htmlentities〔function〕"
+			],
+			[
+				"manage",
+				"manageBooking"
+			],
+			[
+				"to",
+				"tour_price"
+			],
+			[
+				"last",
+				"$lastBooking〔variable〕"
+			],
+			[
+				"tou",
+				"tourGrs"
+			],
+			[
+				"travel",
+				"travel_consu"
+			],
+			[
+				"tour",
+				"tour_duration"
+			],
+			[
+				"cus",
+				"cus_email"
+			],
+			[
+				"tour_",
+				"tour_price\t(?)"
+			],
+			[
+				"date",
+				"datepicker"
+			],
+			[
+				"num",
+				"number"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"pars",
+				"parseInt〔function〕"
+			],
+			[
+				"g",
+				"groupSizeTpl"
+			],
+			[
+				"admin",
+				"_admin-tour.scss"
+			],
+			[
+				"parr",
+				"parent〔variable〕"
+			],
+			[
+				"json_",
+				"json_encode〔function〕"
+			],
+			[
+				"seel",
+				"selected"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"SITE",
+				"SITE_ADMIN_URL〔constant〕"
+			],
+			[
+				"is",
+				"isset"
+			],
+			[
+				"update_post",
+				"update_post_meta\tWP Function"
+			],
+			[
+				"em",
+				"empty"
+			],
+			[
+				"cu",
+				"$currentK〔variable〕"
+			],
+			[
+				"template",
+				"$templateID〔variable〕"
+			],
+			[
+				"tem",
+				"templateCover"
+			],
+			[
+				"temp",
+				"template\tWP Filter Name"
+			],
+			[
+				"editor",
+				"editorData"
+			],
+			[
+				"setti",
+				"setInterval〔function〕"
+			],
+			[
+				"get_style",
+				"get_stylesheet_directory_uri\tWP Function"
+			],
+			[
+				"me",
+				"machineName"
+			],
+			[
+				"content",
+				"$contentData〔variable〕"
+			],
+			[
+				"exp",
+				"explode〔function〕"
+			],
+			[
+				"parse",
+				"parse_url〔function〕"
+			],
+			[
+				"class",
+				"classBtn"
+			],
+			[
+				"inf",
+				"info_link"
+			],
+			[
+				"update",
+				"update_option"
+			],
+			[
+				"ar",
+				"array"
+			],
+			[
+				"post",
+				"post_status"
+			],
+			[
+				"main",
+				"$main_settings〔variable〕"
+			],
+			[
+				"li",
+				"list_icons"
+			],
+			[
+				"conte",
+				"$contentData〔variable〕"
+			],
+			[
+				"is_in",
+				"is_integer〔function〕"
+			],
+			[
+				"__",
+				"__\tWP Function"
+			],
+			[
+				"el_",
+				"el_info"
+			],
+			[
+				"ele",
+				"elementsInfo"
+			],
+			[
+				"fi",
+				"$field_input〔variable〕"
+			],
+			[
+				"is_a",
+				"is_array"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/Http/routes.php",
+			"settings":
+			{
+				"buffer_size": 866,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Frontend/CartController.php",
+			"settings":
+			{
+				"buffer_size": 2937,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/frontend/userTool/cart/listItem.tpl.php",
+			"settings":
+			{
+				"buffer_size": 6840,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/frontend/user-tool/js/cart.js",
+			"settings":
+			{
+				"buffer_size": 7521,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/frontend/userTool/layout/header.tpl.php",
+			"settings":
+			{
+				"buffer_size": 1575,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/frontend/user-tool/css/user-custom.css",
+			"settings":
+			{
+				"buffer_size": 1490,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/js/userTool-page-cart.js",
+			"settings":
+			{
+				"buffer_size": 387,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/js/backend.js",
+			"settings":
+			{
+				"buffer_size": 2883,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 368.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"isnta",
+				"Package Control: Install Package"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"gi",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
+				"git commi",
+				"Git: Commit"
+			],
+			[
+				"git add ",
+				"Git: Add..."
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"",
+				"AngularJS: Rebuild Search Index"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"lsit",
+				"Package Control: List Packages"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"REMOVE",
+				"Package Control: Remove Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			]
+		],
+		"width": 561.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"clear",
+			"ls",
+			"1",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Applications/MAMP/htdocs/project8",
+		"/Applications/MAMP/htdocs/project8/app",
+		"/Applications/MAMP/htdocs/project8/app/Http",
+		"/Applications/MAMP/htdocs/project8/app/Http/Components",
+		"/Applications/MAMP/htdocs/project8/app/Http/Controllers",
+		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend",
+		"/Applications/MAMP/htdocs/project8/config",
+		"/Applications/MAMP/htdocs/project8/public",
+		"/Applications/MAMP/htdocs/project8/public/frontend",
+		"/Applications/MAMP/htdocs/project8/public/frontend/user-tool",
+		"/Applications/MAMP/htdocs/project8/public/frontend/user-tool/js",
+		"/Applications/MAMP/htdocs/project8/resources",
+		"/Applications/MAMP/htdocs/project8/resources/views",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/cart",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/layout",
+		"/Applications/MAMP/htdocs/project8/src",
+		"/Applications/MAMP/htdocs/project8/src/js"
+	],
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/layout/footer.tpl.php",
+		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/MainController.php",
+		"/Applications/MAMP/htdocs/project8/public/frontend/user-tool/css/user-custom.css",
+		"/Applications/MAMP/htdocs/project8/src/js/backend.js",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/layout/menuNav.tpl.php",
+		"/Applications/MAMP/htdocs/project-8/user/cart.html",
+		"/Applications/MAMP/htdocs/project8/app/Http/Components/ApiHandlePrice.php",
+		"/Applications/MAMP/htdocs/project8/gulpfile.js",
+		"/Users/letrungha/Desktop/format.html",
+		"/Users/letrungha/Desktop/in.html",
+		"/Applications/MAMP/htdocs/project-8/user/order.html",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/layout/header.tpl.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/cart/listItem.tpl.php",
+		"/Users/letrungha/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/Users/letrungha/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc.defaults.json",
+		"/Applications/MAMP/htdocs/chromex/background.js",
+		"/Applications/MAMP/htdocs/chromex/manifest.json",
+		"/Applications/MAMP/htdocs/chromex/index.php",
+		"/Applications/MAMP/htdocs/chromex/background.html",
+		"/Applications/MAMP/htdocs/project8/app/Http/Components/Backend/AdminDataMenu.php",
+		"/Applications/MAMP/htdocs/project8/config/app.php",
+		"/Users/letrungha/Downloads/bootstrap-4-material-admin/index.html",
+		"/Applications/MAMP/htdocs/project8/app/Http/Components/Controller.php",
+		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/UserController.php",
+		"/Applications/MAMP/htdocs/project8/app/Http/routes.php",
+		"/Applications/MAMP/htdocs/project8/vendor/atl/atl-framework/src/atl/Routing/Controller.php",
+		"/Applications/MAMP/htdocs/project8/vendor/atl/atl-framework/src/atl/Session/Session.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/main.tpl.php",
+		"/Applications/MAMP/htdocs/project8/huorder.xyz.key",
+		"/Applications/MAMP/htdocs/project8/huorder.xyz.crt",
+		"/Users/letrungha/Desktop/iakdcmblbilhahghjgccppfldjodcjgo/1.0.1_0/background.js",
+		"/Users/letrungha/Desktop/iakdcmblbilhahghjgccppfldjodcjgo/1.0.1_0/manifest.json",
+		"/Applications/MAMP/htdocs/chromex/codeover9.js",
+		"/Users/letrungha/Desktop/iakdcmblbilhahghjgccppfldjodcjgo/1.0.1_0/_metadata/computed_hashes.json",
+		"/Applications/MAMP/htdocs/project-8/user/user-custom.css",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/layout",
+		"/Applications/MAMP/htdocs/project8/config/define.php",
+		"/Applications/MAMP/htdocs/project8/config/database.php",
+		"/Applications/MAMP/htdocs/project8/package.json",
+		"/Applications/MAMP/htdocs/travel/app/Http/Controllers/Backend/SettingsController.php",
+		"/Users/letrungha/Downloads/dulieu.sql",
+		"/Applications/MAMP/htdocs/travel/src/js/page-admin-cruise.js",
+		"/Applications/MAMP/htdocs/travel/app/Model/CruiseModel.php",
+		"/Applications/MAMP/htdocs/travel/app/Http/Controllers/Backend/AccomodationController.php",
+		"/Applications/MAMP/htdocs/travel/src/js/page-admin-accommodation.js",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/accomodation/layout/addRoomType.tpl.php",
+		"/Applications/MAMP/htdocs/travel/src/js/admin-popin-roomtypecruise.js",
+		"/Applications/MAMP/htdocs/travel/src/js/admin-extra-list.js",
+		"/Applications/MAMP/htdocs/travel/app/Model/AccomodationModel.php",
+		"/Applications/MAMP/htdocs/travel/app/Http/Components/ApiHandlePrice.php",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/accomodation/layout/manageAccomodationJs.tpl.php",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/accomodation/addAccomodation.tpl.php",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/accomodation/manageAccomodation.tpl.php",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/accomodation/layout/addContactFile.tpl.php",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/accomodation/layout/roomType/listRoomTypeJs.tpl.php",
+		"/Applications/MAMP/htdocs/travel/public/backend/css/page-admin-accomodation.css",
+		"/Applications/MAMP/htdocs/travel/app/Http/Components/Controller.php",
+		"/Applications/MAMP/htdocs/travel/app/Http/routes.php",
+		"/Applications/MAMP/htdocs/travel/src/js/admin-popin-roomtype.js",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/accomodation/layout/roomType/listRoomType.tpl.php",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/layout/footer.tpl.php",
+		"/Applications/MAMP/htdocs/travel/app/Model/roomTypePriceModel.php",
+		"/Applications/MAMP/htdocs/travel/src/js/backend-scripts.js",
+		"/Applications/MAMP/htdocs/travel/app/Http/Components/Backend/AdminEditor.php",
+		"/Applications/MAMP/htdocs/travel/src/js/page-admin-user.js",
+		"/Applications/MAMP/htdocs/travel/app/Model/LocationModel.php",
+		"/Applications/MAMP/htdocs/travel/app/Http/Components/Backend/AdminDataMenu.php",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/location/layout/manageLocationJs.tpl.php",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/location/layout/addLocation.tpl.php",
+		"/Applications/MAMP/htdocs/travel/src/js/page-admin-location.js",
+		"/Applications/MAMP/htdocs/travel/app/Http/Controllers/Backend/LocationController.php",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/location/manageLocation.tpl.php",
+		"/Applications/MAMP/htdocs/travel/app/Http/Components/ApiLocation.php",
+		"/Applications/MAMP/htdocs/travel/vendor/atl/atl-framework/src/atl/Routing/Controller.php",
+		"/Applications/MAMP/htdocs/travel/app/Model/UserModel.php",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/layout/menuTop.tpl.php",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/layout/header.tpl.php",
+		"/Users/letrungha/Documents/menu.pug",
+		"/Applications/MAMP/htdocs/travel/vendor/atl/atl-framework/src/atl/Database/helpers.php",
+		"/Applications/MAMP/htdocs/travel/app/Model/OtherServiceModel.php",
+		"/Applications/MAMP/htdocs/travel/app/Model/GuiderModel.php",
+		"/Applications/MAMP/htdocs/travel/app/Http/Controllers/Backend/PartnerController.php",
+		"/Applications/MAMP/htdocs/travel/app/Http/Controllers/Backend/GuiderController.php",
+		"/Applications/MAMP/htdocs/travel/app/Http/Controllers/Backend/OtherServiceController.php",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/accomodation/layout/manageFilter.tpl.php",
+		"/Applications/MAMP/htdocs/travel/app/Model/AtlModel.php",
+		"/Applications/MAMP/htdocs/travel/src/js/page-admin-type-accomodation.js",
+		"/Users/letrungha/Documents/job/admin template/altair_html/forms_advanced.html",
+		"/Applications/MAMP/htdocs/project7/app/Http/Controllers/MainController.php",
+		"/Applications/MAMP/htdocs/project7/resources/views/canculator/canculator1.tpl.php",
+		"/Applications/MAMP/htdocs/megaPopup/core/opcore-content-builder.js",
+		"/Applications/MAMP/htdocs/awebuilderMaster/src/js/awe-builder/core/awe-panel.ts",
+		"/Applications/MAMP/htdocs/awebuilderMaster/src/js/awe-builder/core/awe-render-style.ts",
+		"/Applications/MAMP/htdocs/awebuilderMaster/src/js/awe-builder/core/awe-section.ts",
+		"/Applications/MAMP/htdocs/awebuilderMaster/src/js/awe-builder/core/awe-tabs.ts",
+		"/Applications/MAMP/htdocs/megaPopup/core/opcore-element-form.js",
+		"/Applications/MAMP/htdocs/megaPopup/core/opcore-section.js",
+		"/Applications/MAMP/htdocs/megaPopup/core/opcore-panel.js",
+		"/Applications/MAMP/htdocs/project7/resources/views/main.tpl.php",
+		"/Applications/MAMP/htdocs/project7/vendor/atl/atl-framework/src/atl/View/Loader.php",
+		"/Applications/MAMP/htdocs/project7/vendor/atl/atl-framework/src/atl/View/helpers.php",
+		"/Applications/MAMP/htdocs/--sss/begin/index.html",
+		"/Applications/MAMP/htdocs/project7/gulpfile.js",
+		"/Applications/MAMP/htdocs/--sss/dist/index.html",
+		"/Applications/MAMP/htdocs/project7/app/Http/Components/Backend/AdminDataMenu.php",
+		"/Applications/MAMP/htdocs/project7/config/app.php",
+		"/Applications/MAMP/htdocs/project7/app/Http/Components/Controller.php",
+		"/Applications/MAMP/htdocs/project7/resources/views/layout/header.tpl.php",
+		"/Applications/MAMP/htdocs/project7/resources/views/layout/footer.php",
+		"/Applications/MAMP/htdocs/project7/resources/views/layout/header.php",
+		"/Applications/MAMP/htdocs/project7/resources/views/login.tpl.php",
+		"/Applications/MAMP/htdocs/project7/app/Http/Controllers/LoginController.php",
+		"/Applications/MAMP/htdocs/project7/config/define.php",
+		"/Applications/MAMP/htdocs/project7/src/js/main.js",
+		"/Applications/MAMP/htdocs/project7/dist/index.html",
+		"/Applications/MAMP/htdocs/project7/begin/index.html",
+		"/Applications/MAMP/htdocs/awebuilderMaster/gulpfile.js",
+		"/Applications/MAMP/htdocs/awebuilderMaster/src/js/ts-libraries/backbone.d.ts",
+		"/Applications/MAMP/htdocs/wptest/wp-content/plugins/awebooking/gulpfile.js",
+		"/Applications/MAMP/htdocs/project7/handsontable-pro1/webpack.config.js",
+		"/Applications/MAMP/htdocs/project7/handsontable-pro/Gruntfile.js",
+		"/Applications/MAMP/htdocs/travel/app/Http/Controllers/Backend/UserController.php",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/settings/settings.tpl.php",
+		"/Applications/MAMP/htdocs/travel/config/database.php",
+		"/Applications/MAMP/htdocs/test/image-optimize/optimize-image.php",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/location/layout/manageLocationAction.tpl.php",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/location/layout",
+		"/Applications/MAMP/htdocs/travel/resources/views/backend/location/manageLocation.tpl"
+	],
+	"find":
+	{
+		"height": 54.0
+	},
+	"find_in_files":
+	{
+		"height": 154.0,
+		"where_history":
+		[
+			"/Applications/MAMP/htdocs/project8/public/frontend/user-tool/js",
+			"/Users/letrungha/Documents/job/admin template/altair_html/assets",
+			"/Applications/MAMP/htdocs/travel/src",
+			"/Applications/MAMP/htdocs/travel/public/backend/assets/js",
+			"/Applications/MAMP/htdocs/travel/public/backend/assets/js/pages",
+			"/Applications/MAMP/htdocs/travel/resources/views/backend/accomodation",
+			"/Applications/MAMP/htdocs/travel/resources/views/backend/layout",
+			"/Applications/MAMP/htdocs/travel/app/Http/Controllers",
+			"/Applications/MAMP/htdocs/travel/resources/views/backend/accomodation",
+			"/Applications/MAMP/htdocs/travel/resources/views/backend/accomodation/layout",
+			"/Applications/MAMP/htdocs/travel/resources/views/backend/accomodation",
+			"/Applications/MAMP/htdocs/travel/resources/views/backend/accomodation/layout",
+			"/Applications/MAMP/htdocs/mail-manage/vendor/laravel",
+			"/Applications/MAMP/htdocs/atl_framework",
+			"<current file>",
+			"/Applications/MAMP/htdocs/mail-manage/vendor/laravel/framework/src/Illuminate",
+			"/Applications/MAMP/htdocs/mail-manage/vendor/laravel/framework",
+			"/Applications/MAMP/htdocs/mail-manage/vendor/laravel/framework/src/Illuminate",
+			"/Applications/MAMP/htdocs/mail-manage/vendor/laravel/framework",
+			"/Applications/MAMP/htdocs/mail-manage/vendor/laravel/framework/src",
+			"/Applications/MAMP/htdocs/mail-manage/vendor/laravel/framework/src/Illuminate",
+			"<current file>",
+			"/Applications/MAMP/htdocs/mail-manage/vendor/laravel/framework",
+			"/Applications/MAMP/htdocs/mail-manage/vendor/laravel",
+			"/Applications/MAMP/htdocs/mail-manage/vendor/laravel/framework",
+			"/Applications/MAMP/htdocs/mail-manage",
+			"/Applications/MAMP/htdocs/mail-manage/app/Http",
+			"/Applications/MAMP/htdocs/mail-manage/vendor/laravel/framework/src/Illuminate",
+			"/Applications/MAMP/htdocs/mail-manage/app",
+			"/Applications/MAMP/htdocs/mail-manage/vendor",
+			"/Applications/MAMP/htdocs/mail-manage/vendor/laravel",
+			"/Applications/MAMP/htdocs/mail-manage/vendor/laravel/framework",
+			"/Applications/MAMP/htdocs/mail-manage/vendor/laravel",
+			"/Applications/MAMP/htdocs/laravel/vendor/laravel",
+			"/Applications/MAMP/htdocs/tour_manage",
+			"/Applications/MAMP/htdocs/tour_manage/system",
+			"/Applications/MAMP/htdocs/tour_manage",
+			"/Applications/MAMP/htdocs/tour_manage/src",
+			"/Applications/MAMP/htdocs/tour_manage/src/js",
+			"<current file>",
+			"/Applications/MAMP/htdocs/wpmanage",
+			"<current file>",
+			"/Applications/MAMP/htdocs/wpmanage/application/model",
+			"/Applications/MAMP/htdocs/wpmanage",
+			"/Applications/MAMP/htdocs/tour_manage/system",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awebooking2/lib",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/learnpress",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/learnpress/inc",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/learnpress/inc/admin",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/learnpress",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/learnpress/inc/admin",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/learnpress",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/learnpress/inc/admin/meta-boxes",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/learnpress",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/learnpress/inc",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/learnpress",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/learnpress-custom",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/learnpress",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent/include/classes",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent/include/server",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awebooking2",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awebooking",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awebooking2",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/woocommerce",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/woocommerce",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent",
+			"/Applications/MAMP/htdocs/wpdev",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecore",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awebooking",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent/include/server",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent",
+			"/Applications/MAMP/htdocs/wpdev",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent",
+			"/Applications/MAMP/htdocs/wpdev",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent/include",
+			"/Applications/MAMP/htdocs/wpdev",
+			"<current file>",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/amz_coupon_server",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent",
+			"/Applications/MAMP/htdocs/devtheme/wp-content/themes/circles/inc",
+			"/Applications/MAMP/htdocs/devtheme/wp-content/themes/circles/inc/shortcodes",
+			"/Applications/MAMP/htdocs/devtheme/wp-content/themes/circles",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent/include",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent",
+			"/Applications/MAMP/htdocs/wpdev",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent/include",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awebooking",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/loco-translate",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent/include/admin",
+			"/Applications/MAMP/htdocs/wpdev/wp-content/plugins/awecontent",
+			"/Users/letrungha/.Trash/Sublime Text 3/Packages/User"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"'];\n",
+			"https://chrome.google.com/webstore/detail/iakdcmblbilhahghjgccppfldjodcjgo",
+			"iakdcmblbilhahghjgccppfldjodcjgo",
+			"active",
+			"user-tool",
+			"list-unstyled",
+			"https://github.com/leeit1992/tool-facebook",
+			"cart",
+			"car",
+			"Session",
+			"VanChuyenChina.com",
+			"Mô tả chi tiết sản phẩm hoặc Chú ý ",
+			"linkClick",
+			"id_cnporder_add_cart",
+			"Timepicker",
+			"uk-autocomplete",
+			"checkbox",
+			"data-uk-tab",
+			"tabs_1",
+			"Lists",
+			"Tabs",
+			"Sortable",
+			"Sortable\n",
+			"Radio Buttons",
+			"Form file",
+			"Radio",
+			"Radio Buttons",
+			"Advanced Wizard",
+			"selectize-input",
+			"selectize-input items",
+			"datetime",
+			"md-card-head md-bg-light-blue-600",
+			"09.08.2017",
+			"09.08.2017 ",
+			"119",
+			"119/2015",
+			"log",
+			"input",
+			"atl-add-manage-price",
+			"mdPriceManage",
+			"ukit",
+			"open",
+			"addRoomType:",
+			"closets",
+			"currentTarget",
+			"makeid",
+			"adminEditor",
+			"hotel",
+			"updateRoomType",
+			"editRoomTypeName",
+			"updatePriceRoomType",
+			"());\n",
+			"addRoomType:",
+			"addGalleryImage",
+			"addRoomType",
+			"data-md-icheck",
+			"addRoomType",
+			"atl-add-roomtype-js",
+			"formatDefaultPopinRoomType",
+			"removeItemRoomType",
+			"addRoomType",
+			"addRoom",
+			"modalOpen",
+			"removeItemRoomType",
+			"addFeaturedImage",
+			"atl-rt-featured-image-js",
+			"addFeaturedImage",
+			"removeImageGallery",
+			"addFeaturedImage",
+			"addRoomType",
+			"update-room-type",
+			"addRoomtype",
+			"masked_input",
+			"open",
+			"texta",
+			"room",
+			"room type",
+			"Enter the name of room type.",
+			"handleForm",
+			"dataResult",
+			"handleForm",
+			"handle",
+			"Validation",
+			"int",
+			"modalOpen",
+			"[\n",
+			"country",
+			"`city",
+			"city",
+			"cityid",
+			"office",
+			"actionManage",
+			"menuTop.tpl",
+			"sear",
+			"getAllType",
+			"mdLogs",
+			"mdUser",
+			"searchManage",
+			"atl-manage-accomodation-delete-js",
+			"errorFormTpl",
+			"modalOpen",
+			"uk-accordion-content",
+			"actionManage",
+			"Delete False",
+			"focus",
+			"Choose Type",
+			"removeItemRoomType",
+			"atl-accordion-trash",
+			"atl-calendar-price",
+			"fc-day-grid-container",
+			"85px",
+			"CustomViewCalendar",
+			"upDateRoomPricing",
+			"getListDayForCalendar",
+			"nexCalendarManagePrice",
+			"fc-next-button",
+			"fc-corner-left",
+			"fc-corner-right",
+			"fullcalendar",
+			"addRoomType.tpl",
+			"listRoomtype.tpl",
+			"modalOpen",
+			"md-card-list-item-subject",
+			"material-icons md-24",
+			"checkbox",
+			"sidebar_secondary",
+			"<ul",
+			"<"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"php",
+			"DB()->",
+			"_atl_",
+			"getOptionCurrency",
+			"atl_invoice",
+			"atl_booking",
+			"Booking",
+			"",
+			"lastTour",
+			"fonts"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/Http/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 866,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								791,
+								770
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/Http/Controllers/Frontend/CartController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2937,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2898,
+								2908
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 445.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/views/frontend/userTool/cart/listItem.tpl.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6840,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3867,
+								3867
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 914.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/frontend/user-tool/js/cart.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7521,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6273,
+								6273
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript Ultimate/javascript.dom.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2225.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "resources/views/frontend/userTool/layout/header.tpl.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1575,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								389,
+								389
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/frontend/user-tool/css/user-custom.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1490,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1490,
+								1490
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 640.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/js/userTool-page-cart.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 387,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								332,
+								332
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript Ultimate/javascript.dom.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/js/backend.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2883,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1121,
+								1142
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript Ultimate/javascript.dom.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 58.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 51.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 98.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 98.0
+	},
+	"pinned_build_system": "",
+	"project": "project8.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/sublime.project/travel.sublime-project"
+			],
+			[
+				"fb",
+				"~/Desktop/fb.sublime-project"
+			],
+			[
+				"wp",
+				"~/Desktop/wp.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 368.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 687.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 282.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

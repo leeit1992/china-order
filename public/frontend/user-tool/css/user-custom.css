@@ -1,0 +1,85 @@
+.tabs {
+    margin: 0 0 -1px 0;
+    border-bottom: 1px solid #ccc;
+}
+.tabs li {
+    list-style: none;
+    margin-right: -1px;
+    float: left;
+    border-top: none;
+}
+.tabs a {
+    color: #555;
+    padding: 0 10px;
+    line-height: 32px;
+    font-size: 14px;
+    display: block;
+    float: left;
+    border: 1px solid #ddd;
+    position: relative;
+    text-decoration: none;
+}
+.tabs a.active {
+    line-height: 30px;
+    color: #d0000c;
+    background: #fff;
+    border-top: 3px solid #333;
+    border-bottom: 1px solid #fff;
+    z-index: 99;
+}
+
+.tabs a:hover {
+  background: #EEF5F9;
+  text-decoration: none;
+}
+.orderslist-ct {
+    background: #fff;
+    border: 1px solid #ddd;
+}
+.rate {
+    float: right;
+    border: 1px solid #ddd;
+    padding: 3px 10px 3px 30px;
+    background: #fff url(img/rate.png) no-repeat 7px 4px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: #524d4d;
+}
+
+.avt-table td, .avt-table th
+{
+  padding: 5px;
+}
+
+.avt-row-sale{
+    padding-left: 14px;
+    padding-top: 24px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.avt-row-sale label{
+    margin-bottom: 0px !important;
+}
+
+.quantum {
+    background: #eee;
+    padding: 2px;
+    overflow: hidden;
+    margin-left: 15px;
+}
+.quantum input {
+    width: 30px;
+    padding: 2px;
+    border: 1px solid #555;
+}
+.quantum a, .quantum input {
+    float: left;
+}
+.quantum a {
+    color: #333;
+    padding: 0 7px;
+    font-size: 140%;
+    line-height: 20px;
+    padding-top: 5px;
+}
