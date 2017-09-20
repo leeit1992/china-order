@@ -36,9 +36,7 @@
 
                         $totalPrice += $value['item_price'] * $value['quantity'];
                         $countItem +=  $value['quantity'];
-
                     ?>
-                    
                     <div class="row" id="item-<?php echo $value['id'] ?>">
                         <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
                             <div class="project-title d-flex align-items-center">
