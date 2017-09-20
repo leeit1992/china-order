@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"user",
+				"user-tool"
+			],
+			[
 				"ex",
 				"explode"
 			],
@@ -126,10 +130,6 @@
 			[
 				"id",
 				"$idParent〔variable〕"
-			],
-			[
-				"user",
-				"user_email"
 			],
 			[
 				"comm",
@@ -520,19 +520,45 @@
 	"buffers":
 	[
 		{
-			"file": "app/Http/routes.php",
+			"file": "app/Http/Controllers/Frontend/UserController.php",
 			"settings":
 			{
-				"buffer_size": 866,
+				"buffer_size": 1831,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Frontend/CartController.php",
+			"file": "app/Model/UserModel.php",
 			"settings":
 			{
-				"buffer_size": 2937,
+				"buffer_size": 4139,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/frontend/userTool/user/login.tpl.php",
+			"settings":
+			{
+				"buffer_size": 3080,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/frontend/userTool/user/register.tpl.php",
+			"settings":
+			{
+				"buffer_size": 4181,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/routes.php",
+			"settings":
+			{
+				"buffer_size": 1305,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -541,34 +567,16 @@
 			"file": "resources/views/frontend/userTool/cart/listItem.tpl.php",
 			"settings":
 			{
-				"buffer_size": 6840,
+				"buffer_size": 7007,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "public/frontend/user-tool/js/cart.js",
+			"file": "app/Http/Components/Controller.php",
 			"settings":
 			{
-				"buffer_size": 7521,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/views/frontend/userTool/layout/header.tpl.php",
-			"settings":
-			{
-				"buffer_size": 1575,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/frontend/user-tool/css/user-custom.css",
-			"settings":
-			{
-				"buffer_size": 1490,
+				"buffer_size": 4591,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -577,7 +585,7 @@
 			"file": "src/js/userTool-page-cart.js",
 			"settings":
 			{
-				"buffer_size": 387,
+				"buffer_size": 963,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -694,38 +702,34 @@
 	[
 		"/Applications/MAMP/htdocs/project8",
 		"/Applications/MAMP/htdocs/project8/app",
-		"/Applications/MAMP/htdocs/project8/app/Http",
-		"/Applications/MAMP/htdocs/project8/app/Http/Components",
-		"/Applications/MAMP/htdocs/project8/app/Http/Controllers",
-		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend",
+		"/Applications/MAMP/htdocs/project8/app/Model",
+		"/Applications/MAMP/htdocs/project8/bootstrap",
 		"/Applications/MAMP/htdocs/project8/config",
-		"/Applications/MAMP/htdocs/project8/public",
-		"/Applications/MAMP/htdocs/project8/public/frontend",
-		"/Applications/MAMP/htdocs/project8/public/frontend/user-tool",
-		"/Applications/MAMP/htdocs/project8/public/frontend/user-tool/js",
-		"/Applications/MAMP/htdocs/project8/resources",
-		"/Applications/MAMP/htdocs/project8/resources/views",
-		"/Applications/MAMP/htdocs/project8/resources/views/frontend",
-		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool",
-		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/cart",
-		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/layout",
 		"/Applications/MAMP/htdocs/project8/src",
 		"/Applications/MAMP/htdocs/project8/src/js"
 	],
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/project8/app/Model/AtlModel.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/layout/menuNav.tpl.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/layout/header.tpl.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/user/register.tpl.php",
+		"/Applications/MAMP/htdocs/project-8/user/register.html",
+		"/Applications/MAMP/htdocs/project-8/user/login.html",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/user/login.tpl.php",
+		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/CartController.php",
+		"/Applications/MAMP/htdocs/project8/public/frontend/user-tool/js/cart.js",
+		"/Applications/MAMP/htdocs/project8/public/frontend/user-tool/css/user-custom.css",
+		"/Applications/MAMP/htdocs/project8/.gitignore",
 		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/layout/footer.tpl.php",
 		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/MainController.php",
-		"/Applications/MAMP/htdocs/project8/public/frontend/user-tool/css/user-custom.css",
 		"/Applications/MAMP/htdocs/project8/src/js/backend.js",
-		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/layout/menuNav.tpl.php",
 		"/Applications/MAMP/htdocs/project-8/user/cart.html",
 		"/Applications/MAMP/htdocs/project8/app/Http/Components/ApiHandlePrice.php",
 		"/Applications/MAMP/htdocs/project8/gulpfile.js",
 		"/Users/letrungha/Desktop/format.html",
 		"/Users/letrungha/Desktop/in.html",
 		"/Applications/MAMP/htdocs/project-8/user/order.html",
-		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/layout/header.tpl.php",
 		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/cart/listItem.tpl.php",
 		"/Users/letrungha/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
 		"/Users/letrungha/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc.defaults.json",
@@ -833,15 +837,7 @@
 		"/Applications/MAMP/htdocs/awebuilderMaster/gulpfile.js",
 		"/Applications/MAMP/htdocs/awebuilderMaster/src/js/ts-libraries/backbone.d.ts",
 		"/Applications/MAMP/htdocs/wptest/wp-content/plugins/awebooking/gulpfile.js",
-		"/Applications/MAMP/htdocs/project7/handsontable-pro1/webpack.config.js",
-		"/Applications/MAMP/htdocs/project7/handsontable-pro/Gruntfile.js",
-		"/Applications/MAMP/htdocs/travel/app/Http/Controllers/Backend/UserController.php",
-		"/Applications/MAMP/htdocs/travel/resources/views/backend/settings/settings.tpl.php",
-		"/Applications/MAMP/htdocs/travel/config/database.php",
-		"/Applications/MAMP/htdocs/test/image-optimize/optimize-image.php",
-		"/Applications/MAMP/htdocs/travel/resources/views/backend/location/layout/manageLocationAction.tpl.php",
-		"/Applications/MAMP/htdocs/travel/resources/views/backend/location/layout",
-		"/Applications/MAMP/htdocs/travel/resources/views/backend/location/manageLocation.tpl"
+		"/Applications/MAMP/htdocs/project7/handsontable-pro1/webpack.config.js"
 	],
 	"find":
 	{
@@ -958,6 +954,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"AtlModel",
+			"logout",
+			"\"></",
 			"'];\n",
 			"https://chrome.google.com/webstore/detail/iakdcmblbilhahghjgccppfldjodcjgo",
 			"iakdcmblbilhahghjgccppfldjodcjgo",
@@ -1082,10 +1081,7 @@
 			"modalOpen",
 			"md-card-list-item-subject",
 			"material-icons md-24",
-			"checkbox",
-			"sidebar_secondary",
-			"<ul",
-			"<"
+			"checkbox"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1113,24 +1109,146 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/Http/routes.php",
+					"file": "app/Http/Controllers/Frontend/UserController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 866,
+						"buffer_size": 1831,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								791,
-								770
+								1626,
+								1626
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 193.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/Model/UserModel.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4139,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								602,
+								602
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 104.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/views/frontend/userTool/user/login.tpl.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3080,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1550,
+								1562
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "resources/views/frontend/userTool/user/register.tpl.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4181,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4153,
+								4153
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 71.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/Http/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1305,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1267,
+								1267
 							]
 						],
 						"settings":
@@ -1142,121 +1260,29 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/Http/Controllers/Frontend/CartController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2937,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2898,
-								2908
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"open_with_edit": true,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 445.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 5,
 					"file": "resources/views/frontend/userTool/cart/listItem.tpl.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6840,
+						"buffer_size": 7007,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3867,
-								3867
+								9,
+								28
 							]
 						],
 						"settings":
 						{
 							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 914.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "public/frontend/user-tool/js/cart.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7521,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6273,
-								6273
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/JavaScript Ultimate/javascript.dom.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2225.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "resources/views/frontend/userTool/layout/header.tpl.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 1575,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								389,
-								389
-							]
-						],
-						"settings":
-						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1265,54 +1291,53 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "public/frontend/user-tool/css/user-custom.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1490,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1490,
-								1490
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 640.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "src/js/userTool-page-cart.js",
+					"file": "app/Http/Components/Controller.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 387,
+						"buffer_size": 4591,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								332,
-								332
+								570,
+								570
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/js/userTool-page-cart.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 963,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								863,
+								863
 							]
 						],
 						"settings":
@@ -1331,7 +1356,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "src/js/backend.js",
 					"semi_transient": false,
 					"settings":
@@ -1343,8 +1368,8 @@
 						"selection":
 						[
 							[
-								1121,
-								1142
+								1385,
+								1385
 							]
 						],
 						"settings":
@@ -1355,10 +1380,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 58.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]

@@ -7,6 +7,11 @@ use App\Http\Components\Controller as baseController;
 
 class CartController extends baseController{
 
+	public function __construct(){
+		parent::__construct();
+		$this->userAccess();
+	}
+
 	public function addToCartHttp(Request $request){
 
 		$cart = Session()->get('avt_cart');

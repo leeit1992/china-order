@@ -20,6 +20,10 @@ $route->get('/user-tool','Frontend\MainController@main');
 
 
 
+/**
+ * USER TOOOL
+ */
+
 /*============================
 =            Cart            =
 ============================*/
@@ -30,4 +34,18 @@ $route->post('/user-tool/updateCart','Frontend\CartController@updateCart');
 
 
 /*=====  End of Cart  ======*/
+
+
+/*============================
+=            User            =
+============================*/
+
+$route->get('/user-tool/login','Frontend\UserController@login');
+$route->get('/user-tool/logout','Frontend\UserController@logout');
+$route->get('/user-tool/register','Frontend\UserController@register');
+
+$route->post('/user-tool/validateLogin','Frontend\UserController@validateLogin');
+
+/*=====  End of User  ======*/
+
 

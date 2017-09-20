@@ -56,16 +56,9 @@ class Controller extends baseController{
 	 * @return void
 	 */
 	public function userAccess(){
-		if (true !== Session()->has('op_user_id')) {
-            redirect( url( '/login' ) );
+		if (true !== Session()->has('avt_user_id')) {
+            redirect( url( '/user-tool/login' ) );
         }
-
-        $this->infoUser =  [
-							'id'     => Session()->get('op_user_id'),
-							'email'  => Session()->get('op_user_email'),
-							'name'   => Session()->get('op_user_name'),
-							'meta'   => Session()->get('op_user_meta')
-						];
 	}
 
 

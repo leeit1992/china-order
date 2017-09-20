@@ -15,11 +15,11 @@
                     $countItem = 0;
                     foreach ($listCart as $key => $carts): 
                 ?>
-                <div class="bg-white has-shadow">
+                <div class="avt-group-item bg-white has-shadow">
                     <div class="avt-row-sale">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="checkbox" class="checkbox-template avt-checkbox-primary-js">
+                                <input type="checkbox" value="<?php echo $key ?>" class="checkbox-template avt-checkbox-primary-js">
                                <label> Người bán: <?php echo $carts[0]['seller_name']; ?> </label>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                         }
 
                         $totalPrice += $value['item_price'] * $value['quantity'];
-                        $countItem +=  $value['quantity'];
+                        $countItem += $value['quantity'];
                     ?>
                     <div class="row" id="item-<?php echo $value['id'] ?>">
                         <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
