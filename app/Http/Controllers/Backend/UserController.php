@@ -18,7 +18,7 @@ class UserController extends baseController{
 	public function login(){
 
 		if (true === Session()->has('avt_user_id')) {
-            redirect( url( '/user-tool' ) );
+            redirect( url( '/admcp' ) );
             return true;
         }
 

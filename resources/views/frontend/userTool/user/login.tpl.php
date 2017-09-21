@@ -16,8 +16,20 @@
                     </div>
                     <!-- Form Panel    -->
                     <div class="col-lg-6 bg-white">
+
                         <div class="form d-flex align-items-center">
                             <div class="content">
+                                <?php 
+                                    if( !empty( $noticeLogin ) ) {
+                                        ?>
+                                        <div class="alert alert-danger" role="alert">
+                                            <?php
+                                                echo $noticeLogin[0];
+                                            ?>
+                                        </div>
+                                        <?php   
+                                    }
+                                ?>
                                 <form action="<?php echo url('/user-tool/validateLogin') ?>" method="POST">
                                     <div class="form-group">
                                         <input type="email" name="avt_email" required="" class="input-material">

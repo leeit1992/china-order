@@ -2,7 +2,9 @@
 namespace App\Http\Components;
 
 use Atl\Routing\Controller as baseController;
-use App\Http\Components\Backend\AdminDataMenu;
+use App\Http\Components\Frontend\FrontendDataMenu;
+
+use App\Model\OptionModel;
 
 class Controller extends baseController{
 	
@@ -10,6 +12,10 @@ class Controller extends baseController{
 
 	public function __construct(){
 		parent::__construct();
+
+		$this->mdOption = new OptionModel;
+
+		$this->currentcyRate = $this->mdOption->getOption('currency_rate');
 	}
 
 	/**
@@ -24,6 +30,10 @@ class Controller extends baseController{
 		$pathFolder = '';
 		$cartInfo = Session()->get('avt_cart');
 
+		if( empty( $cartInfo ) ) {
+			$cartInfo = [];
+		}
+
 		if( isset( $options['path'] ) ) {
 			$pathFolder = $options['path'];
 		}
@@ -35,7 +45,7 @@ class Controller extends baseController{
 		$output .= View(
 			$pathFolder. 'layout/menuNav.tpl',
 			[
-				'menuAdmin' => AdminDataMenu::getInstance( $this->getRoute() ),
+				'menuAdmin' => FrontendDataMenu::getInstance( $this->getRoute() ),
 				'cartInfo' => $cartInfo
 			]
 
@@ -172,5 +182,17 @@ class Controller extends baseController{
 		}
 
 		return $data;
+    }
+
+    public function getCurrencyOnline(){
+    	$currency = file_get_contents('http://www.xe.com/currencyconverter/convert/?Amount=1&From=CNY&To=VND');
+		$currency = explode('<main class="wrapper">', $currency);
+		$currency = explode('<footer id="footer">', $currency[1]);
+
+		preg_match_all('/&lt;span class=\'uccResultAmount\'&gt;(.*)&lt;\/span&gt;&lt;span class=\'uccToCurrencyCode\'&gt;VND/i', htmlentities($currency[0]), $matches);
+
+		$ex = explode('.', $matches[1][0]);
+		$this->mdOption->setOption('currency_rate', str_replace(',', '',$ex[0] ));
+		return str_replace(',', '',$ex[0] );
     }
 }

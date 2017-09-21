@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Components\Backend;
+namespace App\Http\Components\Frontend;
 
 /**
- * adminDataMenu
- * Config data menu nav admin.
+ * FrontendDataMenu
+ * Config data menu nav user tool.
  *
  * @version  1.0
  * @author  HaLe 
  * @package  ATL
  */
-class AdminDataMenu
+class FrontendDataMenu
 {   
     /**
      * $getInstance - Support singleton module.

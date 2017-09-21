@@ -1,9 +1,13 @@
+<?php 
+    $orderCode = Session()->get('avt_user_name') .'-HN-'. date('d-m-Y');
+?>
 <div id="page-user-tool-cart">
     <!-- Page Header-->
     <header class="page-header">
         <div class="container-fluid">
             <h2>Giỏ Hàng</h2>
-             <strong>MÃ</strong> : TAU-1Cuong59HN-<?php echo date('d-m-Y') ?> (<?php echo date('d-m-Y') ?>)
+             <strong>MÃ</strong> : <?php echo $orderCode  ?> (<?php echo date('d-m-Y') ?>)
+
         </div>
     </header>
     <section class="projects">
@@ -95,28 +99,45 @@
                 <div class="row bg-gray has-shadow">
                     <div class="right-col col-lg-6"></div>
                     <div class="right-col col-lg-6">
+                        <?php 
+                        $cartTotalPriceVN = $totalPrice * 3540;
+                        ?>
+                        <form action="<?php echo url('/user-tool/add-order') ?>" method="POSt">
                         <table class="table table-striped">
                             <tbody>
                                 <tr>
                                     <td>Tổng sản phẩm</td>
-                                    <td id="total-item"><?php echo $countItem ?></td>
+                                    <td id="total-item">
+                                        <?php echo $countItem ?>
+                                        <input type="hidden" name="avt_quanlity" value="<?php echo $countItem ?>">
+                                        <input type="hidden" name="avt_order_code" value="<?php echo $orderCode ?>">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Tổng Tiền</td>
                                     <td>
-                                        <span id="total-price"><?php echo $apiHandlePrice->formatPrice( $totalPrice ) ?></span>
+                                        <span id="total-price">
+                                        <?php echo $apiHandlePrice->formatPrice( $totalPrice ) ?>
+                                        </span>
+                                        <input type="hidden" name="avt_total_price_cn" value="<?php echo $totalPrice ?>">
                                         <hr> = 
-                                        <span id="total-price-vnd"><?php echo $apiHandlePrice->formatPrice( $totalPrice * 3540, 'vnđ' )  ?></span>
+                                        <span id="total-price-vnd">
+                                            <?php echo $apiHandlePrice->formatPrice( $cartTotalPriceVN, 'vnđ' )  ?>
+                                        </span>
+                                        <input type="hidden" name="avt_total_price_vn" value="<?php echo $cartTotalPriceVN ?>">
                                     </td> 
                                 </tr>
                                 <tr>
                                     <td></td>
                                     <td>
-                                        <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Xạc nhận đơn hàng </button>
+                                        <button type="submit" class="btn btn-primary">
+                                        Xạc nhận đơn hàng 
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+                        </form>
                     </div>
                 </div>
             </div>

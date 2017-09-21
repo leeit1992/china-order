@@ -172,8 +172,14 @@ function updateQuantity(id, quantity){
         data = $.parseJSON(data);
         $( "#price-item-"+id ).html( data.price_item );
         $( "#total-item" ).html( data.total_item );
+
         $( "#total-price" ).html( data.total_price );
+        $( "input[name=avt_total_price_cn]" ).val( data.total_price_no_icon );
+
         $( "#total-price-vnd" ).html( data.total_price_vnd );
+        $( "input[name=avt_total_price_vn]" ).val( data.total_price_vn_no_icon );
+
+
         $( "#price-seller-"+data.seller_id ).html( data.total_price_seller );
         $( "#total-item-seller"+data.seller_id ).html( data.total_item_seller);
         

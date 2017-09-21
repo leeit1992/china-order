@@ -76,15 +76,15 @@
         <!-- Side Navbar -->
         <nav class="side-navbar">
             <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="avatar"><img src="<?php echo assets('frontend/user-tool/img/user.png') ?>" alt="<?php echo Session()->get('avt_user_name') ?>" class="img-fluid rounded-circle"></div>
                 <div class="title">
-                    <h1 class="h4">LeeIT</h1>
+                    <h1 class="h4"><?php echo Session()->get('avt_user_name') ?></h1>
                     <p>Member VIP</p>
                 </div>
             </div>
             <!-- Sidebar Navidation Menus-->
             <span class="heading">
-            <span class="rate">Tỷ giá: <strong>1 tệ</strong> = <strong>3.410 vnđ</strong></span>
+            <span class="rate">Tỷ giá: <strong>1 tệ</strong> = <strong>3.540 vnđ</strong></span>
             </span>
             <!-- Sidebar Navidation Menus--><span class="heading">Chức năng </span>
             <?php echo $menuAdmin->menuNav(); ?>

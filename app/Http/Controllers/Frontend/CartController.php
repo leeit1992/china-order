@@ -1,15 +1,20 @@
 <?php
 namespace App\Http\Controllers\Frontend;
+
 use Atl\Foundation\Request;
 use App\Http\Components\ApiHandlePrice;
-
 use App\Http\Components\Controller as baseController;
+use App\Model\OrderModel;
+use App\Model\OrderItemModel;
 
 class CartController extends baseController{
 
 	public function __construct(){
 		parent::__construct();
 		$this->userAccess();
+
+		$this->mdOrder = new OrderModel;
+		$this->mdOrderItem = new OrderItemModel;
 	}
 
 	public function addToCartHttp(Request $request){
@@ -52,12 +57,16 @@ class CartController extends baseController{
 		    </div>
 		</div>
 		<?php
-
 	}
 
 	public function cartManage(){
+		$listCart = Session()->get('avt_cart');
+		if( empty( $listCart ) ) {
+			$listCart = [];
+		}
+
 		$this->loadTemplate('cart/listItem.tpl',[
-			'listCart' => Session()->get('avt_cart'),
+			'listCart' => $listCart,
 			'apiHandlePrice' => ApiHandlePrice::getInstance(),
 		], ['path' => 'frontend/userTool/']);
 	}
@@ -91,9 +100,44 @@ class CartController extends baseController{
 			'price_item' => ApiHandlePrice::getInstance()->formatPrice( $priceItem ),
 			'total_item' => $countItem,
 			'total_price' => ApiHandlePrice::getInstance()->formatPrice( $totalPrice ),
-			'total_price_vnd' => ApiHandlePrice::getInstance()->formatPrice( $totalPrice * 3540)
+			'total_price_vnd' => ApiHandlePrice::getInstance()->formatPrice( $totalPrice * 3540),
+			'total_price_no_icon' => $totalPrice,
+			'total_price_vn_no_icon' => $totalPrice * 3540,
 		]);
 	}
 
+	public function addToOrder(Request $request){
+		$listCart = Session()->get('avt_cart');
+		
+		if( !empty( $listCart ) ) {
+			$lastId = $this->mdOrder->save([
+				'order_code' => $request->get('avt_order_code'),
+				'order_date' => date('Y-m-d H:s:j'),
+				'order_quantity' => $request->get('avt_quanlity'),
+				'order_total_price_cn' => $request->get('avt_total_price_cn'),
+				'order_total_price_vn' => $request->get('avt_total_price_vn'),
+				'order_real_purchase' => 0,
+				'order_buy_status' => 1,
+				'order_status' => 1,
+				'order_delivery_status' => 1,
+				'user_id' => Session()->get('avt_user_id')
+			]);
+
+			foreach ($listCart as $carts) {
+				foreach ($carts as $value) {
+					$this->mdOrderItem->save([
+						'order_item_content' => json_encode($value),
+						'order_item_quantity' => $value['quantity'],
+						'order_item_real_purchase' => 0,
+						'order_item_status' => 1,
+						'order_id' => $lastId
+					]);
+				}
+			}
+		}
+
+		redirect( url('/user-tool/order-success') );
+		//Session()->set('avt_cart', []);	
+	}
 
 }
