@@ -31,7 +31,7 @@
                         <!-- Notifications-->
               
                         <!-- Logout    -->
-                        <li class="nav-item"><a href="<?php echo url('/user-tool/logout') ?>" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+                        <li class="nav-item"><a href="<?php echo url('/admcp/logout') ?>" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
                     </ul>
                 </div>
             </div>

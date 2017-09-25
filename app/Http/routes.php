@@ -55,8 +55,10 @@ $route->post('/user-tool/validateLogin', 'Frontend\UserController@validateLogin'
 =            Order            =
 =============================*/
 
-$route->get('/user-tool/order-success', 'Frontend\OrderController@orderSuccess');
+$route->get('/user-tool/order-success/{id}', 'Frontend\OrderController@orderSuccess');
 $route->get('/user-tool/order-manage', 'Frontend\OrderController@orderManage');
+$route->get('/user-tool/detail-order/{id}', 'Frontend\OrderController@orderDetail');
+$route->post('/user-tool/update-order', 'Frontend\OrderController@updateOrder');
 
 /*=====  End of Order  ======*/
 
@@ -114,3 +116,11 @@ $route->post('/admcp/add-pay-validate', 'Backend\MoneyController@addPayValidate'
 
 
 /*=====  End of Money  ======*/
+
+/*============================
+=            User            =
+============================*/
+
+$route->get('/admcp/user-manage', 'Backend\UsersController@userManage');
+
+/*=====  End of User  ======*/

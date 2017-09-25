@@ -76,7 +76,7 @@ class AdminDataMenu
 
             'recharge' => [
                 'label'   => 'Tài chính',
-                'icon'    => '<i class="fa fa-opencart"></i>',
+                'icon'    => '<i class="fa fa-credit-card"></i>',
                 'conditionOpen' => ['Backend\MoneyController'],
                 'display' => '',
                 'submenu' => [
@@ -98,22 +98,22 @@ class AdminDataMenu
 
             'member' => [
                 'label'   => 'Thành viên',
-                'icon'    => '<i class="fa fa-opencart"></i>',
-                'conditionOpen' => ['Frontend\CartController','Frontend\OrderController'],
+                'icon'    => '<i class="fa fa-user-o"></i>',
+                'conditionOpen' => ['Backend\UsersController'],
                 'display' => '',
                 'submenu' => [
                     [
                         'label' => 'Quản lý thành viên',
                         'link'  => url('/admcp/user-manage'),
                         'display' => '',
-                        'conditionOpen' => ['orderManage'],
+                        'conditionOpen' => ['userManage'],
                     ]
                 ]
             ],
 
             'user' => [
                 'label'   => 'Tài khoản',
-                'icon'    => '<i class="fa fa-opencart"></i>',
+                'icon'    => '<i class="fa fa-expeditedssl" aria-hidden="true"></i>',
                 'conditionOpen' => [''],
                 'display' => '',
                 'submenu' => [

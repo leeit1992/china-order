@@ -18,10 +18,10 @@
                 <p>Bạn đã kết đơn hàng thành công. Vui lòng đặt cọc 80% số tiền đơn hàng bằng cách vào các tác vụ sau:</p>
                 <hr>
                 <div style="padding-bottom: 10px;">
-                    <input type="submit" value="Nạp tiền" class="btn btn-primary">
-                    <input type="submit" value="Xem đơn vừa tạo" class="btn btn-primary">
-                    <input type="submit" value="Quản trị đơn hàng" class="btn btn-primary">
-                    <input type="submit" value="Quản trị tài chính" class="btn btn-primary">
+                    <a target="_blank" href="<?php echo url('/user-tool/recharge') ?>" class="btn btn-primary">Nạp tiền</a>
+                    <a target="_blank" href="<?php echo url('/user-tool/detail-order/' . $id) ?>" class="btn btn-primary">Xem đơn vừa tạo</a>
+                    <a target="_blank" href="<?php echo url('/user-tool/order-manage/') ?>" class="btn btn-primary">Quản lý đơn hàng</a>
+                    <a target="_blank" href="<?php echo url('/user-tool/detail-order/' . $id) ?>" class="btn btn-primary">Quản lý tài chính</a>
                 </div>
             </div>
         </div>

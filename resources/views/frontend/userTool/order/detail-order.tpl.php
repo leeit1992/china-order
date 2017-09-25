@@ -13,8 +13,24 @@
         <div class="container-fluid">
             <!-- Project-->
             <div class="project">
-                <form action="<?php echo url('/admcp/update-order') ?>" method="POST">
+                <form action="<?php echo url('/user-tool/update-order') ?>" method="POST">
                 <div class="avt-group-item bg-white has-shadow">
+                    <?php
+                    if (!empty($updateOrderNotice)) {
+                        if ($updateOrderNotice['type']) {
+                            $classNoptice = 'alert-success';
+                        } else {
+                            $classNoptice = 'alert-danger';
+                        }
+                        ?>
+                        <div class="alert <?php echo $classNoptice ?>" role="alert">
+                        <?php
+                            echo $updateOrderNotice['notice'];
+                        ?>
+                        </div>
+                        <?php
+                    }
+                    ?>
                     <!-- <div class="avt-row-sale">
                         <div class="form-group">
                             <div class="input-group">
@@ -80,10 +96,7 @@
                     <div class="right-col col-lg-2 d-flex align-items-center">
                     <div class="form-group">
                         <label class="form-control-label">Đã Mua</label>
-                        <div class="quantum">
-                            <input type="text" class="quantity-input" style="width: 50px;" name="avt_order_item[<?php echo $value['id'] ?>][purchase_number]" value="<?php echo $value['order_item_real_purchase'] ?>">
-                            <input type="hidden" name="avt_order_item[<?php echo $value['id'] ?>][item_id]" value="<?php echo $value['id'] ?>">
-                        </div>     
+                        <p><?php echo $value['order_item_real_purchase'] ?></p>   
                     </div>
                     </div>
      
@@ -105,7 +118,7 @@
                     </div>
                     </div>
                     </div>
-                    <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         endforeach; ?>
+                    <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          endforeach; ?>
                 </div>
               
                 <div class="row bg-gray has-shadow">
@@ -145,39 +158,28 @@
                                         <?php endif; ?>
                                     </td> 
                                 </tr>
-    
                                 <tr>
                                     <td>
                                     </td>
                                     <td>
                                         <div class="col-sm-9">
                                             <div class="i-checks">
-                                                <input id="avt_status_1" <?php echo checked($orderInfo[0]['order_status'], 2); ?> name="avt_has_pay" value="1" type="checkbox" class="checkbox-template">
-                                                <label for="avt_status_1">Đã thanh toán chờ mua</label>
+                                                <input id="avt_status_1" name="avt_pay_type" value="100" checked="checked" type="radio" class="checkbox-template">
+                                                <label for="avt_status_1">Thanh toán toàn bộ đơn hàng.</label>
                                             </div>
                                             <div class="i-checks">
-                                                <input id="avt_status_2" <?php echo checked($orderInfo[0]['order_buy_status'], 2); ?> name="avt_has_purchase" value="1" type="checkbox" class="checkbox-template">
-                                                <label for="avt_status_2">Đã mua hàng</label>
+                                                <input id="avt_status_2" name="avt_pay_type" value="80" type="radio" class="checkbox-template">
+                                                <label for="avt_status_2">Thanh toán 80% đơn hàng.</label>
                                             </div>
-
-                                            <div class="i-checks">
-                                                <input id="avt_status_3" <?php echo checked($orderInfo[0]['order_delivery_status'], 2); ?> name="avt_has_delivery" value="1" type="checkbox" class="checkbox-template">
-                                                <label for="avt_status_3">Đã giao hàng</label>
-                                            </div>
-
-                                            <div class="i-checks">
-                                                <input id="avt_status_4" <?php echo checked($orderInfo[0]['order_buy_status'], 3); ?> name="avt_has_end" value="1" type="checkbox" class="checkbox-template">
-                                                <label for="avt_status_4">Hết hàng</label>
-                                            </div>
-                                           
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td></td>
                                     <td>
                                         <input type="hidden" name="avt_oder_id" value="<?php echo $orderInfo[0]['id'] ?>">
                                         <button type="submit" class="btn btn-primary">
-                                            Update thông tin
+                                            Thanh toán tiền
                                         </button>
                                     </td>
                                     <td>
