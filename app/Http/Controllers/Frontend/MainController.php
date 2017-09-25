@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Components\Controller as baseController;
+use App\Http\Components\Frontend\Controller as baseController;
 
 class MainController extends baseController{
 

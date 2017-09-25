@@ -48,6 +48,25 @@ class UserModel extends AtlModel
 	}
 
 	/**
+	 * Check login to system.
+	 * 
+	 * @param  string $acc   Account name user.
+	 * @param  [type] $pass  Account pass Account.
+	 * @return [type]        [description]
+	 */
+	public function checkLoginAdmin($acc, $pass){
+		return $this->db->select(
+			$this->table, 
+				["id", "user_name", "user_email"], 
+				[
+					"user_email"    => $acc,
+					"user_password" => $pass,
+					"user_role" => 1,
+				]
+			);
+	}
+
+	/**
 	 * Insert | Update data user.
 	 * 
 	 * @param  array  $argsData Array data insert | update

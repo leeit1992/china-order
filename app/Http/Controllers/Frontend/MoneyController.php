@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Frontend;
 
 use Atl\Foundation\Request;
 use App\Http\Components\ApiHandlePrice;
-use App\Http\Components\Controller as baseController;
+use App\Http\Components\Frontend\Controller as baseController;
 use App\Model\RechargeModel;
 use Atl\Validation\Validation;
 
@@ -50,6 +50,7 @@ class MoneyController extends baseController{
 				'note' => $request->get('avt_recharge_note'),
 				'user_id' => Session()->get('avt_user_id'),
 				'status' => 1,
+				'code' => date('Y-m-d') . '-' . substr(uniqid(), 7, 5)
 			]);
 			Session()->getFlashBag()->set('rechargeNotice', [ 'type' => true, 'notice' => 'Ghi nạp thành công. Hãy đợi chúng tôi kiểm tra !']);
 		}else{

@@ -58,96 +58,73 @@ class AdminDataMenu
                 'link'  => url('/user-tool'),
                 'display' => '',
             ],
+
             'cart' => [
                 'label'   => 'Đơn Hàng',
+                'icon'    => '<i class="fa fa-opencart"></i>',
+                'conditionOpen' => ['Backend\OrderController'],
+                'display' => '',
+                'submenu' => [
+                    [
+                        'label' => 'Quản lý đơn hàng',
+                        'link'  => url('/admcp/order-manage'),
+                        'display' => '',
+                        'conditionOpen' => ['orderManage'],
+                    ]
+                ]
+            ],
+
+            'recharge' => [
+                'label'   => 'Tài chính',
+                'icon'    => '<i class="fa fa-opencart"></i>',
+                'conditionOpen' => ['Backend\MoneyController'],
+                'display' => '',
+                'submenu' => [
+                    [
+                        'label' => 'Quản lý tài chính',
+                        'link'  => url('/admcp/recharge-manage'),
+                        'display' => '',
+                        'conditionOpen' => ['rechargeManage'],
+                    ],
+                     [
+                        'label' => 'Quản lý thông tin thanh toán',
+                        'link'  => url('/admcp/info-pay'),
+                        'display' => '',
+                        'conditionOpen' => ['managePay'],
+                    ]
+                ]
+            ],
+
+
+            'member' => [
+                'label'   => 'Thành viên',
                 'icon'    => '<i class="fa fa-opencart"></i>',
                 'conditionOpen' => ['Frontend\CartController','Frontend\OrderController'],
                 'display' => '',
                 'submenu' => [
                     [
-                        'label' => 'Danh sách đơn hàng',
-                        'link'  => url('/user-tool/order-manage'),
+                        'label' => 'Quản lý thành viên',
+                        'link'  => url('/admcp/user-manage'),
                         'display' => '',
                         'conditionOpen' => ['orderManage'],
-                    ],
-                    [
-                        'label' => 'Giỏ hàng',
-                        'link'  => url('/user-tool/cart'),
-                        'display' => '',
-                        'conditionOpen' => ['cartManage'],
-                    ]
-                ]
-            ],
-
-            'transport' => [
-                'label'   => 'Vận Chuyển',
-                'icon'    => '<i class="fa fa-truck"></i>',
-                'conditionOpen' => [''],
-                'display' => '',
-                'submenu' => [
-                    [
-                        'label' => 'Danh sách vận chuyển',
-                        'link'  => url('/sheet'),
-                        'display' => '',
-                        'conditionOpen' => [''],
-                    ],
-                    [
-                        'label' => 'Giỏ hàng',
-                        'link'  => url('/sheet'),
-                        'display' => '',
-                        'conditionOpen' => [''],
-                    ]
-                ]
-            ],
-
-            'payment' => [
-                'label'   => 'Tài Chính',
-                'icon'    => '<i class="fa fa-credit-card-alt" aria-hidden="true"></i>',
-                'conditionOpen' => ['Frontend\MoneyController'],
-                'display' => '',
-                'submenu' => [
-                    [
-                        'label' => 'Danh sách thu chi',
-                        'link'  => url('/sheet'),
-                        'display' => '',
-                        'conditionOpen' => [''],
-                    ],
-                    [
-                        'label' => 'Danh sách nạp tiền',
-                        'link'  => url('/user-tool/recharge-manage'),
-                        'display' => '',
-                        'conditionOpen' => ['rechargeManage'],
-                    ],
-                    [
-                        'label' => 'Nạp tiền',
-                        'link'  => url('/user-tool/recharge'),
-                        'display' => '',
-                        'conditionOpen' => ['recharge'],
                     ]
                 ]
             ],
 
             'user' => [
                 'label'   => 'Tài khoản',
-                'icon'    => '<i class="fa fa-user-o" aria-hidden="true"></i>',
-                'conditionOpen' => ['Frontend\UserController'],
+                'icon'    => '<i class="fa fa-opencart"></i>',
+                'conditionOpen' => [''],
                 'display' => '',
                 'submenu' => [
                     [
-                        'label' => 'Thông tin cá nhân',
-                        'link'  => url('/user-tool/user-info'),
-                        'display' => '',
-                        'conditionOpen' => [''],
-                    ],
-
-                    [
                         'label' => 'Đổi mật khẩu',
-                        'link'  => url('/user-tool/user-update-profile'),
+                        'link'  => url('/admcp/change-pass'),
                         'display' => '',
-                        'conditionOpen' => [''],
+                        'conditionOpen' => ['orderManage'],
                     ]
                 ]
-            ],
+            ]
         ];
     }
 

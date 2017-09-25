@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use Atl\Foundation\Request;
-use App\Http\Components\Controller as baseController;
+use App\Http\Components\Frontend\Controller as baseController;
 use Atl\Validation\Validation;
 use App\Model\UserModel;
 

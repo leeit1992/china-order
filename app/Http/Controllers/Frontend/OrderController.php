@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Frontend;
 
 use Atl\Foundation\Request;
 use App\Http\Components\ApiHandlePrice;
-use App\Http\Components\Controller as baseController;
+use App\Http\Components\Frontend\Controller as baseController;
 
 use App\Model\OrderModel;
 use App\Model\OrderItemModel;

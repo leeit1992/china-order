@@ -1,8 +1,8 @@
 <?php
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Backend;
 
 use Atl\Foundation\Request;
-use App\Http\Components\Controller as baseController;
+use App\Http\Components\Backend\Controller as baseController;
 use Atl\Validation\Validation;
 use App\Model\UserModel;
 
@@ -17,12 +17,12 @@ class UserController extends baseController{
 
 	public function login(){
 
-		if (true === Session()->has('avt_user_id')) {
+		if (true === Session()->has('avt_admin_user_id')) {
             redirect( url( '/admcp' ) );
             return true;
         }
 
-		View('frontend/userTool/user/login.tpl',
+		View('backend/user/login.tpl',
 			[
 				'noticeLogin' => Session()->getFlashBag()->get('loginError')
 			]
@@ -43,15 +43,15 @@ class UserController extends baseController{
 		if ($validator->validate($_POST)) {
 			$user = new UserModel();
 
-			$checkUser = $user->checkLogin( $request->get('avt_email'), md5( $request->get('avt_password') ) );
+			$checkUser = $user->checkLoginAdmin( $request->get('avt_email'), md5( $request->get('avt_password') ) );
 			
 			if( !empty( $checkUser ) ) {
-				Session()->set('avt_user_id', $checkUser[0]['id']);
-				Session()->set('avt_user_name', $checkUser[0]['user_name']);
-				Session()->set('avt_user_email', $checkUser[0]['user_email']);
-				Session()->set('avt_user_meta',  $user->getAllMetaData( $checkUser[0]['id'] ) );
+				Session()->set('avt_admin_user_id', $checkUser[0]['id']);
+				Session()->set('avt_admin_user_name', $checkUser[0]['user_name']);
+				Session()->set('avt_admin_user_email', $checkUser[0]['user_email']);
+				Session()->set('avt_admin_user_meta',  $user->getAllMetaData( $checkUser[0]['id'] ) );
 
-				redirect( url( '/user-tool' ) );
+				redirect( url( '/admcp' ) );
 			}else{
 				$error[] = 'error';
 			}
@@ -61,30 +61,15 @@ class UserController extends baseController{
 
 		if( !empty( $error ) ) {
 			Session()->getFlashBag()->set('loginError', 'Account or Password not match !');
-			redirect( url( '/user-tool/login' ) );
+			redirect( url( '/admcp/login' ) );
 		}
 	}
 
 	public function logout(){
-		Session()->remove('avt_user_id');
-		Session()->remove('avt_user_name');
-		Session()->remove('avt_user_email');
-
-		redirect( url( '/user-tool/login' ) );
-	}
-
-	public function register(){
-		View('frontend/userTool/user/register.tpl');
-	}
-
-	public function userUpdateProfile(){
-		$this->loadTemplate('user/user-update.tpl',[
-		], ['path' => 'frontend/userTool/']);
-	}
-
-	public function userInfo(){
-		$this->loadTemplate('user/user-info.tpl',[
-		], ['path' => 'frontend/userTool/']);
+		Session()->remove('avt_admin_user_id');
+		Session()->remove('avt_admin_user_name');
+		Session()->remove('avt_admin_user_email');
+		redirect( url( '/admcp/login' ) );
 	}
 
 }

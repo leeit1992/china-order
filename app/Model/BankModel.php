@@ -3,11 +3,11 @@ namespace App\Model;
 
 use Atl\Database\Model;
 
-class OrderItemModel extends Model
+class BankModel extends Model
 {	
 
 	public function __construct(){
-		parent::__construct('order_items');
+		parent::__construct('banks');
 	}
 
 	public function save( $argsData, $id = null ){
@@ -29,6 +29,19 @@ class OrderItemModel extends Model
 		}
 	}
 
+	public function getAll(){
+		return $this->db->select(
+			$this->table, 
+				'*', 
+				[	
+					'ORDER' => [
+						'id' => 'DESC'
+					]
+				]
+			);
+	}
+
+
 	public function getBy($key, $value){
 		return $this->db->select(
 			$this->table, 
@@ -41,6 +54,5 @@ class OrderItemModel extends Model
 				]
 			);
 	}
-
 
 }

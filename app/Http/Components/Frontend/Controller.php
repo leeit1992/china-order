@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Components;
+namespace App\Http\Components\Frontend;
 
 use Atl\Routing\Controller as baseController;
 use App\Http\Components\Frontend\FrontendDataMenu;
@@ -70,7 +70,6 @@ class Controller extends baseController{
             redirect( url( '/user-tool/login' ) );
         }
 	}
-
 
 	/**
 	 * Handle render input form.
