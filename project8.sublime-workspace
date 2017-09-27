@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"_s",
+				"$_SESSION〔variable〕"
+			],
+			[
+				"session",
+				"session_start〔function〕"
+			],
+			[
 				"json",
 				"json_decode〔function〕"
 			],
@@ -412,10 +424,6 @@
 				"selected"
 			],
 			[
-				"mar",
-				"margin"
-			],
-			[
 				"SITE",
 				"SITE_ADMIN_URL〔constant〕"
 			],
@@ -506,14 +514,6 @@
 			[
 				"conte",
 				"$contentData〔variable〕"
-			],
-			[
-				"is_in",
-				"is_integer〔function〕"
-			],
-			[
-				"__",
-				"__\tWP Function"
 			]
 		]
 	},
@@ -523,53 +523,65 @@
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 3526,
+				"buffer_size": 4094,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Backend/OrderController.php",
+			"file": "app/Http/Controllers/Frontend/OrderController.php",
 			"settings":
 			{
-				"buffer_size": 1603,
+				"buffer_size": 5587,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/backend/order/detail-order.tpl.php",
+			"file": "app/Http/Controllers/Frontend/MoneyController.php",
 			"settings":
 			{
-				"buffer_size": 10054,
+				"buffer_size": 2711,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "<div class=\"col-sm-9\">\n    <div class=\"i-checks\">\n        <input id=\"checkboxCustom1\" type=\"checkbox\" value=\"\" class=\"checkbox-template\">\n        <label for=\"checkboxCustom1\">Option one</label>\n    </div>\n    <div class=\"i-checks\">\n        <input id=\"checkboxCustom2\" type=\"checkbox\" value=\"\" checked=\"\" class=\"checkbox-template\">\n        <label for=\"checkboxCustom2\">Option two checked</label>\n    </div>\n    <div class=\"i-checks\">\n        <input id=\"checkboxCustom\" type=\"checkbox\" value=\"\" disabled=\"\" checked=\"\" class=\"checkbox-template\">\n        <label for=\"checkboxCustom\">Option three checked and disabled</label>\n    </div>\n    <div class=\"i-checks\">\n        <input id=\"checkboxCustom3\" type=\"checkbox\" value=\"\" disabled=\"\" class=\"checkbox-template\">\n        <label for=\"checkboxCustom3\">Option four disabled</label>\n    </div>\n    <div class=\"i-checks\">\n        <input id=\"radioCustom1\" type=\"radio\" value=\"option1\" name=\"a\" class=\"radio-template\">\n        <label for=\"radioCustom1\">Option one</label>\n    </div>\n    <div class=\"i-checks\">\n        <input id=\"radioCustom2\" type=\"radio\" checked=\"\" value=\"option2\" name=\"a\" class=\"radio-template\">\n        <label for=\"radioCustom2\">Option two checked</label>\n    </div>\n    <div class=\"i-checks\">\n        <input id=\"radioCustom3\" type=\"radio\" disabled=\"\" checked=\"\" value=\"option2\" class=\"radio-template\">\n        <label for=\"radioCustom3\">Option three checked and disabled</label>\n    </div>\n    <div class=\"i-checks\">\n        <input id=\"radioCustom4\" type=\"radio\" disabled=\"\" name=\"a\" class=\"radio-template\">\n        <label for=\"radioCustom4\">Option four disabled</label>\n    </div>\n</div>",
+			"contents": "<header class=\"page-header\">\n        <div class=\"container-fluid\">\n            <h2 class=\"no-margin-bottom\">Tài Chính</h2>\n        </div>\n</header>\n<section class=\"tables\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-lg-12\">\n                <div class=\"card\">\n                    <div class=\"card-header d-flex align-items-center\">\n                        <h3 class=\"h4\">Danh sách chi tiêu</h3>\n                    </div>\n                    <div class=\"card-body\">\n                        <table class=\"table\">\n                            <thead>\n                                <tr>\n                                    <th>#</th>\n                                    <th>Đơn Hàng</th>\n                                    <th>Thanh toán</th>\n                                    <th>Còn Nợ</th>\n                                    <th>Ngày</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <?php foreach ($variable as $key => $value) : ?>\n                                <tr>\n                                    <th scope=\"row\">1</th>\n                                    <td>Mark</td>\n                                    <td>Otto</td>\n                                    <td>@mdo</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+			"file": "resources/views/frontend/userTool/recharge/revenue-expenditure.tpl.php",
+			"file_size": 1470,
+			"file_write_time": 131509779340000000,
 			"settings":
 			{
-				"buffer_size": 1648,
+				"buffer_size": 1539,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/frontend/userTool/cart/listItem.tpl.php",
+			"contents": "<section class=\"tables\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n                <div class=\"card\">\n                    <div class=\"card-close\">\n                        <div class=\"dropdown\">\n                            <button type=\"button\" id=\"closeCard\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" class=\"dropdown-toggle\"><i class=\"fa fa-ellipsis-v\"></i></button>\n                            <div aria-labelledby=\"closeCard\" class=\"dropdown-menu has-shadow\"><a href=\"#\" class=\"dropdown-item remove\"> <i class=\"fa fa-times\"></i>Close</a><a href=\"#\" class=\"dropdown-item edit\"> <i class=\"fa fa-gear\"></i>Edit</a></div>\n                        </div>\n                    </div>\n                    <div class=\"card-header d-flex align-items-center\">\n                        <h3 class=\"h4\">Basic Table</h3>\n                    </div>\n                    <div class=\"card-body\">\n                        <table class=\"table\">\n                            <thead>\n                                <tr>\n                                    <th>#</th>\n                                    <th>First Name</th>\n                                    <th>Last Name</th>\n                                    <th>Username</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr>\n                                    <th scope=\"row\">1</th>\n                                    <td>Mark</td>\n                                    <td>Otto</td>\n                                    <td>@mdo</td>\n                                </tr>\n                                <tr>\n                                    <th scope=\"row\">2</th>\n                                    <td>Jacob</td>\n                                    <td>Thornton</td>\n                                    <td>@fat</td>\n                                </tr>\n                                <tr>\n                                    <th scope=\"row\">3</th>\n                                    <td>Larry</td>\n                                    <td>the Bird</td>\n                                    <td>@twitter</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-lg-6\">\n                <div class=\"card\">\n                    <div class=\"card-close\">\n                        <div class=\"dropdown\">\n                            <button type=\"button\" id=\"closeCard\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" class=\"dropdown-toggle\"><i class=\"fa fa-ellipsis-v\"></i></button>\n                            <div aria-labelledby=\"closeCard\" class=\"dropdown-menu has-shadow\"><a href=\"#\" class=\"dropdown-item remove\"> <i class=\"fa fa-times\"></i>Close</a><a href=\"#\" class=\"dropdown-item edit\"> <i class=\"fa fa-gear\"></i>Edit</a></div>\n                        </div>\n                    </div>\n                    <div class=\"card-header d-flex align-items-center\">\n                        <h3 class=\"h4\">Striped Table</h3>\n                    </div>\n                    <div class=\"card-body\">\n                        <table class=\"table table-striped\">\n                            <thead>\n                                <tr>\n                                    <th>#</th>\n                                    <th>First Name</th>\n                                    <th>Last Name</th>\n                                    <th>Username</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr>\n                                    <th scope=\"row\">1</th>\n                                    <td>Mark</td>\n                                    <td>Otto</td>\n                                    <td>@mdo</td>\n                                </tr>\n                                <tr>\n                                    <th scope=\"row\">2</th>\n                                    <td>Jacob</td>\n                                    <td>Thornton</td>\n                                    <td>@fat</td>\n                                </tr>\n                                <tr>\n                                    <th scope=\"row\">3</th>\n                                    <td>Larry</td>\n                                    <td>the Bird</td>\n                                    <td>@twitter </td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-lg-6\">\n                <div class=\"card\">\n                    <div class=\"card-close\">\n                        <div class=\"dropdown\">\n                            <button type=\"button\" id=\"closeCard\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" class=\"dropdown-toggle\"><i class=\"fa fa-ellipsis-v\"></i></button>\n                            <div aria-labelledby=\"closeCard\" class=\"dropdown-menu has-shadow\"><a href=\"#\" class=\"dropdown-item remove\"> <i class=\"fa fa-times\"></i>Close</a><a href=\"#\" class=\"dropdown-item edit\"> <i class=\"fa fa-gear\"></i>Edit</a></div>\n                        </div>\n                    </div>\n                    <div class=\"card-header d-flex align-items-center\">\n                        <h3 class=\"h4\">Striped table with hover effect</h3>\n                    </div>\n                    <div class=\"card-body\">\n                        <table class=\"table table-striped table-hover\">\n                            <thead>\n                                <tr>\n                                    <th>#</th>\n                                    <th>First Name</th>\n                                    <th>Last Name</th>\n                                    <th>Username</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr>\n                                    <th scope=\"row\">1</th>\n                                    <td>Mark</td>\n                                    <td>Otto</td>\n                                    <td>@mdo</td>\n                                </tr>\n                                <tr>\n                                    <th scope=\"row\">2</th>\n                                    <td>Jacob</td>\n                                    <td>Thornton</td>\n                                    <td>@fat</td>\n                                </tr>\n                                <tr>\n                                    <th scope=\"row\">3</th>\n                                    <td>Larry</td>\n                                    <td>the Bird</td>\n                                    <td>@twitter </td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-lg-6\">\n                <div class=\"card\">\n                    <div class=\"card-close\">\n                        <div class=\"dropdown\">\n                            <button type=\"button\" id=\"closeCard\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" class=\"dropdown-toggle\"><i class=\"fa fa-ellipsis-v\"></i></button>\n                            <div aria-labelledby=\"closeCard\" class=\"dropdown-menu has-shadow\"><a href=\"#\" class=\"dropdown-item remove\"> <i class=\"fa fa-times\"></i>Close</a><a href=\"#\" class=\"dropdown-item edit\"> <i class=\"fa fa-gear\"></i>Edit</a></div>\n                        </div>\n                    </div>\n                    <div class=\"card-header d-flex align-items-center\">\n                        <h3 class=\"h4\">Compact Table</h3>\n                    </div>\n                    <div class=\"card-body\">\n                        <table class=\"table table-striped table-sm\">\n                            <thead>\n                                <tr>\n                                    <th>#</th>\n                                    <th>First Name</th>\n                                    <th>Last Name</th>\n                                    <th>Username</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr>\n                                    <th scope=\"row\">1</th>\n                                    <td>Mark</td>\n                                    <td>Otto</td>\n                                    <td>@mdo</td>\n                                </tr>\n                                <tr>\n                                    <th scope=\"row\">2</th>\n                                    <td>Jacob</td>\n                                    <td>Thornton</td>\n                                    <td>@fat</td>\n                                </tr>\n                                <tr>\n                                    <th scope=\"row\">3</th>\n                                    <td>Larry</td>\n                                    <td>the Bird</td>\n                                    <td>@twitter </td>\n                                </tr>\n                                <tr>\n                                    <th scope=\"row\">4</th>\n                                    <td>Mark</td>\n                                    <td>Otto</td>\n                                    <td>@mdo</td>\n                                </tr>\n                                <tr>\n                                    <th scope=\"row\">5</th>\n                                    <td>Jacob</td>\n                                    <td>Thornton</td>\n                                    <td>@fat</td>\n                                </tr>\n                                <tr>\n                                    <th scope=\"row\">6</th>\n                                    <td>Larry</td>\n                                    <td>the Bird</td>\n                                    <td>@twitter </td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
 			"settings":
 			{
-				"buffer_size": 8090,
+				"buffer_size": 10342,
+				"line_ending": "Unix",
+				"name": "<section class=\"tables\">"
+			}
+		},
+		{
+			"file": "resources/views/frontend/userTool/order/detail-order.tpl.php",
+			"settings":
+			{
+				"buffer_size": 12503,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Applications/MAMP/htdocs/chromex/background.js",
+			"file": "app/Http/Controllers/Frontend/UserController.php",
 			"settings":
 			{
-				"buffer_size": 229742,
+				"buffer_size": 2850,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -581,9 +593,21 @@
 	"command_palette":
 	{
 		"height": 368.0,
-		"last_filter": "",
+		"last_filter": "instal",
 		"selected_items":
 		[
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
 			[
 				"",
 				"About"
@@ -591,10 +615,6 @@
 			[
 				"insta",
 				"Package Control: Install Package"
-			],
-			[
-				"remove",
-				"Package Control: Remove Package"
 			],
 			[
 				"isnta",
@@ -621,14 +641,6 @@
 				"Git: Add..."
 			],
 			[
-				"list",
-				"Package Control: List Packages"
-			],
-			[
-				"instal",
-				"Package Control: Install Package"
-			],
-			[
 				"lsit",
 				"Package Control: List Packages"
 			],
@@ -649,7 +661,7 @@
 				"Package Control: Disable Package"
 			]
 		],
-		"width": 561.0
+		"width": 613.0
 	},
 	"console":
 	{
@@ -683,57 +695,73 @@
 		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Backend",
 		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend",
 		"/Applications/MAMP/htdocs/project8/app/Model",
-		"/Applications/MAMP/htdocs/project8/bootstrap",
-		"/Applications/MAMP/htdocs/project8/config",
 		"/Applications/MAMP/htdocs/project8/resources",
 		"/Applications/MAMP/htdocs/project8/resources/views",
-		"/Applications/MAMP/htdocs/project8/resources/views/backend",
-		"/Applications/MAMP/htdocs/project8/resources/views/backend/order",
-		"/Applications/MAMP/htdocs/project8/resources/views/backend/recharge",
 		"/Applications/MAMP/htdocs/project8/resources/views/frontend",
 		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool",
 		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/cart",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/order",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/recharge",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/user",
 		"/Applications/MAMP/htdocs/project8/src",
 		"/Applications/MAMP/htdocs/project8/src/js"
 	],
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/project8/app/Http/Components/Frontend/FrontendDataMenu.php",
+		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Backend/MoneyController.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/user/user-info.tpl.php",
+		"/Applications/MAMP/htdocs/project8/app/Model/ExpenditureModel.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/order/detail-order.tpl.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/backend/order/detail-order.tpl.php",
+		"/Applications/MAMP/htdocs/project8/app/Model/OrderModel.php",
+		"/Applications/MAMP/htdocs/project8/app/Model/UserModel.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/order/order-notice.tpl.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/cart/listItem.tpl.php",
+		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/CartController.php",
+		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/MoneyController.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/recharge/recharge.tpl.php",
+		"/Applications/MAMP/htdocs/project8/app/Model/BankModel.php",
+		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/OrderController.php",
 		"/Applications/MAMP/htdocs/project8/resources/views/backend/order/order-manage.tpl.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/order/order-manage.tpl.php",
+		"/Applications/MAMP/htdocs/chromex/background.js",
+		"/Applications/MAMP/htdocs/project8/resources/views/backend/user/userManage.tpl.php",
+		"/Applications/MAMP/htdocs/project8/app/Http/routes.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/backend/layout/menuNav.tpl.php",
+		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Backend/UsersController.php",
+		"/Applications/MAMP/htdocs/project8/app/Http/Components/Backend/AdminDataMenu.php",
+		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Backend/UserController.php",
+		"/Applications/MAMP/htdocs/project8/app/Http/Components/Backend/Controller.php",
+		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Backend/OrderController.php",
+		"/Users/letrungha/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/Default (OSX).sublime-keymap",
+		"/Users/letrungha/Library/Application Support/Sublime Text 3/Packages/User/.jsbeautifyrc",
+		"/Users/letrungha/Library/Application Support/Sublime Text 3/Packages/User/HTMLPrettify.sublime-settings",
+		"/Users/letrungha/Library/Application Support/Sublime Text 3/Packages/User/phpcs.sublime-settings",
+		"/Users/letrungha/Library/Application Support/Sublime Text 3/Packages/Phpcs/phpcs.sublime-settings",
+		"/Users/letrungha/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/letrungha/Library/Application Support/Sublime Text 3/Packages/phpcbf/Default (OSX).sublime-keymap",
+		"/Users/letrungha/Library/Application Support/Sublime Text 3/Packages/phpcbf/phpcbf.sublime-settings",
+		"/Users/letrungha/Library/Application Support/Sublime Text 3/Packages/User/phpcbf.sublime-settings",
+		"/Applications/MAMP/htdocs/project8/vendor/atl/atl-framework/src/atl/Foundation/helpers.php",
+		"/Applications/MAMP/htdocs/filter_tool/tool_filter.php",
+		"/Applications/MAMP/htdocs/project8/tool_filter.php",
 		"/Applications/MAMP/htdocs/project8/app/Model/OrderItemModel.php",
 		"/Applications/MAMP/htdocs/project8/resources/views/backend/recharge/info-pay.tpl.php",
-		"/Applications/MAMP/htdocs/project8/app/Model/BankModel.php",
 		"/Applications/MAMP/htdocs/project8/resources/views/backend/recharge/recharge.tpl.php",
-		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/MoneyController.php",
-		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Backend/MoneyController.php",
 		"/Applications/MAMP/htdocs/project8/resources/views/backend/user/login.tpl.php",
-		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Backend/UserController.php",
 		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Backend/MainController.php",
 		"/Applications/MAMP/htdocs/project8/app/Model/RechargeModel.php",
-		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/CartController.php",
-		"/Applications/MAMP/htdocs/project8/app/Http/Components/Backend/AdminDataMenu.php",
 		"/Applications/MAMP/htdocs/project8/resources/views/backend/recharge/recharge-manage.tpl.php",
-		"/Applications/MAMP/htdocs/project8/app/Model/UserModel.php",
-		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Backend/OrderController.php",
-		"/Applications/MAMP/htdocs/project8/resources/views/backend/layout/menuNav.tpl.php",
-		"/Applications/MAMP/htdocs/project8/app/Http/Components/Backend/Controller.php",
 		"/Applications/MAMP/htdocs/project8/app/Http/Components/Frontend/Controller.php",
 		"/Applications/MAMP/htdocs/project8/resources/views/backend/layout/header.tpl.php",
 		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/MainController.php",
 		"/Applications/MAMP/htdocs/project8/app/Http/Components/Controller.php",
 		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/UserController.php",
-		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/OrderController.php",
-		"/Applications/MAMP/htdocs/project8/app/Http/Components/Frontend/FrontendDataMenu.php",
-		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/order/order-manage.tpl.php",
 		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/user/login.tpl.php",
 		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/recharge/recharge-manage.tpl.php",
-		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/recharge/recharge.tpl.php",
 		"/Applications/MAMP/htdocs/project8/src/js/userTool-page-cart.js",
-		"/Applications/MAMP/htdocs/project8/app/Model/OrderModel.php",
-		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/cart/listItem.tpl.php",
 		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/user/user-update.tpl.php",
-		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/order/order-notice.tpl.php",
-		"/Applications/MAMP/htdocs/project8/app/Http/routes.php",
-		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/user/user-info.tpl.php",
 		"/Applications/MAMP/htdocs/project-8/user/order.html",
 		"/Applications/MAMP/htdocs/project-8/user/success_order.html",
 		"/Applications/MAMP/htdocs/project8/public/frontend/user-tool/js/cart.js",
@@ -755,7 +783,6 @@
 		"/Users/letrungha/Desktop/in.html",
 		"/Users/letrungha/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
 		"/Users/letrungha/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc.defaults.json",
-		"/Applications/MAMP/htdocs/chromex/background.js",
 		"/Applications/MAMP/htdocs/chromex/manifest.json",
 		"/Applications/MAMP/htdocs/chromex/index.php",
 		"/Applications/MAMP/htdocs/chromex/background.html",
@@ -808,28 +835,11 @@
 		"/Applications/MAMP/htdocs/travel/src/js/page-admin-location.js",
 		"/Applications/MAMP/htdocs/travel/app/Http/Controllers/Backend/LocationController.php",
 		"/Applications/MAMP/htdocs/travel/resources/views/backend/location/manageLocation.tpl.php",
-		"/Applications/MAMP/htdocs/travel/app/Http/Components/ApiLocation.php",
-		"/Applications/MAMP/htdocs/travel/vendor/atl/atl-framework/src/atl/Routing/Controller.php",
-		"/Applications/MAMP/htdocs/travel/app/Model/UserModel.php",
-		"/Applications/MAMP/htdocs/travel/resources/views/backend/layout/menuTop.tpl.php",
-		"/Applications/MAMP/htdocs/travel/resources/views/backend/layout/header.tpl.php",
-		"/Users/letrungha/Documents/menu.pug",
-		"/Applications/MAMP/htdocs/travel/vendor/atl/atl-framework/src/atl/Database/helpers.php",
-		"/Applications/MAMP/htdocs/travel/app/Model/OtherServiceModel.php",
-		"/Applications/MAMP/htdocs/travel/app/Model/GuiderModel.php",
-		"/Applications/MAMP/htdocs/travel/app/Http/Controllers/Backend/PartnerController.php",
-		"/Applications/MAMP/htdocs/travel/app/Http/Controllers/Backend/GuiderController.php",
-		"/Applications/MAMP/htdocs/travel/app/Http/Controllers/Backend/OtherServiceController.php",
-		"/Applications/MAMP/htdocs/travel/resources/views/backend/accomodation/layout/manageFilter.tpl.php",
-		"/Applications/MAMP/htdocs/travel/app/Model/AtlModel.php",
-		"/Applications/MAMP/htdocs/travel/src/js/page-admin-type-accomodation.js",
-		"/Users/letrungha/Documents/job/admin template/altair_html/forms_advanced.html",
-		"/Applications/MAMP/htdocs/project7/app/Http/Controllers/MainController.php",
-		"/Applications/MAMP/htdocs/project7/resources/views/canculator/canculator1.tpl.php"
+		"/Applications/MAMP/htdocs/travel/app/Http/Components/ApiLocation.php"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 54.0
 	},
 	"find_in_files":
 	{
@@ -942,6 +952,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"UserModel",
+			",\n",
 			">\n",
 			"getHtml",
 			"rateMoney",
@@ -1067,9 +1079,7 @@
 			"fc-corner-left",
 			"fc-corner-right",
 			"fullcalendar",
-			"addRoomType.tpl",
-			"listRoomtype.tpl",
-			"modalOpen"
+			"addRoomType.tpl"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1097,7 +1107,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -1106,15 +1116,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3526,
+						"buffer_size": 4094,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2854,
-								2854
+								2351,
+								2369
 							]
 						],
 						"settings":
@@ -1123,57 +1133,89 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1180.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/Http/Controllers/Backend/OrderController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1603,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1476,
-								1485
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 235.0,
+						"translation.y": 511.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "resources/views/backend/order/detail-order.tpl.php",
+					"buffer": 1,
+					"file": "app/Http/Controllers/Frontend/OrderController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10054,
+						"buffer_size": 5587,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8002,
-								8002
+								587,
+								600
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Http/Controllers/Frontend/MoneyController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2711,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2612,
+								2620
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 406.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "resources/views/frontend/userTool/recharge/revenue-expenditure.tpl.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1539,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								998,
+								998
 							]
 						],
 						"settings":
@@ -1185,93 +1227,64 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2065.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1648,
+						"buffer_size": 10342,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								1648
+								8578,
+								8578
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
+							"auto_name": "<section class=\"tables\">",
 							"default_dir": "/Applications/MAMP/htdocs/project8",
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2121.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "resources/views/frontend/userTool/cart/listItem.tpl.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 8090,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1277,
-								1282
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 983.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
 					"buffer": 5,
-					"file": "/Applications/MAMP/htdocs/chromex/background.js",
+					"file": "resources/views/frontend/userTool/order/detail-order.tpl.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 229742,
+						"buffer_size": 12503,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								37203,
-								37203
+								9015,
+								9015
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript Ultimate/javascript.dom.sublime-syntax",
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -1280,6 +1293,37 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/Http/Controllers/Frontend/UserController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2850,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2747,
+								2761
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1386,7 +1430,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 272.0,
+	"side_bar_width": 310.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

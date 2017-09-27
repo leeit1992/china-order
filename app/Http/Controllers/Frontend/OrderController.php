@@ -8,6 +8,7 @@ use App\Http\Components\Frontend\Controller as baseController;
 use App\Model\OrderModel;
 use App\Model\OrderItemModel;
 use App\Model\UserModel;
+use App\Model\ExpenditureModel;
 
 class OrderController extends baseController
 {
@@ -20,6 +21,7 @@ class OrderController extends baseController
         $this->mdOrder = new OrderModel;
         $this->mdOrderItem = new OrderItemModel;
         $this->mdUser = new UserModel;
+        $this->mdExpenditure = new ExpenditureModel;
     }
 
     public function orderSuccess($id = null)
@@ -69,23 +71,67 @@ class OrderController extends baseController
         $infoUser = $this->mdUser->getUserBy('id', Session()->get('avt_user_id'));
         $infoOrder = $this->mdOrder->getBy('id', $request->get('avt_oder_id'));
 
-        $priceCount = $request->get('avt_pay_type') / 100 * $infoOrder[0]['order_total_price_vn'];
+        switch ($request->get('avt_pay_type')) {
+            case 'pay_emaining_amount':
+                $dataInfoPay = json_decode($infoOrder[0]['order_info_pay'], true);
+                if ($infoUser[0]['user_money'] > $dataInfoPay['rest_pay']) {
+                    $argsSave = [
+                        'order_info_pay' => json_encode([
+                            'rest_percent' => 0,
+                            'has_pay' => $dataInfoPay['has_pay'] +  $dataInfoPay['rest_pay'],
+                            'rest_pay' => 0
+                        ]),
+                        'order_status' => 2,
+                        
+                    ];
+                    $this->mdOrder->save($argsSave, $request->get('avt_oder_id'));
 
-        if ($infoUser[0]['user_money'] > $priceCount) {
-            $argsSave = [
-                'order_info_pay' => json_decode([
+                    $this->mdUser->save([
+                        'user_money' => $infoUser[0]['user_money'] - $dataInfoPay['rest_pay']
+                    ], Session()->get('avt_user_id'));
+
+                     Session()->getFlashBag()->set('updateOrder', ['type' => true, 'notice' => 'Tất toán '.$request->get('avt_pay_type').'% số tiền của đơn hàng thành công.']);
+                } else {
+                    Session()->getFlashBag()->set('updateOrder', ['type' => false, 'notice' => 'Tiền trong tải khoản của bạn không đủ. vui lòng nạp thêm tiền vào tài khoản.']);
+                }
+                break;
+            
+            default:
+                $priceCount = $request->get('avt_pay_type') / 100 * $infoOrder[0]['order_total_price_vn'];
+
+                if ($infoUser[0]['user_money'] > $priceCount) {
+                    $argsSave = [
+                    'order_info_pay' => json_encode([
                     'rest_percent' => 100 - $request->get('avt_pay_type'),
                     'has_pay' => $priceCount,
                     'rest_pay' => $infoOrder[0]['order_total_price_vn'] - $priceCount
-                ]),
-                'order_status' => 2,
-                
-            ];
-            $this->mdOrder->save($argsSave, $request->get('avt_oder_id'));
-        } else {
-            Session()->getFlashBag()->set('updateOrder', ['type' => false, 'notice' => 'Tiền trong tải khoản của bạn không đủ. vui lòng nạp thêm tiền vào tài khoản.']);
-        }
+                    ]),
+                    'order_status' => 2,
+                        
+                    ];
+                    $this->mdOrder->save($argsSave, $request->get('avt_oder_id'));
 
+                    $this->mdExpenditure->save([
+                    'order_id' => $request->get('avt_oder_id'),
+                    'payment' => $priceCount,
+                    'payment_type' => $request->get('avt_pay_type'),
+                    'rest_payment' => $infoOrder[0]['order_total_price_vn'] - $priceCount,
+                    'date' => date('Y-m-d H:s:j'),
+                    'desc' => 'Thanh toán cho đơn hàng ' . $infoOrder[0]['order_code']
+                    ]);
+
+                    $this->mdUser->save([
+                    'user_money' => $infoUser[0]['user_money'] - $priceCount
+                    ], Session()->get('avt_user_id'));
+
+                    Session()->getFlashBag()->set('updateOrder', ['type' => true, 'notice' => 'Thanh toán '.$request->get('avt_pay_type').'% số tiền của đơn hàng thành công.']);
+                } else {
+                    Session()->getFlashBag()->set('updateOrder', ['type' => false, 'notice' => 'Tiền trong tải khoản của bạn không đủ. vui lòng nạp thêm tiền vào tài khoản.']);
+                }
+
+                break;
+        }
+        
         redirect(url('/user-tool/detail-order/' . $request->get('avt_oder_id')));
     }
 }

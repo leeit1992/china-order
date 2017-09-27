@@ -62,7 +62,6 @@
                                         <th>Ngày tạo</th>
                                         <th>Mã đơn hàng</th>
                                         <th>Số lượng</th>
-                                        <th>Mã vận đơn</th>
                                         <th>Tổng tiền</th>
                                         <th>Trạng thái</th>
                                         <th>#</th>
@@ -75,7 +74,6 @@
                                         <td><?php echo $value['order_date'] ?></td>
                                         <td><a href="<?php echo url('/admcp/detail-order/' . $value['id']) ?>"><?php echo $value['order_code'] ?></a></td>
                                         <td><?php echo $value['order_quantity'] ?></td>
-                                        <td>--</td>
                                         <td><?php echo $apiHandlePrice->formatPrice($value['order_total_price_vn'], 'vnđ') ?></td>
 
                                         <td>

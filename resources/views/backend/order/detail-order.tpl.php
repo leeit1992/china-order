@@ -94,18 +94,31 @@
                     </div>
                     </div>
                     <br>
-                    <div class="right-col col-lg-12 align-items-center" style="margin-top: 10px;">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Ghi Chú" value="<?php echo $dataItem['comment'] ?>">
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-primary">Ghi Chú</button>
-                            </span>
+                    <div class="right-col col-lg-6 align-items-center" style="margin-top: 10px;">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Ghi Chú" value="<?php echo $dataItem['comment'] ?>">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary">Ghi Chú</button>
+                                </span>
+                            </div>
                         </div>
                     </div>
+                    <div class="right-col col-lg-6 align-items-center" style="margin-top: 10px;">
+
+                        
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Mã vận đơn" value="">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary">Mã vận đơn</button>
+                                </span>
+                            </div>
+                        </div>
+
                     </div>
                     </div>
-                    <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         endforeach; ?>
+                    <?php                                                                                                                         endforeach; ?>
                 </div>
               
                 <div class="row bg-gray has-shadow">

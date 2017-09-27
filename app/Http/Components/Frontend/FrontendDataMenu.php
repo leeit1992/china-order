@@ -108,7 +108,7 @@ class FrontendDataMenu
                 'submenu' => [
                     [
                         'label' => 'Danh sách thu chi',
-                        'link'  => url('/sheet'),
+                        'link'  => url('/user-tool/revenue_expenditure'),
                         'display' => '',
                         'conditionOpen' => [''],
                     ],

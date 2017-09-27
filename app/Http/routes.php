@@ -70,6 +70,7 @@ $route->post('/user-tool/update-order', 'Frontend\OrderController@updateOrder');
 
 $route->get('/user-tool/recharge', 'Frontend\MoneyController@recharge');
 $route->get('/user-tool/recharge-manage', 'Frontend\MoneyController@rechargeManage');
+$route->get('/user-tool/revenue_expenditure', 'Frontend\MoneyController@revenueExpenditure');
 $route->post('/user-tool/recharge-validate', 'Frontend\MoneyController@rechargeValidate');
 
 /*=====  End of Money  ======*/

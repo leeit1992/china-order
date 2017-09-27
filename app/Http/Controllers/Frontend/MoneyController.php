@@ -8,6 +8,8 @@ use App\Http\Components\Frontend\Controller as baseController;
 use App\Model\RechargeModel;
 use Atl\Validation\Validation;
 use App\Model\BankModel;
+use App\Model\ExpenditureModel;
+use App\Model\OrderModel;
 
 class MoneyController extends baseController
 {
@@ -18,6 +20,8 @@ class MoneyController extends baseController
 
         $this->mdRecharge = new RechargeModel();
         $this->mdBank = new BankModel();
+        $this->mdExpenditure = new ExpenditureModel();
+        $this->mdOrder = new OrderModel();
     }
 
     public function rechargeManage()
@@ -65,5 +69,14 @@ class MoneyController extends baseController
         }
 
         redirect(url('/user-tool/recharge'));
+    }
+
+    public function revenueExpenditure()
+    {
+        $this->loadTemplate('recharge/revenue-expenditure.tpl', [
+            'apiHandlePrice' => ApiHandlePrice::getInstance(),
+            'listData' =>  $this->mdExpenditure->getAll(),
+            'mdOrder' =>  $this->mdOrder,
+        ], ['path' => 'frontend/userTool/']);
     }
 }
