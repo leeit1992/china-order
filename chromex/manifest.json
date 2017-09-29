@@ -1,0 +1,16 @@
+{
+   "browser_action": {
+      "default_icon": "back.png",
+      "default_popup": "background.html"
+   },
+   "content_scripts": [ {
+      "js": [ "jquery.js", "background.js" ],
+      "matches": [ "http://*/*", "https://*/*" ]
+   } ],
+   "description": "Công cụ Order hàng tự động của project8",
+   "manifest_version": 2,
+   "name": "Công cụ order tự động Project8",
+   "permissions": [ "https://localhost:3000/project8/" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.0"
+}
