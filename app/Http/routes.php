@@ -60,6 +60,8 @@ $route->get('/user-tool/order-manage', 'Frontend\OrderController@orderManage');
 $route->get('/user-tool/detail-order/{id}', 'Frontend\OrderController@orderDetail');
 $route->post('/user-tool/update-order', 'Frontend\OrderController@updateOrder');
 
+$route->get('/user-tool/ajax-userT-order-manage','Frontend\OrderController@ajaxOrderManage');
+
 /*=====  End of Order  ======*/
 
 
@@ -72,6 +74,8 @@ $route->get('/user-tool/recharge', 'Frontend\MoneyController@recharge');
 $route->get('/user-tool/recharge-manage', 'Frontend\MoneyController@rechargeManage');
 $route->get('/user-tool/revenue_expenditure', 'Frontend\MoneyController@revenueExpenditure');
 $route->post('/user-tool/recharge-validate', 'Frontend\MoneyController@rechargeValidate');
+
+$route->get('/user-tool/ajax-userT-revenueExpen-manage', 'Frontend\MoneyController@ajaxRevenueExpenManage');
 
 /*=====  End of Money  ======*/
 
@@ -100,6 +104,8 @@ $route->post('/admcp/validateLogin', 'Backend\UserController@validateLogin');
 $route->get('/admcp/order-manage', 'Backend\OrderController@orderManage');
 $route->get('/admcp/detail-order/{id}', 'Backend\OrderController@orderDetail');
 $route->post('/admcp/update-order', 'Backend\OrderController@updateOrder');
+
+$route->get('/admcp/ajax-admcp-order-manage','Backend\OrderController@ajaxOrderManage');
 
 /*=====  End of Order  ======*/
 

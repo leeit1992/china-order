@@ -5,6 +5,14 @@
             var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(email);
         },
+        validateStringSearch: function(string) {
+            var re = /^[A-Za-z0-9][A-Za-z0-9]*$/;
+            return re.test(string);
+        },
+        validateDateSearch: function(string) {
+            var re = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/;
+            return re.test(string);
+        },
         fileReader: function(event, appendTo = '', resize = false) {
             var file = event.target.files[0];
             var img = document.createElement("img");

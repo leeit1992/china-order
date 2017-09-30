@@ -59,4 +59,28 @@ class ExpenditureModel extends Model
                 ]
         );
     }
+
+        /**
+     * Handle search by key in User tool
+     * 
+     * @param  string $key  Key search value.
+     * @return void
+     */
+    public function searchByUserT( $array = [] ){
+        $condi = [];
+        if (!empty($array['avt_userT_revenueExpen_code'])) {
+            $condi['"order_code[~]"'] = $array['avt_userT_revenueExpen_code'];
+        }
+        if (!empty($array['avt_userT_revenueExpen_date'])) {
+            $condi['"date[~]"'] = $array['avt_userT_revenueExpen_date'];
+        }
+        return $this->db->select(
+            $this->table,
+            [
+                "[><]orders" => [ "order_id" => "id" ],
+            ],
+            '*',
+            $condi
+        );
+    }
 }

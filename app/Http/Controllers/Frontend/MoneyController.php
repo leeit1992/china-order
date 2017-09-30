@@ -79,4 +79,33 @@ class MoneyController extends baseController
             'mdOrder' =>  $this->mdOrder,
         ], ['path' => 'frontend/userTool/']);
     }
+
+    /**
+     * Handle filter revenue Expen
+     * 
+     * @param  Request $request POST | GET
+     * @return json
+     */
+    public function ajaxRevenueExpenManage(Request $request)
+    {
+        $output = '';
+        if( !empty( $request->get('formData') ) ) {
+            parse_str($request->get('formData'), $formData);
+            ob_start();
+            $output .= View(
+                'frontend/userTool/recharge/revenue-expenditureJs.tpl',
+                [
+                    'revenueExpenes'  => $this->mdExpenditure->searchByUserT( $formData ),
+                    'apiHandlePrice' => ApiHandlePrice::getInstance(),
+                    'mdOrder' =>  $this->mdOrder,
+                ]
+            );
+            $output .= ob_get_clean();
+        }
+        echo json_encode( 
+            [
+                'output' => $output
+            ]
+        );
+    }
 }

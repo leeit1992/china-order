@@ -100,4 +100,32 @@ class OrderController extends baseController
 
         redirect(url('/admcp/detail-order/' . $request->get('avt_oder_id')));
     }
+
+    /**
+     * Handle filter Order
+     * 
+     * @param  Request $request POST | GET
+     * @return json
+     */
+    public function ajaxOrderManage(Request $request)
+    {
+        $output = '';
+        if( !empty( $request->get('formData') ) ) {
+            parse_str($request->get('formData'), $formData);
+            ob_start();
+            $output .= View(
+                'backend/order/order-manageJs.tpl',
+                [
+                    'orders'  => $this->mdOrder->searchByAdmcp( $formData ),
+                    'apiHandlePrice' => ApiHandlePrice::getInstance()
+                ]
+            );
+            $output .= ob_get_clean();
+        }
+        echo json_encode( 
+            [
+                'output' => $output
+            ]
+        );
+    }
 }
