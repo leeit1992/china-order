@@ -47,6 +47,7 @@ $route->get('/user-tool/user-update-profile', 'Frontend\UserController@userUpdat
 $route->get('/user-tool/user-info', 'Frontend\UserController@userInfo');
 
 $route->post('/user-tool/validateLogin', 'Frontend\UserController@validateLogin');
+$route->post('/user-tool/changePass', 'Frontend\UserController@changePass');
 
 /*=====  End of User  ======*/
 
@@ -92,8 +93,10 @@ $route->get('/admcp', 'Backend\MainController@main');
 
 $route->get('/admcp/login', 'Backend\UserController@login');
 $route->get('/admcp/logout', 'Backend\UserController@logout');
+$route->get('/admcp/change-pass', 'Backend\UserController@changePassword');
 
 $route->post('/admcp/validateLogin', 'Backend\UserController@validateLogin');
+$route->post('/admcp/handleChangePass', 'Backend\UserController@handleChangePass');
 
 /*=====  End of Admin Login  ======*/
 

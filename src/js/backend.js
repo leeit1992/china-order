@@ -6,7 +6,7 @@
             return re.test(email);
         },
         validateStringSearch: function(string) {
-            var re = /^[A-Za-z0-9][A-Za-z0-9]*$/;
+            var re = /^[A-Za-z0-9\-][A-Za-z0-9\-]*$/;
             return re.test(string);
         },
         validateDateSearch: function(string) {

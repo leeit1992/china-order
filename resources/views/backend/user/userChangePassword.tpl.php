@@ -33,8 +33,8 @@
                         }
                     ?>
 			        <div class="card-body">
-			            <form action="<?php echo url('/user-tool/changePass') ?>" method="POST">
-			            	<input type="hidden" name="avt_id" value="<?php  echo Session()->get('avt_user_id');  ?>">
+			            <form action="<?php echo url('/admcp/handleChangePass') ?>" method="POST">
+			            	<input type="hidden" name="avt_id" value="<?php  echo Session()->get('avt_admin_user_id');  ?>">
 			                <div class="form-group row">
 			                    <label class="col-sm-3 form-control-label">Mật khẩu cũ (*)</label>
 			                    <div class="col-sm-9">

@@ -145,28 +145,6 @@ class UserModel extends AtlModel
 	}
 
 	/**
-	 * List role user.
-	 * 
-	 * @param  int 		$roleKey Level of role
-	 * @return string | array 
-	 */
-	public function getRoleUser( $roleKey = null ){
-		$roles = [
-			'admin' => 'Administrator',
-			'operator' => 'Operator',
-			'sale' => 'Sale',
-			'act' => 'Accountant',
-			'rect' => 'Revenue expenditure accounting',
-		];
-
-		if( null !== $roleKey ){
-			return isset($roles[$roleKey]) ? $roles[$roleKey] : 'No Role';
-		}
-
-		return $roles;
-	}
-
-	/**
 	 * Handle get all user by meta key and meta value.
 	 * 
 	 * @param  string $metakey   Meta key of user.
@@ -221,35 +199,21 @@ class UserModel extends AtlModel
 		]);
 	}
 
-	/**
-	 * Handle search by key
+		/**
+	 * Check pass.
 	 * 
-	 * @param  string $key  Key search value.
-	 * @return void
+	 * @param  int $id   Account user.
+	 * @param  [string] $pass  Account pass.
+	 * @return [type]        [description]
 	 */
-	public function searchBy( $key ){
-		$listUser =  $this->db->select(
-			$this->table,
-			'*',
-			[
-				"user_email[~]" => $key,
-				"user_name[~]"  => $key,
-			]
-		);
-
-		$argsUsers = array();
-
-		foreach ($listUser as $user) {
-			$userMeta = $this->getAllMetaData( $user['id'] );
-
-			foreach ($userMeta as $uMkey => $uMValue) {
-						$user[$uMkey] = $uMValue;
-					}
-
-				$argsUsers[] = $user;
-		}
-
-		return $argsUsers;
+	public function checkPassword($id, $pass){
+		return $this->db->select(
+			$this->table, 
+				["id", "user_name", "user_email"], 
+				[
+					"id"    => $id,
+					"user_password" => $pass,
+				]
+			);
 	}
-
 }

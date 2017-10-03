@@ -89,6 +89,8 @@ class UserController extends baseController
     {
         $this->userAccess();
         $this->loadTemplate('user/user-update.tpl', [
+            'noticeSuccess' => Session()->getFlashBag()->get('noticeSuccess'),
+            'noticeError' => Session()->getFlashBag()->get('noticeError')
         ], ['path' => 'frontend/userTool/']);
     }
 
@@ -99,5 +101,46 @@ class UserController extends baseController
             'userInfo' => $this->mdUser->getUserBy('id', Session()->get('avt_user_id')),
             'apiHandlePrice' => ApiHandlePrice::getInstance()
         ], ['path' => 'frontend/userTool/']);
+    }
+
+    public function changePass(Request $request)
+    {
+        $validator = new Validation;
+        $validator->add(
+            [
+                'avt_pass_old:Password Old'   => 'required | minlength(4)',
+                'avt_pass:Password'   => 'required | minlength(4)',
+                'avt_pass_confirm:Confirm password' => 'required | minlength(4) | match(item=avt_pass)',
+            ]
+        );
+
+        $error = [];
+
+        if ($validator->validate($_POST)) {
+            $user = new UserModel();
+
+            $checkUser = $user->checkPassword($request->get('avt_id'), md5($request->get('avt_pass_old')));
+            
+            if (!empty($checkUser)) {
+                $user->save( 
+                    [
+                        'user_password' => md5( $request->get('avt_pass') ),
+                    ],
+                    $request->get('avt_id')
+                );
+                Session()->getFlashBag()->set('noticeSuccess', 'Change password succes !');
+                redirect(url('/user-tool/user-update-profile'));
+            } else {
+                $message[] = 'Password old not match !';
+            }
+        } else {
+            foreach ($validator->getAllErrors() as $value) {
+                $message[] = $value;
+            }
+        }
+        if (!empty($message)) {
+            Session()->getFlashBag()->set('noticeError', $message);
+            redirect(url('/user-tool/user-update-profile'));
+        }
     }
 }

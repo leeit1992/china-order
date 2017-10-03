@@ -6,7 +6,7 @@ return [
 	'database_name' => 'project8',
 	'server' => '127.0.0.1',
 	'username' => 'root',
-	'password' => 'root',
+	'password' => '',
  
 	// [optional]
 	'charset' => 'utf8',
