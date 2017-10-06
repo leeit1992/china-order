@@ -1,6 +1,25 @@
 <?php
     $orderCode = $orderInfo[0]['order_code'];
+
+    $newListByIdSale = [];
+    foreach ($listItem as $value) {
+        $newListByIdSale[$value['order_item_seller_id']][] = $value;
+    }
+
 ?>
+<style type="text/css">
+    .atl-input-group-btn{
+        width: 90px;
+    }
+
+    .atl-input-group-btn button{
+        font-size: 12px;
+        padding: 0;
+    }
+    .atl-order-fix-input{
+        font-size: 13px;
+    }
+</style>
 <div id="page-user-tool-cart">
     <!-- Page Header-->
     <header class="page-header">
@@ -14,21 +33,27 @@
             <!-- Project-->
             <div class="project">
                 <form action="<?php echo url('/admcp/update-order') ?>" method="POST">
+                <?php 
+                foreach ($newListByIdSale as $_listItem): 
+                    $genKey = uniqid();
+                    $name = 'avt_bill['.$genKey.']';
+                    $listOrderItem = [];
+                ?>
+                    
                 <div class="avt-group-item bg-white has-shadow">
-                    <!-- <div class="avt-row-sale">
+                    <div class="avt-row-sale">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="checkbox" value="" class="checkbox-template avt-checkbox-primary-js">
-                               <label> Người bán: <?php //echo $carts[0]['seller_name']; ?> </label>
+                               <label> Người bán: <?php echo $_listItem[0]['order_item_seller']; ?> </label>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <?php
                         $totalPrice = 0;
                         $countItem = 0;
                         $hasPurchase = 0;
 
-                    foreach ($listItem as $value) :
+                    foreach ($_listItem as $value) :
                         $dataItem = json_decode($value['order_item_content'], true);
 
                         $colorSize = [];
@@ -45,6 +70,7 @@
                         $totalPrice += $dataItem['item_price'] * $dataItem['quantity'];
                         $countItem += $dataItem['quantity'];
                         $hasPurchase += $value['order_item_real_purchase'];
+                        $listOrderItem[] = $value['id'];
                     ?>
                     <div class="row" id="item-<?php echo $dataItem['id'] ?>">
                     <div class="left-col col-lg-4 d-flex align-items-center justify-content-between">
@@ -91,10 +117,12 @@
                     <div class="form-group">
                         <label class="form-control-label">Tổng </label>
                         <p id="price-item-<?php echo $value['id'] ?>"><?php echo $apiHandlePrice->formatPrice($dataItem['item_price'] * $dataItem['quantity']) ?></p>
+
+                        <input type="hidden" name="<?php echo $name ?>[order_item_id][]" value="<?php echo $value['id'] ?>">
                     </div>
                     </div>
                     <br>
-                    <div class="right-col col-lg-6 align-items-center" style="margin-top: 10px;">
+                    <div class="right-col col-lg-12 align-items-center" style="margin-top: 10px;">
                         <div class="form-group">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Ghi Chú" value="<?php echo $dataItem['comment'] ?>">
@@ -104,22 +132,60 @@
                             </div>
                         </div>
                     </div>
-                    <div class="right-col col-lg-6 align-items-center" style="margin-top: 10px;">
-
-                        
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Mã vận đơn" value="">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-primary">Mã vận đơn</button>
-                                </span>
+                    </div>
+                    <?php endforeach; ?>
+                    <hr>
+                    <?php
+                        $infoBill = $mdBillofladingModel->getBy('general_id', implode('-', $listOrderItem));
+                    ?>
+                    <div class="row">
+                        <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control op-datepicker atl-order-fix-input" name="<?php echo $name ?>[date]" placeholder="Ngày Hàng Về" value="<?php echo isset( $infoBill[0]['day_in_stock'] ) ? $infoBill[0]['day_in_stock'] : '' ?>">
+                                    <span class="input-group-btn atl-input-group-btn">
+                                        <button type="button" class="btn btn-primary">Ngày Hàng Về</button>
+                                    </span>
+                                </div>
                             </div>
                         </div>
-
+                        <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control atl-order-fix-input" name="<?php echo $name ?>[weight]" placeholder="Cân Nặng" value="<?php echo isset( $infoBill[0]['weight'] ) ? $infoBill[0]['weight'] : '' ?>">
+                                    <span class="input-group-btn atl-input-group-btn">
+                                        <button type="button" class="btn btn-primary">KG</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control atl-order-fix-input" name="<?php echo $name ?>[price]" placeholder="Thành Tiền" value="<?php echo isset( $infoBill[0]['price'] ) ? $infoBill[0]['price'] : '' ?>">
+                                    <span class="input-group-btn atl-input-group-btn">
+                                        <button type="button" class="btn btn-primary">VNĐ</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control atl-order-fix-input" name="<?php echo $name ?>[code]" placeholder="Mã vận đơn" value="<?php echo isset( $infoBill[0]['code'] ) ? $infoBill[0]['code'] : '' ?>">
+                                    <input type="hidden" name="<?php echo $name ?>[order_id]" value="<?php echo $_listItem[0]['order_id'] ?>">
+                                    <input type="hidden" name="<?php echo $name ?>[shop_name]" value="<?php echo $_listItem[0]['order_item_seller'] ?>">
+                                    <input type="hidden" name="<?php echo $name ?>[check_order_item_id]" value="<?php echo implode('-', $listOrderItem) ?>">
+                                    <span class="input-group-btn atl-input-group-btn">
+                                        <button type="button" class="btn btn-primary">Mã vận đơn</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                    <?php                                                                                                                         endforeach; ?>
+                    
                 </div>
+                <?php endforeach ?>
               
                 <div class="row bg-gray has-shadow">
                     <div class="right-col col-lg-12">
@@ -181,8 +247,7 @@
                                             <div class="i-checks">
                                                 <input id="avt_status_4" <?php echo checked($orderInfo[0]['order_buy_status'], 3); ?> name="avt_has_end" value="1" type="checkbox" class="checkbox-template">
                                                 <label for="avt_status_4">Hết hàng</label>
-                                            </div>
-                                           
+                                            </div>    
                                         </div>
                                     </td>
                                 </tr>

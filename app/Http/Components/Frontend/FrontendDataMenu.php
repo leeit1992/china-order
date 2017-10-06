@@ -82,18 +82,12 @@ class FrontendDataMenu
             'transport' => [
                 'label'   => 'Vận Chuyển',
                 'icon'    => '<i class="fa fa-truck"></i>',
-                'conditionOpen' => [''],
+                'conditionOpen' => ['TransportController'],
                 'display' => '',
                 'submenu' => [
                     [
                         'label' => 'Danh sách vận chuyển',
-                        'link'  => url('/sheet'),
-                        'display' => '',
-                        'conditionOpen' => [''],
-                    ],
-                    [
-                        'label' => 'Giỏ hàng',
-                        'link'  => url('/sheet'),
+                        'link'  => url('/user-tool/manage-transport'),
                         'display' => '',
                         'conditionOpen' => [''],
                     ]

@@ -81,6 +81,14 @@ $route->get('/user-tool/ajax-userT-revenueExpen-manage', 'Frontend\MoneyControll
 /*=====  End of Money  ======*/
 
 
+/*=================================
+=            Transport            =
+=================================*/
+$route->get('/user-tool/manage-transport', 'Frontend\TransportController@manageList');
+
+
+/*=====  End of Transport  ======*/
+
 
 
 /**

@@ -19,10 +19,12 @@
             enqueueStyle(
                 array(
                         'bootstrap'  => assets('frontend/user-tool/css/bootstrap.min.css'),
+                        'jquery-ui'  => assets('backend/jquery-ui/jquery-ui.min.css'),
                         'default'  => assets('frontend/user-tool/css/style.default.css'),
                         'main'  => assets('frontend/user-tool/css/custom.css'),
                         'icons'  => assets('frontend/user-tool/css/icons.css'),
                         'user-custom'  => assets('frontend/user-tool/css/user-custom.css'),
+
                     )
             );
         ?>

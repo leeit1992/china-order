@@ -128,15 +128,16 @@ class CartController extends baseController
                 'user_id' => Session()->get('avt_user_id'),
             ]);
 
-            foreach ($listCart as $carts) {
+            foreach ($listCart as $key => $carts) {
                 foreach ($carts as $value) {
                     $this->mdOrderItem->save([
                         'order_item_content' => json_encode($value),
                         'order_item_quantity' => $value['quantity'],
-                        'order_item_seller' => $value['seller_name'],
+                        'order_item_seller' => $this->getSaleName( $value['seller_name'] ),
                         'order_item_real_purchase' => 0,
                         'order_item_status' => 1,
                         'order_id' => $lastId,
+                        'order_item_seller_id' => $key
                     ]);
                 }
             }
@@ -144,5 +145,18 @@ class CartController extends baseController
 
         redirect(url('/user-tool/order-success/'. $lastId));
         //Session()->set('avt_cart', []);
+    }
+
+    public function getSaleName( $name ){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'http://ddecode.com/hexdecoder/');
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 'text1='.$name);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $server_output = curl_exec($ch);
+        curl_close($ch);
+        preg_match_all('/<textarea cols=90 rows=10 name=text1>(.*)<\/textarea>/i', $server_output, $matches);
+
+        return isset($matches[1][0]) ?  html_entity_decode($matches[1][0]) : $name;
     }
 }

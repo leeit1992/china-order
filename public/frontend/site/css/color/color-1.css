@@ -1,0 +1,338 @@
+#navigation.nav-ver2.is-sticky ul > li > ul > li a:hover:before,
+#navigation.nav-ver2.is-sticky ul > li > ul > li a:hover:after {
+    background: #f1c40f;
+}
+#navigation.nav-ver2.is-sticky ul > li:hover > ul:before {
+    border-bottom-color: #f1c40f;
+}
+
+
+.social-nav li a:hover {
+    color: #f1c40f\9;
+    -webkit-text-shadow: 0 -20px 0 rgba(0,0,0,0), 0 0 0 #f1c40f;
+    -moz-text-shadow: 0 -20px 0 rgba(0,0,0,0), 0 0 0 #f1c40f;
+    text-shadow: 0 -20px 0 rgba(0,0,0,0), 0 0 0 #f1c40f;
+}
+
+#navigation ul > li:hover > ul:before {
+    border-bottom-color: #f1c40f;
+}
+
+#navigation ul > li > ul > li:first-child {
+    border-top: 2px solid #f1c40f;
+}
+
+#team figcaption ul li a:hover {
+    color: #f1c40f\9;
+    -webkit-text-shadow: 0 -20px 0 rgba(0,0,0,0), 0 0 0 #f1c40f;
+    -moz-text-shadow: 0 -20px 0 rgba(0,0,0,0), 0 0 0 #f1c40f;
+    text-shadow: 0 -20px 0 rgba(0,0,0,0), 0 0 0 #f1c40f;
+}
+
+#work #filters li a.select-filter {
+    background: #f1c40f !important;
+    border: 1px solid #f1c40f !important;
+}
+
+.pricing-table .row .inner h2:before {
+    border-top-color: #f1c40f;
+}
+
+
+#owl-twitter .item ul li a:hover {
+    color: #f1c40f\9;
+    -webkit-text-shadow: 0 -20px 0 rgba(0,0,0,0), 0 0 0 #f1c40f;
+    -moz-text-shadow: 0 -20px 0 rgba(0,0,0,0), 0 0 0 #f1c40f;
+    text-shadow: 0 -20px 0 rgba(0,0,0,0), 0 0 0 #f1c40f;
+}
+
+#services article .inner {
+    border-bottom: 3px solid #f1c40f;
+}
+
+
+#owl-lasted-post .item .caption {
+    border-bottom: 3px solid #f1c40f !important;
+}
+
+#footer-wrap .social li a .icofont:hover {
+    background: #f1c40f;
+    border: 1px solid #f1c40f;
+}
+
+
+
+@media screen and (max-width: 992px) {
+    #navigation.nav-ver2 ul li:first-child {
+        border-top: 2px solid #f1c40f;
+    }
+    #navigation.nav-ver2 .menu-mobile-active p,
+    #navigation.nav-ver2 .menu-mobile-active p:before,
+    #navigation.nav-ver2 .menu-mobile-active p:after,
+    #navigation.nav-ver2 ul li a:hover:before,
+    #navigation.nav-ver2 ul li a:hover:after {
+        background: #f1c40f !important;
+    }
+}
+
+
+
+
+
+/* Dark theme */
+
+#about.dark .fa {
+    background: #f1c40f;
+    border: 6px solid #f1c40f;
+}
+
+#our-office-dark .open-map:hover:before,
+#our-office-dark .open-map.open-map-active:before {
+    border-top-color: #f1c40f;
+}
+
+
+
+@media screen and (max-width: 1199px) {
+    #navigation.nav-ver1 ul li:first-child {
+        border-top: 2px solid #f1c40f;
+    }
+    #navigation.nav-ver1 .menu-mobile-active p,
+    #navigation.nav-ver1 .menu-mobile-active p:before,
+    #navigation.nav-ver1 .menu-mobile-active p:after {
+        background: #f1c40f !important;
+    }
+    #navigation.nav-ver1 ul li a:hover:before,
+    #navigation.nav-ver1 ul li a:hover:after {
+        background: #f1c40f;
+    }
+}
+
+
+
+#owl-twitter .owl-controls .owl-prev:hover,
+#owl-testimonials .owl-controls .owl-prev:hover,
+#owl-twitter .owl-controls .owl-next:hover,
+#owl-testimonials .owl-controls .owl-next:hover {
+    border: 1px solid #f1c40f;
+    color: #f1c40f;
+}
+#about.dark .fa {
+    background: #f1c40f;
+    border: 6px solid #f1c40f;
+}
+
+
+#our-office-dark .open-map:hover:before,
+#our-office-dark .open-map.open-map-active:before {
+    border-top-color: #f1c40f;
+}
+
+#about.ver3 .fa {
+    background: #f1c40f;
+    border: 6px solid #f1c40f;
+}
+
+.team-list article .caption,
+#pricing-ver3 .row .inner {
+    border-bottom: 3px solid #f1c40f;
+}
+
+#pricing-ver3 .row .inner h2:before {
+    border-top-color: #f1c40f;
+}
+#pricing-ver3 .row .inner h3 {
+    border: 3px solid #f1c40f;
+    color: #f1c40f;
+}
+#pricing-ver3 .row .inner:hover {
+    background: #f1c40f;
+    border-color: #f1c40f;
+}
+
+#navigation ul li:hover > a,
+#navigation ul li a:hover,
+#navigation  .current-page-item > a,
+#navigation.nav-ver2.is-sticky ul li.current-page-item a {
+    color: #f1c40f !important;
+}
+#owl-text .item h3 span,
+#team figcaption h3,
+#about article .icofont,
+#fun-facts .col .more-ct,
+#twitter .icofont,
+#services article .left-info .icofont,
+#testimonials .fa,
+#owl-lasted-post .item .meta span,
+#owl-lasted-post .item .meta span:after,
+#news-letter header .icofont,
+#news-letter form input[type="text"],
+#footer-wrap .copyright .icofont,
+#services-dark.dark article .icofont,
+#scroll-top,
+#our-office-dark article a,
+#our-office-dark article p,
+#header-wrap.ver3 h2 span,
+#header-wrap.ver3 h3.tt1 span,
+#about.ver3 article:hover h3,
+#our-skill p.text span,
+.team-list article h4,
+#team-ver3 .social li a .fa:hover,
+#pricing-ver3 .row .inner p,
+#pricing-ver3 .row .inner h3 span:before,
+#services.ver3 article .top-info .icofont,
+.feature-list article:hover .fa,
+.pricing-table.style-1 .row .inner p,
+.pricing-table.style-2.dark .row .inner h3,
+.feature-list.style-1 article:hover h3   {
+    color: #f1c40f;
+}
+
+#team figure .head-link .icofont,
+#work-wrap article .icofont,
+.pricing-table.style-2 .row .inner:hover h2,
+#client,
+#owl-lasted-post .item .icofont,
+#owl-lasted-post .item .icofont-view,
+#owl-lasted-post .item .caption a:after,
+#news-letter form button,
+#navigation ul > li > ul > li a:hover:before,
+#navigation ul > li > ul > li a:hover:after,
+#do-you-have-an-ideas:after,
+#navigation.nav-ver1.is-sticky ul > li > ul > li a:hover:before,
+#navigation.nav-ver1.is-sticky ul > li > ul > li a:hover:after,
+#about.dark .fa:after,
+#lasted-post.dark #owl-lasted-post .owl-controls .owl-page span:hover:after,
+#lasted-post.dark #owl-lasted-post .owl-controls .owl-page.active span:after,
+#navigation.nav-ver1.is-sticky ul > li > ul > li a:hover:before,
+#navigation.nav-ver1.is-sticky ul > li > ul > li a:hover:after,
+#lasted-post.dark #owl-lasted-post .owl-controls .owl-page span:hover:after,
+#lasted-post.dark #owl-lasted-post .owl-controls .owl-page.active span:after,
+#owl-banner .owl-controls .owl-prev:hover,
+#owl-banner .owl-controls .owl-next:hover,
+.header-section-ver3 h2:before,
+#about.ver3 .fa:after,
+.skillbar-run,
+#pricing-ver3 .row .inner a,
+#services .services-link a,
+.pricing-table .row .inner a,
+.pricing-table.style-2.dark .row .inner h3 span:before {
+    background: #f1c40f;
+}
+
+
+
+
+
+/*blog*/
+
+.blog-title .icofont {
+    background-color: #f1c40f;
+}
+.blog-title ul li {
+    color: #f1c40f;
+}
+.blog-title ul li a {
+    color: #f1c40f;
+}
+.blog-item .blog-read-more:hover {
+    background-color: #f1c40f;
+}
+.blog-item .blog-quote {
+    border-bottom: 3px solid #f1c40f;
+}
+
+.blog-item .blog-link {
+    background-color: #f1c40f;
+}
+.blog-item .blog-text-post a h2 span {
+    color: #f1c40f;
+}
+ul.ul-category li a:hover {
+    color: #f1c40f;
+}
+.recent-post ul.ul-category li a:hover {
+    color: #f1c40f;
+}
+
+.title-right-blog span {
+    color: #f1c40f;
+}
+.blog-leave-reply button:hover {
+    background-color: #f1c40f;
+}
+
+#owl-blog-list .owl-buttons div:hover {
+    background-color: #f1c40f;
+}
+
+
+
+
+
+
+.owl-box .owl-controls .owl-prev:hover,
+.owl-box .owl-controls .owl-next:hover {
+    background: #f1c40f !important;
+}
+
+.w-caption .w-right .inner {
+    border-bottom: 2px solid #f1c40f;
+}
+
+
+.w-caption .w-right .w-row ul li:before {
+    background: #f1c40f;
+}
+.w-caption .w-right .client p {
+    color: #f1c40f;
+}
+
+.w-caption .w-right .link:hover {
+    background: #f1c40f;
+}
+.dark .w-box .w-right .inner {
+    border-bottom: 2px solid #f1c40f;
+}
+
+#header-wrap .flex-prev:hover,
+#header-wrap .flex-next:hover,
+.contact-form button:hover {
+    background: #f1c40f;
+}
+
+
+/*  Edit */
+/* Pricing table */
+.pricing-table.style-1 .row .inner h3 {
+    border-color: #f1c40f;
+    color: #f1c40f;
+}
+.pricing-table .row .inner h3 span:before {
+    color: #f1c40f;
+}
+.pricing-table .row .inner {
+     border-bottom-color: #f1c40f;
+}
+.pricing-table.style-1 .row .inner:hover {
+    background-color: #f1c40f;
+    border-color: #f1c40f;
+}   
+.dark .feature-list.style-2 article .top-info {
+    border-bottom-color #f1c40f;
+}
+.feature-list .icofont,
+.start-project.dark .our-office p,
+.our-office p .icofont {
+    color: #f1c40f;
+}
+.start-project .our-office p {
+    color:#000;
+}
+.feature-list .fa:after {
+    background: #f1c40f;
+}
+.feature-list .fa {
+    background: #f1c40f;
+    border-color: #f1c40f;
+}

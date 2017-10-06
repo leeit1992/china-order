@@ -520,10 +520,10 @@
 	"buffers":
 	[
 		{
-			"file": "resources/views/backend/order/order-manage.tpl.php",
+			"file": "app/Http/Controllers/Frontend/CartController.php",
 			"settings":
 			{
-				"buffer_size": 6090,
+				"buffer_size": 6953,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -532,16 +532,25 @@
 			"file": "resources/views/backend/order/detail-order.tpl.php",
 			"settings":
 			{
-				"buffer_size": 11713,
+				"buffer_size": 12491,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/frontend/userTool/order/detail-order.tpl.php",
+			"file": "src/js/backend.js",
 			"settings":
 			{
-				"buffer_size": 13795,
+				"buffer_size": 3552,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/js/admcp-page-order.js",
+			"settings":
+			{
+				"buffer_size": 1983,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -650,24 +659,31 @@
 		"/Applications/MAMP/htdocs/project8",
 		"/Applications/MAMP/htdocs/project8/app",
 		"/Applications/MAMP/htdocs/project8/app/Http",
-		"/Applications/MAMP/htdocs/project8/app/Http/Components",
-		"/Applications/MAMP/htdocs/project8/app/Http/Components/Backend",
-		"/Applications/MAMP/htdocs/project8/app/Http/Components/Frontend",
 		"/Applications/MAMP/htdocs/project8/app/Http/Controllers",
 		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Backend",
 		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend",
 		"/Applications/MAMP/htdocs/project8/app/Model",
+		"/Applications/MAMP/htdocs/project8/config",
 		"/Applications/MAMP/htdocs/project8/resources",
 		"/Applications/MAMP/htdocs/project8/resources/views",
 		"/Applications/MAMP/htdocs/project8/resources/views/backend",
 		"/Applications/MAMP/htdocs/project8/resources/views/backend/order",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/cart",
 		"/Applications/MAMP/htdocs/project8/src",
 		"/Applications/MAMP/htdocs/project8/src/js"
 	],
 	"file_history":
 	[
-		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/UserController.php",
 		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/order/detail-order.tpl.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/backend/order/detail-order.tpl.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/backend/order/order-manage.tpl.php",
+		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/cart/listItem.tpl.php",
+		"/Applications/MAMP/htdocs/project-8/index.html",
+		"/Applications/MAMP/htdocs/project8/resources/views/atlFramework.php",
+		"/Applications/MAMP/htdocs/project8/config/database.php",
+		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/UserController.php",
 		"/Applications/MAMP/htdocs/project8/app/Http/routes.php",
 		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/OrderController.php",
 		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/MoneyController.php",
@@ -676,15 +692,12 @@
 		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Backend/MoneyController.php",
 		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/user/user-info.tpl.php",
 		"/Applications/MAMP/htdocs/project8/app/Model/ExpenditureModel.php",
-		"/Applications/MAMP/htdocs/project8/resources/views/backend/order/detail-order.tpl.php",
 		"/Applications/MAMP/htdocs/project8/app/Model/OrderModel.php",
 		"/Applications/MAMP/htdocs/project8/app/Model/UserModel.php",
 		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/order/order-notice.tpl.php",
-		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/cart/listItem.tpl.php",
 		"/Applications/MAMP/htdocs/project8/app/Http/Controllers/Frontend/CartController.php",
 		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/recharge/recharge.tpl.php",
 		"/Applications/MAMP/htdocs/project8/app/Model/BankModel.php",
-		"/Applications/MAMP/htdocs/project8/resources/views/backend/order/order-manage.tpl.php",
 		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/order/order-manage.tpl.php",
 		"/Applications/MAMP/htdocs/chromex/background.js",
 		"/Applications/MAMP/htdocs/project8/resources/views/backend/user/userManage.tpl.php",
@@ -759,7 +772,6 @@
 		"/Applications/MAMP/htdocs/project-8/user/user-custom.css",
 		"/Applications/MAMP/htdocs/project8/resources/views/frontend/userTool/layout",
 		"/Applications/MAMP/htdocs/project8/config/define.php",
-		"/Applications/MAMP/htdocs/project8/config/database.php",
 		"/Applications/MAMP/htdocs/project8/package.json",
 		"/Applications/MAMP/htdocs/travel/app/Http/Controllers/Backend/SettingsController.php",
 		"/Users/letrungha/Downloads/dulieu.sql",
@@ -791,9 +803,7 @@
 		"/Applications/MAMP/htdocs/travel/app/Http/Components/Backend/AdminDataMenu.php",
 		"/Applications/MAMP/htdocs/travel/resources/views/backend/location/layout/manageLocationJs.tpl.php",
 		"/Applications/MAMP/htdocs/travel/resources/views/backend/location/layout/addLocation.tpl.php",
-		"/Applications/MAMP/htdocs/travel/src/js/page-admin-location.js",
-		"/Applications/MAMP/htdocs/travel/app/Http/Controllers/Backend/LocationController.php",
-		"/Applications/MAMP/htdocs/travel/resources/views/backend/location/manageLocation.tpl.php"
+		"/Applications/MAMP/htdocs/travel/src/js/page-admin-location.js"
 	],
 	"find":
 	{
@@ -1065,24 +1075,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "resources/views/backend/order/order-manage.tpl.php",
+					"file": "app/Http/Controllers/Frontend/CartController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6090,
+						"buffer_size": 6953,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5108,
-								5108
+								6200,
+								6203
 							]
 						],
 						"settings":
@@ -1093,10 +1103,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 734.0,
+						"translation.y": 1576.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1105,15 +1115,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11713,
+						"buffer_size": 12491,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6148,
-								6148
+								6077,
+								6089
 							]
 						],
 						"settings":
@@ -1124,41 +1134,71 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1289.0,
+						"translation.y": 1508.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/js/backend.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3552,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3287,
+								3287
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript Ultimate/javascript.dom.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 597.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "resources/views/frontend/userTool/order/detail-order.tpl.php",
+					"buffer": 3,
+					"file": "src/js/admcp-page-order.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13795,
+						"buffer_size": 1983,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								427,
-								427
+								336,
+								336
 							]
 						],
 						"settings":
 						{
 							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript Ultimate/javascript.dom.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]

@@ -7,6 +7,7 @@ use App\Http\Components\Backend\Controller as baseController;
 
 use App\Model\OrderModel;
 use App\Model\OrderItemModel;
+use App\Model\BillofladingModel;
 
 class OrderController extends baseController
 {
@@ -18,6 +19,7 @@ class OrderController extends baseController
 
         $this->mdOrder = new OrderModel;
         $this->mdOrderItem = new OrderItemModel;
+        $this->mdBillofladingModel = new BillofladingModel;
     }
 
     public function orderSuccess()
@@ -54,6 +56,7 @@ class OrderController extends baseController
         $orderInfo = $this->mdOrder->getBy('id', $id);
 
         $this->loadTemplate('order/detail-order.tpl', [
+            'mdBillofladingModel' => $this->mdBillofladingModel,
             'orderInfo' => $orderInfo,
             'listItem' => $listItem,
             'apiHandlePrice' => ApiHandlePrice::getInstance()
@@ -98,7 +101,28 @@ class OrderController extends baseController
 
         $this->mdOrder->save($argsSave, $request->get('avt_oder_id'));
 
-        redirect(url('/admcp/detail-order/' . $request->get('avt_oder_id')));
+        if( $request->get('avt_bill') ) {
+            foreach ($request->get('avt_bill') as $key => $value) {
+
+                $checkBillItem = $this->mdBillofladingModel->getBy('general_id', $value['check_order_item_id']);
+
+                $this->mdBillofladingModel->save(
+                    [
+                        'day_in_stock' => $value['date'],
+                        'code' => $value['code'],
+                        'order_id' => $value['order_id'],
+                        'shop_name' => $value['shop_name'],
+                        'order_item_id' => json_encode($value['order_item_id']),
+                        'weight' => $value['weight'],
+                        'price' => $value['price'],
+                        'general_id' => implode('-',$value['order_item_id']),
+                    ],
+                    isset( $checkBillItem[0]['id'] ) ? $checkBillItem[0]['id'] : null
+                );
+            }
+        }
+
+       redirect(url('/admcp/detail-order/' . $request->get('avt_oder_id')));
     }
 
     /**

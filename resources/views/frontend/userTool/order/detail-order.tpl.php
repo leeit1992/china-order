@@ -1,5 +1,11 @@
 <?php
     $orderCode = $orderInfo[0]['order_code'];
+
+    $newListByIdSale = [];
+    foreach ($listItem as $value) {
+        $newListByIdSale[$value['order_item_seller_id']][] = $value;
+    }
+
 ?>
 <div id="page-user-tool-cart">
     <!-- Page Header-->
@@ -14,10 +20,11 @@
             <!-- Project-->
             <div class="project">
                 <form action="<?php echo url('/user-tool/update-order') ?>" method="POST">
-                <div class="avt-group-item bg-white has-shadow">
-                    <?php
+                <?php
                     if (!empty($updateOrderNotice)) {
-                        if ($updateOrderNotice['type']) {
+                        if ($updateOrderNotice['type'
+
+                    ]) {
                             $classNoptice = 'alert-success';
                         } else {
                             $classNoptice = 'alert-danger';
@@ -30,11 +37,16 @@
                         </div>
                         <?php
                     }
-                    ?>
+                ?>
+                <?php 
+                    foreach ($newListByIdSale as $_listItem): 
+                ?>
+                <div class="avt-group-item bg-white has-shadow">
+                                         
                     <div class="avt-row-sale">
                         <div class="form-group">
                             <div class="input-group">
-                               <label> Người bán: 123 </label>
+                               <label> Người bán: <?php echo $_listItem[0]['order_item_seller']; ?> </label>
                             </div>
                         </div>
                     </div>
@@ -43,7 +55,7 @@
                         $countItem = 0;
                         $hasPurchase = 0;
 
-                    foreach ($listItem as $value) :
+                    foreach ($_listItem as $value) :
                         $dataItem = json_decode($value['order_item_content'], true);
 
                         $colorSize = [];
@@ -117,9 +129,9 @@
                     </div>
                     </div>
                     </div>
-                    <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
-              
+                <?php endforeach; ?>
                 <div class="row bg-gray has-shadow">
                     <div class="right-col col-lg-12">
                         <?php
@@ -181,7 +193,7 @@
                                         <b>Đã thanh toán </b> : <?php echo 100 - $dataInfoPay['rest_percent'] ?> % = <?php echo $apiHandlePrice->formatPrice($dataInfoPay['has_pay'], 'vnđ') ?>
                                         <hr>
                                         <b>Số còn lại </b> :  <?php echo $dataInfoPay['rest_percent'] ?> % = <?php echo $apiHandlePrice->formatPrice($dataInfoPay['rest_pay'], 'vnđ') ?>
-                                        <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     endif; ?>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                                 <tr>

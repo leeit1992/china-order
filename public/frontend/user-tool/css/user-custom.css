@@ -25,7 +25,7 @@
     background: #fff;
     border-top: 3px solid #333;
     border-bottom: 1px solid #fff;
-    z-index: 99;
+    z-index: 1;
 }
 
 .tabs a:hover {

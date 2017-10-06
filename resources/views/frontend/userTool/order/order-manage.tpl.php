@@ -16,7 +16,10 @@
                             <form class="form-inline" id="avt-userT-order-form" method="POST">
                                 <div class="row">
                                     <div class="form-group">
-                                        <input type="text" placeholder="Ngày tháng" class="mx-sm-3 form-control" name="avt_userT_order_date">
+                                        <input type="text" placeholder="Ngày tháng" class="mx-sm-3 form-control op-datepicker" name="avt_userT_order_date">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Số lượng" class="mx-sm-3 form-control">
                                     </div>
                                 </div>
 
