@@ -21,6 +21,9 @@
                                     <div class="form-group">
                                         <input type="text" placeholder="Mã đơn hàng" class="mx-sm-3 form-control" name="avt_admcp_order_code">
                                     </div>
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Tên thành viên" class="mx-sm-3 form-control" name="avt_admcp_order_code">
+                                    </div>
                                 </div> 
                                 <div class="row" style="margin-top: 5px;padding-left: 5px;">
                                     <div class="form-group">

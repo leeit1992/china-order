@@ -34,7 +34,7 @@ class OrderController extends baseController
     public function orderManage()
     {
 
-        $listOrder = $this->mdOrder->getAll();
+        $listOrder = $this->mdOrder->getBy('user_id',Session()->get('avt_user_id') );
 
         $notPayment = $this->mdOrder->getBy('order_status', 1);
         $payWaitBuy = $this->mdOrder->getBy('order_status', 2);

@@ -59,8 +59,8 @@
                         $dataItem = json_decode($value['order_item_content'], true);
 
                         $colorSize = [];
-                        if (isset($value['color_size'])) {
-                            $colorSize = explode(';', $value['color_size']);
+                        if (isset($value['property'])) {
+                            $colorSize = explode(';', $value['property']);
 
                             foreach ($colorSize as $keyS => $valueS) {
                                 if (empty($valueS)) {
@@ -69,7 +69,7 @@
                             }
                         }
 
-                        $totalPrice += $dataItem['item_price'] * $dataItem['quantity'];
+                        $totalPrice += $dataItem['price_origin'] * $dataItem['quantity'];
                         $countItem += $dataItem['quantity'];
                         $hasPurchase += $value['order_item_real_purchase'];
                     ?>
@@ -78,12 +78,12 @@
                     <div class="project-title d-flex align-items-center" style="overflow:hidden;">
         
                         <div class="image has-shadow">
-                            <img src="<?php echo $dataItem['item_image'] ?>" class="img-fluid">
+                            <img src="<?php echo urldecode($dataItem['image_origin']) ?>" class="img-fluid">
                         </div>
                         <div class="text">
                             <small>
-                                <a href="<?php echo $dataItem['item_link'] ?>">
-                                    <?php echo substr($dataItem['item_link'], 0, 50); ?>
+                                <a href="<?php echo $dataItem['link_origin'] ?>">
+                                    <?php echo substr($dataItem['link_origin'], 0, 50); ?>
                                 </a>
                             </small>
                             <br>
@@ -94,7 +94,7 @@
                     <div class="right-col col-lg-2 d-flex align-items-center">
                         <div class="form-group">
                             <label class="form-control-label">Giá </label>
-                            <p><?php echo $apiHandlePrice->formatPrice($dataItem['item_price']) ?></p>
+                            <p><?php echo $apiHandlePrice->formatPrice($dataItem['price_origin']) ?></p>
                         </div>
                     </div>
                     <div class="right-col col-lg-2 d-flex align-items-center">
@@ -114,14 +114,14 @@
                     <div class="right-col col-lg-2 d-flex align-items-center">
                     <div class="form-group">
                         <label class="form-control-label">Tổng </label>
-                        <p id="price-item-<?php echo $value['id'] ?>"><?php echo $apiHandlePrice->formatPrice($dataItem['item_price'] * $dataItem['quantity']) ?></p>
+                        <p id="price-item-<?php echo $value['id'] ?>"><?php echo $apiHandlePrice->formatPrice($dataItem['price_origin'] * $dataItem['quantity']) ?></p>
                     </div>
                     </div>
                     <br>
                     <div class="right-col col-lg-12 align-items-center" style="margin-top: 10px;">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Ghi Chú" value="<?php echo $dataItem['comment'] ?>">
+                            <input type="text" class="form-control" placeholder="Ghi Chú" value="<?php echo isset( $value['comment'] ) ? $value['comment'] : '' ?>">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-primary">Ghi Chú</button>
                             </span>

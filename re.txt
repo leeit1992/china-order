@@ -1,0 +1,13 @@
+- thêm quyền được nợ cho tài khoản
+- sửa lại link 1688 | oke
+- thêm chọn toàn bộ item trong đơn hàng 
+- thêm tab các đơn hàng đã mua. | ADMIN & USER =| 50%
+- form chat
+- phi ship noi dia theo shop.
+- them o chon gia so can.
+- doi ngay hang ve => du kien ngay hang ve
+- them xoa quan ly nap tien.
+- them phi ship noi dia va phi can nang trong order detail
+- thêm thông báo trong order detail khi tất toán.
+- them tong kg, tong so dau bao, tong tien van chuyen.
+- them tong da thanh toan, tong tien da nap, tong con no.

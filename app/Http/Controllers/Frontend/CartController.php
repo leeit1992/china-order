@@ -16,6 +16,39 @@ class CartController extends baseController
 
         $this->mdOrder = new OrderModel();
         $this->mdOrderItem = new OrderItemModel();
+        // var_dump(Session()->get('avt_cart'));
+        // Session()->set('avt_cart', []);
+    }
+
+    public function addToCart2(Request $request)
+    {
+        $cart = Session()->get('avt_cart');
+
+        if (!$cart) {
+            $cart = [];
+        }
+        $keyId = isset($_POST['shop_id']) ? $this->slug($_POST['shop_id']) : $_POST['item_id'];
+
+        $_POST['id'] = uniqid();
+        $_POST['title_origin'] = strip_tags($_POST['title_origin']);
+        $_POST['title_translated'] = strip_tags($_POST['title_translated']);
+        
+        $cart[$keyId][] = $_POST;
+
+        Session()->set('avt_cart', $cart);
+        ?>
+        <div id="box_overlay" style="background: none repeat scroll 0 0 #000000;height: 1000px;left: 0;opacity: 0.5;position: fixed;top: 0;width: 100%; z-index: 2147483646;"></div>
+        <div id="box-confirm-order" style="position:fixed; top:150px; left: 400px;z-index:2147483647;width:400px; border:1px solid #47b200; background:#fff; padding:15px;-moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;">
+            <a style="float:right; width:15px; height: 15px; border:1px solid #DDD; margin-right:2px;background:url('<?php echo assets('frontend/user-tool/img/icon.png') ?>') no-repeat 3px -34px transparent;" id="box-nh-box-close" href="javascript:void(0);" onclick="document.getElementById('box-confirm-order').parentNode.removeChild(document.getElementById('box-confirm-order'));var boxOverlay = document.getElementById('box_overlay');if(boxOverlay != null) {boxOverlay.parentNode.removeChild(boxOverlay);}" data-spm-anchor-id="a220o.1000855.0.0"></a>
+            <div style="background:url('<?php echo assets('frontend/user-tool/img/icon-success.png') ?>') no-repeat 0 0; padding-left:45px;">
+                <h4 style="margin:0 0 10px 0;text-transform:uppercase; color:#47b200">Bạn đã cho sản phẩm vào giỏ hàng thành công</h4>
+                <div>SL: <?php echo $_POST['quantity'] ?>&nbsp&nbsp&nbsp&nbsp&nbsp Giá SP:
+                    <?php echo $_POST['price_origin'] ?> NDT 
+                    <a href="https://localhost:3000/project8/user-tool/cart" style="color:#007cbc; text-decoration:none; float:right" target="_blank">Xem giỏ hàng &raquo;</a>
+                </div>
+            </div>
+        </div>
+        <?php
     }
 
     public function addToCartHttp(Request $request)
@@ -84,7 +117,7 @@ class CartController extends baseController
             foreach ($carts as $keyCart => $cart) {
                 if ($cart['id'] == $request->get('id')) {
                     $listCarts[$keyList][$keyCart]['quantity'] = $request->get('quantity');
-                    $priceItem = $request->get('quantity') * $cart['item_price'];
+                    $priceItem = $request->get('quantity') * $cart['price_origin'];
                 }
             }
         }
@@ -95,7 +128,7 @@ class CartController extends baseController
 
         foreach ($listCarts as $keyList => $carts) {
             foreach ($carts as $keyCart => $cart) {
-                $totalPrice += $cart['item_price'] * $cart['quantity'];
+                $totalPrice += $cart['price_origin'] * $cart['quantity'];
                 $countItem +=  $cart['quantity'];
             }
         }
@@ -133,7 +166,7 @@ class CartController extends baseController
                     $this->mdOrderItem->save([
                         'order_item_content' => json_encode($value),
                         'order_item_quantity' => $value['quantity'],
-                        'order_item_seller' => $this->getSaleName( $value['seller_name'] ),
+                        'order_item_seller' => $this->getSaleName( $value['wangwang'] ),
                         'order_item_real_purchase' => 0,
                         'order_item_status' => 1,
                         'order_id' => $lastId,
@@ -144,7 +177,7 @@ class CartController extends baseController
         }
 
         redirect(url('/user-tool/order-success/'. $lastId));
-        //Session()->set('avt_cart', []);
+        // Session()->set('avt_cart', []);
     }
 
     public function getSaleName( $name ){

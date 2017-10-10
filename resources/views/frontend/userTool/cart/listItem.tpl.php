@@ -24,15 +24,15 @@
                 <div class="form-group">
                     <div class="input-group">
                         <input type="checkbox" value="<?php echo $key ?>" class="checkbox-template avt-checkbox-primary-js">
-                       <label> Người bán: <?php echo $carts[0]['seller_name']; ?> </label>
+                       <label> Người bán: <?php echo $carts[0]['wangwang']; ?> </label>
                     </div>
                 </div>
                 </div>
                 <?php
                 foreach ($carts as $value) :
                     $colorSize = [];
-                    if (isset($value['color_size'])) {
-                        $colorSize = explode(';', $value['color_size']);
+                    if (isset($value['property'])) {
+                        $colorSize = explode(';', $value['property']);
 
                         foreach ($colorSize as $keyS => $valueS) {
                             if (empty($valueS)) {
@@ -42,7 +42,7 @@
                     }
                     
 
-                    $totalPrice += $value['item_price'] * $value['quantity'];
+                    $totalPrice += $value['price_origin'] * $value['quantity'];
                     $countItem += $value['quantity'];
                     ?>
                     <div class="row" id="item-<?php echo $value['id'] ?>">
@@ -52,12 +52,12 @@
                         <input type="checkbox" value="<?php echo $value['item_id'] ?>" class="checkbox-template avt-checkbox-child-js">
                     </div>
                     <div class="image has-shadow">
-                        <img src="<?php echo $value['item_image'] ?>" class="img-fluid">
+                        <img src="<?php echo urldecode($value['image_origin']) ?>" class="img-fluid">
                     </div>
                     <div class="text">
                         <small>
-                            <a href="<?php echo $value['item_link'] ?>">
-                                <?php echo substr($value['item_link'], 0, 50); ?>
+                            <a href="<?php echo $value['link_origin'] ?>">
+                                <?php echo substr($value['link_origin'], 0, 50); ?>
                             </a>
                         </small>
                         <br>
@@ -68,7 +68,7 @@
                 <div class="right-col col-lg-2 d-flex align-items-center">
                     <div class="form-group">
                     <label class="form-control-label">Giá </label>
-                    <p><?php echo $apiHandlePrice->formatPrice($value['item_price']) ?></p>
+                    <p><?php echo $apiHandlePrice->formatPrice($value['price_origin']) ?></p>
                     </div>
                 </div>
                 <div class="right-col col-lg-2 d-flex align-items-center">
@@ -77,19 +77,18 @@
                     <input type="text" value="<?php echo $value['quantity'] ?>" id="quantity-<?php echo $value['id'] ?>" class="quantity-input">
                     <a href="javascript:;" class="increment" cart-id="<?php echo $value['id'] ?>">+</a>
                     </div>
-           
                 </div>
                 <div class="right-col col-lg-2 d-flex align-items-center">
                     <div class="form-group">
                     <label class="form-control-label">Tổng </label>
-                    <p id="price-item-<?php echo $value['id'] ?>"><?php echo $apiHandlePrice->formatPrice($value['item_price'] * $value['quantity']) ?></p>
+                    <p id="price-item-<?php echo $value['id'] ?>"><?php echo $apiHandlePrice->formatPrice($value['price_origin'] * $value['quantity']) ?></p>
                     </div>
                 </div>
                 <br>
                 <div class="right-col col-lg-12 align-items-center" style="margin-top: 10px;">
                     <div class="form-group">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Ghi Chú" value="<?php echo $value['comment'] ?>">
+                        <input type="text" class="form-control" placeholder="Ghi Chú" value="<?php echo isset( $value['comment'] ) ? $value['comment'] : '' ?>">
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-primary">Ghi Chú</button>
                         </span>
@@ -97,9 +96,9 @@
                     </div>
                 </div>
                     </div>
-                    <?php                                                                                                                                                                                                                                                                                                                                                                                                                                  endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
-                <?php                                                                                                                                                                                                                                                                                                                                                                                                                                  endforeach; ?>
+                <?php endforeach; ?>
                
                 <?php if (!empty($listCart)) : ?>
                 <div class="row bg-gray has-shadow">

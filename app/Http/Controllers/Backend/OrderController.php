@@ -59,7 +59,9 @@ class OrderController extends baseController
             'mdBillofladingModel' => $this->mdBillofladingModel,
             'orderInfo' => $orderInfo,
             'listItem' => $listItem,
-            'apiHandlePrice' => ApiHandlePrice::getInstance()
+            'apiHandlePrice' => ApiHandlePrice::getInstance(),
+            'updateOrderNotice' => Session()->getFlashBag()->get('updateOrder'),
+            'getHandle' => isset( $_GET['handle'] ) ? $_GET['handle'] : ''
         ], ['path' => 'backend/']);
     }
 
@@ -121,6 +123,8 @@ class OrderController extends baseController
                 );
             }
         }
+
+        Session()->getFlashBag()->set('updateOrder', ['type' => true, 'notice' => 'Update thông tin thành công.']);
 
        redirect(url('/admcp/detail-order/' . $request->get('avt_oder_id')));
     }

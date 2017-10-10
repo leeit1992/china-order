@@ -40,7 +40,7 @@
 			                				</a>
 			                			</td>
 			                			<td><?php echo $value['day_in_stock'] ?></td>
-			                			<td><?php echo $value['code'] ?></td>
+			                			<td><a href="http://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baidu&wd=449928239221kuaidi&rsv_enter=1&rsv_n=2&rsv_sug3=7&rsv_sug4=483&rsv_sug2=0&inputT=4460"><?php echo $value['code'] ?></a></td>
 			                			<td><?php echo $value['weight'] ?> Kg</td>
 			                			<td><?php echo $value['shop_name'] ?></td>
 			                			<td><?php echo $apiHandlePrice->formatPrice( $value['price'], 'vnđ' ) ?></td>
