@@ -38,6 +38,9 @@
                             <h3 class="h4">Danh sách chi tiêu</h3>
                         </div>
                         <div class="card-body">
+                            <p class="text-right" style="padding-right: 90px;">
+                                TỔNG SỐ TIỀN NỢ: &nbsp;<strong class="text-danger" style="font-size: 20px"><?php echo $apiHandlePrice->formatPrice($total_rest_payment, 'vnđ') ?></strong>
+                            </p>
                             <table class="table">
                                 <thead>
                                     <tr>

@@ -26,8 +26,16 @@ class MoneyController extends baseController
 
     public function rechargeManage()
     {
+        $listRecharge = $this->mdRecharge->getAll();
+        $total_price = 0;
+        foreach ($listRecharge as $items) {
+            if ($items['status'] == 2 && is_numeric($items['price'])) {
+                $total_price += $items['price'];
+            }
+        }
         $this->loadTemplate('recharge/recharge-manage.tpl', [
-            'listRecharge' => $this->mdRecharge->getAll(),
+            'listRecharge' => $listRecharge,
+            'total_price' => $total_price,
             'apiHandlePrice' => ApiHandlePrice::getInstance(),
         ], ['path' => 'frontend/userTool/']);
     }
@@ -73,10 +81,18 @@ class MoneyController extends baseController
 
     public function revenueExpenditure()
     {
+        $listData = $this->mdExpenditure->getAll();
+        $total_rest_payment = 0;
+        foreach ($listData as $items) {
+            if (is_numeric($items['rest_payment'])) {
+                $total_rest_payment += $items['rest_payment'];
+            }
+        }
         $this->loadTemplate('recharge/revenue-expenditure.tpl', [
             'apiHandlePrice' => ApiHandlePrice::getInstance(),
-            'listData' =>  $this->mdExpenditure->getAll(),
-            'mdOrder' =>  $this->mdOrder,
+            'listData' => $listData,
+            'total_rest_payment' => $total_rest_payment,
+            'mdOrder' => $this->mdOrder,
         ], ['path' => 'frontend/userTool/']);
     }
 

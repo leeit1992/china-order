@@ -82,7 +82,72 @@ class UserController extends baseController
 
     public function register()
     {
-        View('frontend/userTool/user/register.tpl');
+        View('frontend/userTool/user/register.tpl', [
+            'noticeSuccess' => Session()->getFlashBag()->get('noticeSuccess'),
+            'noticeError' => Session()->getFlashBag()->get('noticeError')
+        ]);
+    }
+
+    /**
+     * Handle validate form user.
+     * 
+     * @param  Request $request Request POST | GET method
+     * @return void.
+     */
+    public function validateUser( Request $request )
+    {
+        $validator = new Validation;
+        $validator->add (
+            [
+                'avt_user_password:Confirm password' => 'required | minlength(4) | match(item=avt_user_pass)'
+            ]
+        );
+        $message = [];
+        if ( $validator->validate( $_POST ) ) {
+            if ($request->get( 'avt_user_rules' ) == 'on') {
+                $emailExists = $this->mdUser->getUserBy( 'user_email', $request->get( 'avt_user_email' ) );
+                if ( empty( $emailExists ) ) {
+                    $this->mdUser->save( 
+                        [
+                            'user_name'         => $request->get('avt_user_name'),
+                            'user_password'     => $this->isValidMd5( $request->get('avt_user_pass') ) ? $request->get('avt_user_pass') : md5( $request->get('avt_user_pass') ),
+                            'user_email'        => $request->get('avt_user_email'),
+                            'user_registered'   => date("Y-m-d H:i:s"),
+                            'user_status'       => 1,
+                            'user_display_name' => $request->get('avt_user_name'),
+                            'user_role'         => 2,
+                            'user_money'        => 0
+                        ]
+                    );
+                    /**
+                     * Add meta data for user.
+                     */
+                    $userMeta = [
+                        'user_level' => 'normal',
+                        'user_debt'  => 'no'
+                    ];
+                    // Loop add add | update meta data.
+                    foreach ($userMeta as $mtaKey => $metaValue) {
+                        $this->mdUser->setMetaData( $request->get('avt_user_id'), $mtaKey, $metaValue );
+                    }
+
+                    Session()->getFlashBag()->set( 'noticeSuccess', 'Register account succes !' );
+                    redirect( url( '/user-tool/register' ) );
+                } else {
+                    $message[] = 'This account already exists!';
+                }
+            } else {
+                $message[] = 'Please choose accept content rules!';
+            }
+        } else {
+            foreach ( $validator->getAllErrors() as $value ) {
+                $message[] = $value;
+            }
+        }
+        if ( !empty( $message ) ) {
+            Session()->getFlashBag()->set( 'noticeError', $message );
+            redirect( url( '/user-tool/register' ) );
+        }
     }
 
     public function userUpdateProfile()

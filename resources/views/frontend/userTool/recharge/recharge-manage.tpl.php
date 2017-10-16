@@ -13,6 +13,9 @@
 			            <h3 class="h4">Danh Sách Nạp Tiền</h3>
 			        </div>
 			        <div class="card-body">
+			        	<p class="text-right" style="padding-right: 90px;">
+                                TỔNG SỐ TIỀN ĐÃ NẠP: &nbsp;<strong class="text-danger" style="font-size: 20px"><?php echo $apiHandlePrice->formatPrice($total_price, 'vnđ') ?></strong>
+                            </p>
 			            <table class="table">
 			                <thead>
 			                    <tr>
