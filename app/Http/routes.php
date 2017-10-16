@@ -32,9 +32,8 @@ $route->post('/user-tool/addToCartHttp2', 'Frontend\CartController@addToCart2');
 $route->get('/user-tool/cart', 'Frontend\CartController@cartManage');
 $route->post('/user-tool/updateCart', 'Frontend\CartController@updateCart');
 $route->post('/user-tool/add-order', 'Frontend\CartController@addToOrder');
-$route->get('/user-tool/delete-cart', 'Frontend\CartController@deleteCart');
 $route->get('/user-tool/delete-cart/{id}', 'Frontend\CartController@deleteCart');
-
+$route->get('/user-tool/delete-carts/{id}', 'Frontend\CartController@deleteCarts');
 /*=====  End of Cart  ======*/
 
 
