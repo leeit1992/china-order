@@ -21,7 +21,7 @@ class TransportController extends baseController
 
     public function manageList()
     {
-        $listData = $this->mdBillofladingModel->getAll();
+        $listData = $this->mdBillofladingModel->getBy('user_id', Session()->get('avt_user_id'));
         $this->loadTemplate('transport/manage.tpl', [
             'listData' => $listData,
             'apiHandlePrice' => ApiHandlePrice::getInstance(),
