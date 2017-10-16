@@ -49,6 +49,7 @@ $route->get('/user-tool/user-info', 'Frontend\UserController@userInfo');
 
 $route->post('/user-tool/validateLogin', 'Frontend\UserController@validateLogin');
 $route->post('/user-tool/changePass', 'Frontend\UserController@changePass');
+$route->post('/user-tool/validateUser','Frontend\UserController@validateUser' );
 
 /*=====  End of User  ======*/
 
@@ -143,5 +144,9 @@ $route->post('/admcp/add-pay-validate', 'Backend\MoneyController@addPayValidate'
 ============================*/
 
 $route->get('/admcp/user-manage', 'Backend\UsersController@userManage');
+$route->get('/admcp/user-edit/{id}', 'Backend\UsersController@userEdit');
+
+$route->post('/admcp/edit-user-validate', 'Backend\UsersController@editUserValidate');
+$route->get('/admcp/user-delete/{id}','Backend\UsersController@deleteUser' );
 
 /*=====  End of User  ======*/

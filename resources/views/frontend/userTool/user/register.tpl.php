@@ -18,25 +18,45 @@
                     <div class="col-lg-6 bg-white">
                         <div class="form d-flex align-items-center">
                             <div class="content">
-                                <form id="register-form">
+                                <?php 
+                                    if( !empty( $noticeSuccess ) ) {
+                                        ?>
+                                        <div class="alert alert-success" role="alert">
+                                            <?php
+                                                echo $noticeSuccess[0];
+                                            ?>
+                                        </div>
+                                        <?php   
+                                    }
+                                    if( !empty( $noticeError ) ) {
+                                        ?>
+                                        <div class="alert alert-danger" role="alert">
+                                            <?php
+                                                echo $noticeError[0];
+                                            ?>
+                                        </div>
+                                        <?php   
+                                    }
+                                ?>
+                                <form id="register-form" action="<?php echo url('/user-tool/validateUser') ?>" method="POST">
                                     <div class="form-group">
-                                        <input id="register-username" type="text" name="registerUsername" required class="input-material">
+                                        <input id="register-username" type="text" name="avt_user_name" required class="input-material">
                                         <label for="register-username" class="label-material">Tài khoản</label>
                                     </div>
                                     <div class="form-group">
-                                        <input id="register-email" type="email" name="registerEmail" required class="input-material">
+                                        <input id="register-email" type="email" name="avt_user_email" required class="input-material">
                                         <label for="register-email" class="label-material">Email</label>
                                     </div>
                                     <div class="form-group">
-                                        <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
+                                        <input id="register-passowrd" type="password" name="avt_user_pass" required class="input-material">
                                         <label for="register-passowrd" class="label-material">Mật khẩu </label>
                                     </div>
                                     <div class="form-group">
-                                        <input id="register-passowrd" type="password" name="registerPassword" required class="input-material">
+                                        <input id="register-passowrd" type="password" name="avt_user_password" required class="input-material">
                                         <label for="register-passowrd" class="label-material">Nhập lại mật khẩu </label>
                                     </div>
                                     <div class="form-group terms-conditions">
-                                        <input id="license" type="checkbox" class="checkbox-template">
+                                        <input id="license" type="checkbox" class="checkbox-template" name="avt_user_rules">
                                         <label for="license">Đồng ý với các điều khoản.</label>
                                     </div>
                                     <input id="register" type="submit" value="Register" class="btn btn-primary">
