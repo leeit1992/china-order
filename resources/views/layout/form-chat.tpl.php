@@ -88,34 +88,58 @@
 
 <div id="avt-form-chat" class="avt-form-chat">
     <div class="card">
-        <div class="card-header d-flex align-items-center" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+        <div class="card-header d-flex align-items-center avt-chat-hide-head" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
             <h3 class="h4">Admin</h3>
         </div>
         <div class="panel-collapse collapse" id="collapseOne">
             <div class="card-body">
                 <ul class="chat">
-                    <li class="left clearfix">
-                        <span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                    <?php 
+                    foreach ($mesData as $value): 
+                        $chatAction = 'left';
+
+                        $img = 'http://placehold.it/50/55C1E7/fff&amp;text=U';
+                        if( $dataUser['userID'] == $value['userId'] ) {
+                            $chatAction = 'right';
+                            $img = 'http://placehold.it/50/FA6F57/fff&amp;text=ME';
+                        }
+                    ?>
+                    <li class="<?php echo $chatAction ?> clearfix">
+                        <span class="chat-img pull-<?php echo $chatAction ?>">
+                            <img src="<?php echo $img ?>" alt="User Avatar" class="img-circle" />
                         </span>
                         <div class="chat-body clearfix">
                             <div class="header">
-                                <strong class="primary-font">Jack Sparrow</strong> 
-                                    <small class="pull-right text-muted">
-                                        <span class="glyphicon glyphicon-time"></span>12 mins ago
+                                <?php 
+                                if( $dataUser['userID'] == $value['userId'] ) {
+                                    ?>
+                                    <strong class="pull-<?php echo $chatAction ?> primary-font"><?php echo $value['userName'] ?></strong> 
+                                    <small class="text-muted">
+                                        <span class="glyphicon glyphicon-time"></span><?php echo $value['dateTime'] ?>
                                     </small>
+                                    <?php
+                                }else{
+                                    ?>
+                                    <small class="pull-right text-muted">
+                                        <span class="glyphicon glyphicon-time"></span><?php echo $value['dateTime'] ?>
+                                    </small>
+                                    <strong class="primary-font"><?php echo $value['userName'] ?></strong> 
+                                    <?php
+                                }
+                                ?>
                             </div>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                <?php echo $value['mes'] ?>
                             </p>
                         </div>
                     </li>
-
+                    
+                    <?php endforeach; ?>
                 </ul>
             </div>
             <div class="card-footer">
                 <div class="input-group">
-                    <input id="btn-input-chat" type="text" class="form-control input-sm avt-chat-input" placeholder="Type your message here..." />
+                    <input id="btn-input-chat" type="text" user-name="<?php echo Session()->get('avt_user_name') ?>" order-id="<?php echo $orderID ?>" class="form-control input-sm avt-chat-input" placeholder="Type your message here..." />
                     <span class="input-group-btn">
                         <button class="btn btn-warning btn-sm" id="btn-send-chat">
                             Send</button>

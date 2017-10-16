@@ -1,8 +1,8 @@
 <?php
-namespace app\Http\Controllers\Frontend;
+namespace app\Http\Controllers\Backend;
 
 use Atl\Foundation\Request;
-use App\Http\Components\Frontend\Controller as baseController;
+use App\Http\Components\Backend\Controller as baseController;
 
 
 class ChatController extends baseController{
@@ -26,8 +26,8 @@ class ChatController extends baseController{
 	    					'orderId' => $request->get('orderId'),
 	    					'mes' => $request->get('mes'),
 	    					'dateTime' => date('Y-m-d H:s:j'),
-	    					'userId' => Session()->get('avt_user_id'),
-	    					'userName' => Session()->get('avt_user_name'),
+	    					'userId' => Session()->get('avt_admin_user_id'),
+	    					'userName' => Session()->get('avt_admin_user_name'),
 	    				] 
 	    			]
 	    		));
@@ -38,8 +38,8 @@ class ChatController extends baseController{
 					'orderId' => $request->get('orderId'),
 					'mes' => $request->get('mes'),
 					'dateTime' => date('Y-m-d H:s:j'),
-					'userId' => Session()->get('avt_user_id'),
-					'userName' => Session()->get('avt_user_name'),
+					'userId' => Session()->get('avt_admin_user_id'),
+					'userName' => Session()->get('avt_admin_user_name'),
 				];
 
 				$myfile = fopen($dir, "w+") or die("Unable to open file!");
@@ -60,7 +60,7 @@ class ChatController extends baseController{
                         $chatAction = 'left';
 
                         $img = 'http://placehold.it/50/55C1E7/fff&amp;text=U';
-                        if( Session()->get('avt_user_id') == $value['userId'] ) {
+                        if( Session()->get('avt_admin_user_id') == $value['userId'] ) {
                             $chatAction = 'right';
                             $img = 'http://placehold.it/50/FA6F57/fff&amp;text=ME';
                         }
@@ -72,7 +72,7 @@ class ChatController extends baseController{
                         <div class="chat-body clearfix">
                             <div class="header">
                                 <?php 
-                                if( Session()->get('avt_user_id') == $value['userId'] ) {
+                                if( Session()->get('avt_admin_user_id') == $value['userId'] ) {
                                     ?>
                                     <strong class="pull-<?php echo $chatAction ?> primary-font"><?php echo $value['userName'] ?></strong> 
                                     <small class="text-muted">

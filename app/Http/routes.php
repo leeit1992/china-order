@@ -97,6 +97,7 @@ $route->get('/user-tool/manage-transport', 'Frontend\TransportController@manageL
 ============================*/
 
 $route->post('/user-tool/chat-validate', 'Frontend\ChatController@addChat');
+$route->get('/user-tool/get-data-chat', 'Frontend\ChatController@getDataChat');
 
 /*=====  End of Chat  ======*/
 
@@ -160,3 +161,12 @@ $route->post('/admcp/edit-user-validate', 'Backend\UsersController@editUserValid
 $route->get('/admcp/user-delete/{id}','Backend\UsersController@deleteUser' );
 
 /*=====  End of User  ======*/
+
+/*============================
+=            Chat            =
+============================*/
+
+$route->post('/admcp/chat-validate', 'Backend\ChatController@addChat');
+$route->get('/admcp/get-data-chat', 'Backend\ChatController@getDataChat');
+
+/*=====  End of Chat  ======*/

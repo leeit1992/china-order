@@ -15,7 +15,7 @@
 			'submit #avt-userT-order-form' : 'handleForm',
 		},
 
-		iinitialize: function() {
+		initialize: function() {
 			var self = this;
 		},
 

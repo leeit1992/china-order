@@ -64,12 +64,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            	<?php foreach ($currentPrice as $value) : ?>
+                            	<?php $i=1; foreach ($currentPrice as $value) : ?>
                                 <tr>
-                                    <td>1</td>
+                                    <td><?php echo $i++; ?></td>
                                     <td><?php echo $apiHandlePrice->formatPrice( $value, 'vnđ' ) ?></td>
                                     <td>
-                                        <a href="#"> <i class="fa fa-times"></i> </a>
+                                        <a href="<?php echo url('/admcp/price-by-weight?del='.$value) ?>"> <i class="fa fa-times"></i> </a>
                                     </td>
                                 </tr>
     						<?php endforeach; ?>

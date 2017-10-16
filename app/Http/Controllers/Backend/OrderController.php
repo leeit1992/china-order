@@ -58,6 +58,12 @@ class OrderController extends baseController
         $orderInfo = $this->mdOrder->getBy('id', $id);
         $priceByWeight = $this->mdOption->getOption('priceByWeight');
 
+        $dir = FOLDER_UPLOAD . '/chat-data/chat-order-' . $id. '.txt';
+        $mesData = [];
+        if( file_exists( $dir ) ) {
+            $mesData = json_decode(file_get_contents($dir), true);
+        }
+
         $this->loadTemplate('order/detail-order.tpl', [
             'mdBillofladingModel' => $this->mdBillofladingModel,
             'orderInfo' => $orderInfo,
@@ -65,7 +71,12 @@ class OrderController extends baseController
             'listItem' => $listItem,
             'apiHandlePrice' => ApiHandlePrice::getInstance(),
             'updateOrderNotice' => Session()->getFlashBag()->get('updateOrder'),
-            'getHandle' => isset( $_GET['handle'] ) ? $_GET['handle'] : ''
+            'getHandle' => isset( $_GET['handle'] ) ? $_GET['handle'] : '',
+            'mesData' => $mesData,
+            'dataUser' => [
+                'userID' => Session()->get('avt_admin_user_id'),
+                'userName' => Session()->get('avt_admin_user_name'),
+            ]
         ], ['path' => 'backend/']);
     }
 
@@ -162,8 +173,21 @@ class OrderController extends baseController
         );
     }
 
-    public function priceByWeight(){
+    public function priceByWeight(Request $request){
         $currentPrice = $this->mdOption->getOption('priceByWeight');
+        if( $request->get('del') ) {
+            $dataWP = json_decode($currentPrice, true);
+           foreach ($dataWP as $key => $value) {
+               if( $request->get('del') == $value ) {
+                    unset($dataWP[$key]);
+               }
+           }
+
+           $this->mdOption->setOption('priceByWeight', $dataWP);
+
+           redirect(url('/admcp/price-by-weight'));
+        }
+   
         $this->loadTemplate('order/price-by-weight.tpl', [
             'apiHandlePrice' => ApiHandlePrice::getInstance(),
             'currentPrice' => json_decode($currentPrice),
@@ -174,6 +198,7 @@ class OrderController extends baseController
 
     public function validateAddPriceWeight(Request $request)
     {   
+
         if( !empty( $request->get('avt_price') ) ) {
             $currentPrice = $this->mdOption->getOption('priceByWeight');
 

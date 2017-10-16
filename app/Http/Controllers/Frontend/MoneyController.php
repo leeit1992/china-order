@@ -26,7 +26,7 @@ class MoneyController extends baseController
 
     public function rechargeManage()
     {
-        $listRecharge = $this->mdRecharge->getAll();
+        $listRecharge = $this->mdRecharge->getBy('id', Session()->get('avt_user_id'));
         $total_price = 0;
         foreach ($listRecharge as $items) {
             if ($items['status'] == 2 && is_numeric($items['price'])) {
@@ -81,7 +81,7 @@ class MoneyController extends baseController
 
     public function revenueExpenditure()
     {
-        $listData = $this->mdExpenditure->getAll();
+        $listData = $this->mdExpenditure->getBy('id', Session()->get('avt_user_id'));
         $total_rest_payment = 0;
         foreach ($listData as $items) {
             if (is_numeric($items['rest_payment'])) {

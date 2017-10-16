@@ -473,7 +473,9 @@
 </div>
 
 <?php
+View('layout/form-chat.tpl', [ 'orderID' =>  $orderInfo[0]['id'], 'mesData' => $mesData, 'dataUser' => $dataUser]);
 registerScrips(array(
     'page-adm-order' => assets('frontend/user-tool/js/admcp-page-order.min.js'),
+    'page-chat' => assets('frontend/user-tool/js/page-chat-debug.js'),
 ));
 ?>

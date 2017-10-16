@@ -60,13 +60,24 @@ class OrderController extends baseController
         $listItem = $this->mdOrderItem->getBy('order_id', $id);
         $orderInfo = $this->mdOrder->getBy('id', $id);
 
+        $dir = FOLDER_UPLOAD . '/chat-data/chat-order-' . $id. '.txt';
+        $mesData = [];
+        if( file_exists( $dir ) ) {
+            $mesData = json_decode(file_get_contents($dir), true);
+        }
+
         $this->loadTemplate('order/detail-order.tpl', [
             'mdBillofladingModel' => $this->mdBillofladingModel,
             'orderInfo' => $orderInfo,
             'listItem' => $listItem,
             'apiHandlePrice' => ApiHandlePrice::getInstance(),
             'updateOrderNotice' => Session()->getFlashBag()->get('updateOrder'),
-            'getHandle' => isset( $_GET['handle'] ) ? $_GET['handle'] : ''
+            'getHandle' => isset( $_GET['handle'] ) ? $_GET['handle'] : '',
+            'mesData' => $mesData,
+            'dataUser' => [
+                'userID' => Session()->get('avt_user_id'),
+                'userName' => Session()->get('avt_user_name'),
+            ]
         ], ['path' => 'frontend/userTool/']);
     }
 

@@ -5,5 +5,5 @@
 |--------------------------------------------------------------------------
 */
 
-define("SITE_DIR", "/atl_framework/project8/");
+define("SITE_DIR", $_SERVER['DOCUMENT_ROOT']. "/project8/");
 define("FOLDER_UPLOAD", SITE_DIR . 'uploads');

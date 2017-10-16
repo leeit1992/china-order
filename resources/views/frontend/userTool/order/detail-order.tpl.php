@@ -401,7 +401,8 @@
 </div>
 
 <?php
-View('layout/form-chat.tpl');
+View('layout/form-chat.tpl', [ 'orderID' =>  $orderInfo[0]['id'], 'mesData' => $mesData, 'dataUser' => $dataUser]);
+
 registerScrips(array(
     'page-user-tool-cart' => assets('frontend/user-tool/js/userTool-page-cart-debug.js'),
     'cart' => assets('frontend/user-tool/js/cart.js'),

@@ -15,7 +15,7 @@
 			'submit #avt-userT-revenueExpen-form' : 'handleForm',
 		},
 
-		iinitialize: function() {
+		initialize: function() {
 			var self = this;
 		},
 
