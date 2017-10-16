@@ -23,7 +23,10 @@
                 <div class="avt-row-sale">
                 <div class="form-group">
                     <div class="input-group">
+                        <?php /*
                         <input type="checkbox" value="<?php echo $key ?>" class="checkbox-template avt-checkbox-primary-js">
+                        */ ?>
+                        <a href="<?php echo url('/user-tool/delete-cart') ?>" title="Delete All"><i class="fa fa-trash"></i></a>&nbsp;&nbsp;
                        <label> Người bán: <?php echo $carts[0]['wangwang']; ?> </label>
                     </div>
                 </div>
@@ -41,60 +44,64 @@
                         }
                     }
                     
-
                     $totalPrice += $value['price_origin'] * $value['quantity'];
                     $countItem += $value['quantity'];
                     ?>
                     <div class="row" id="item-<?php echo $value['id'] ?>">
-                <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
-                    <div class="project-title d-flex align-items-center">
-                    <div style="width: 20px;">
-                        <input type="checkbox" value="<?php echo $value['item_id'] ?>" class="checkbox-template avt-checkbox-child-js">
-                    </div>
-                    <div class="image has-shadow">
-                        <img src="<?php echo urldecode($value['image_origin']) ?>" class="img-fluid">
-                    </div>
-                    <div class="text">
-                        <small>
-                            <a href="<?php echo $value['link_origin'] ?>">
-                                <?php echo substr($value['link_origin'], 0, 50); ?>
-                            </a>
-                        </small>
+                        <div class="left-col col-lg-6 d-flex align-items-center justify-content-between">
+                            <div class="project-title d-flex align-items-center">
+                            <?php /*
+                            <div style="width: 20px;">
+                                <input type="checkbox" value="<?php echo $value['item_id'] ?>" class="checkbox-template avt-checkbox-child-js">
+                            </div> 
+                            */ ?>
+                            <div style="width: 30px;">
+                                <a href="<?php echo url('/user-tool/delete-cart/'. $value['id']) ?>" title="Delete" class="avt-delete-item" data-id="<?php echo $value['id'] ?>"><i class="fa fa-times"></i></a>
+                            </div>
+                            <div class="image has-shadow">
+                                <img src="<?php echo urldecode($value['image_origin']) ?>" class="img-fluid">
+                            </div>
+                            <div class="text">
+                                <small>
+                                    <a href="<?php echo $value['link_origin'] ?>">
+                                        <?php echo substr($value['link_origin'], 0, 50); ?>
+                                    </a>
+                                </small>
+                                <br>
+                                <small><?php echo implode(', ', $colorSize) ?></small>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="right-col col-lg-2 d-flex align-items-center">
+                            <div class="form-group">
+                            <label class="form-control-label">Giá </label>
+                            <p><?php echo $apiHandlePrice->formatPrice($value['price_origin']) ?></p>
+                            </div>
+                        </div>
+                        <div class="right-col col-lg-2 d-flex align-items-center">
+                            <div class="quantum">
+                            <a href="javascript:;" class="discount" cart-id="<?php echo $value['id'] ?>">-</a>
+                            <input type="text" value="<?php echo $value['quantity'] ?>" id="quantity-<?php echo $value['id'] ?>" class="quantity-input">
+                            <a href="javascript:;" class="increment" cart-id="<?php echo $value['id'] ?>">+</a>
+                            </div>
+                        </div>
+                        <div class="right-col col-lg-2 d-flex align-items-center">
+                            <div class="form-group">
+                            <label class="form-control-label">Tổng </label>
+                            <p id="price-item-<?php echo $value['id'] ?>"><?php echo $apiHandlePrice->formatPrice($value['price_origin'] * $value['quantity']) ?></p>
+                            </div>
+                        </div>
                         <br>
-                        <small><?php echo implode(', ', $colorSize) ?></small>
-                    </div>
-                    </div>
-                </div>
-                <div class="right-col col-lg-2 d-flex align-items-center">
-                    <div class="form-group">
-                    <label class="form-control-label">Giá </label>
-                    <p><?php echo $apiHandlePrice->formatPrice($value['price_origin']) ?></p>
-                    </div>
-                </div>
-                <div class="right-col col-lg-2 d-flex align-items-center">
-                    <div class="quantum">
-                    <a href="javascript:;" class="discount" cart-id="<?php echo $value['id'] ?>">-</a>
-                    <input type="text" value="<?php echo $value['quantity'] ?>" id="quantity-<?php echo $value['id'] ?>" class="quantity-input">
-                    <a href="javascript:;" class="increment" cart-id="<?php echo $value['id'] ?>">+</a>
-                    </div>
-                </div>
-                <div class="right-col col-lg-2 d-flex align-items-center">
-                    <div class="form-group">
-                    <label class="form-control-label">Tổng </label>
-                    <p id="price-item-<?php echo $value['id'] ?>"><?php echo $apiHandlePrice->formatPrice($value['price_origin'] * $value['quantity']) ?></p>
-                    </div>
-                </div>
-                <br>
-                <div class="right-col col-lg-12 align-items-center" style="margin-top: 10px;">
-                    <div class="form-group">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Ghi Chú" value="<?php echo isset( $value['comment'] ) ? $value['comment'] : '' ?>">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-primary">Ghi Chú</button>
-                        </span>
-                    </div>
-                    </div>
-                </div>
+                        <div class="right-col col-lg-12 align-items-center" style="margin-top: 10px;">
+                            <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Ghi Chú" value="<?php echo isset( $value['comment'] ) ? $value['comment'] : '' ?>">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary">Ghi Chú</button>
+                                </span>
+                            </div>
+                            </div>
+                        </div>
                     </div>
                     <?php endforeach; ?>
                 </div>

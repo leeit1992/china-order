@@ -192,4 +192,22 @@ class CartController extends baseController
 
         return isset($matches[1][0]) ?  html_entity_decode($matches[1][0]) : $name;
     }
+
+    public function deleteCart( $id = null ){
+        $listCart = Session()->get( 'avt_cart' );
+        if ( $id ) {
+            foreach ( $listCart as $k => $items ) {
+                foreach ( $items as $key => $value ) {
+                    if ( $value['id'] === $id ) {
+                        unset( $listCart[$k][$key] );
+                    }
+                }
+            }
+            Session()->set('avt_cart', $listCart);
+        } else {
+            $listCart = [];
+        }
+        Session()->set('avt_cart', $listCart);
+        redirect( url( '/user-tool/cart') );
+    }
 }
