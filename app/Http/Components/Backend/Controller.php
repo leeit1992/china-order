@@ -188,4 +188,15 @@ class Controller extends baseController{
 		$this->mdOption->setOption('currency_rate', str_replace(',', '',$ex[0] ));
 		return str_replace(',', '',$ex[0] );
     }
+
+    public function convertPriceToInt($price)
+    {
+        $newInt = $price;
+        $newInt = str_replace('$', '', $newInt);
+        $newInt = str_replace(',', '', $newInt);
+        $newInt = str_replace('.00', '', $newInt);
+        $newInt = trim($newInt);
+
+        return $newInt;
+    }
 }

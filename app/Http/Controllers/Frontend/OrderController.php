@@ -9,6 +9,7 @@ use App\Model\OrderModel;
 use App\Model\OrderItemModel;
 use App\Model\UserModel;
 use App\Model\ExpenditureModel;
+use App\Model\BillofladingModel;
 
 class OrderController extends baseController
 {
@@ -22,6 +23,7 @@ class OrderController extends baseController
         $this->mdOrderItem = new OrderItemModel;
         $this->mdUser = new UserModel;
         $this->mdExpenditure = new ExpenditureModel;
+        $this->mdBillofladingModel = new BillofladingModel;
     }
 
     public function orderSuccess($id = null)
@@ -59,10 +61,12 @@ class OrderController extends baseController
         $orderInfo = $this->mdOrder->getBy('id', $id);
 
         $this->loadTemplate('order/detail-order.tpl', [
+            'mdBillofladingModel' => $this->mdBillofladingModel,
             'orderInfo' => $orderInfo,
             'listItem' => $listItem,
             'apiHandlePrice' => ApiHandlePrice::getInstance(),
             'updateOrderNotice' => Session()->getFlashBag()->get('updateOrder'),
+            'getHandle' => isset( $_GET['handle'] ) ? $_GET['handle'] : ''
         ], ['path' => 'frontend/userTool/']);
     }
 
@@ -90,7 +94,7 @@ class OrderController extends baseController
                         'user_money' => $infoUser[0]['user_money'] - $dataInfoPay['rest_pay']
                     ], Session()->get('avt_user_id'));
 
-                     Session()->getFlashBag()->set('updateOrder', ['type' => true, 'notice' => 'Tất toán '.$request->get('avt_pay_type').'% số tiền của đơn hàng thành công.']);
+                     Session()->getFlashBag()->set('updateOrder', ['type' => true, 'notice' => 'Tất toán đơn hàng thành công.']);
                 } else {
                     Session()->getFlashBag()->set('updateOrder', ['type' => false, 'notice' => 'Tiền trong tải khoản của bạn không đủ. vui lòng nạp thêm tiền vào tài khoản.']);
                 }

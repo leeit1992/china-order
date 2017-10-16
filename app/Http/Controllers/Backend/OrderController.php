@@ -8,6 +8,7 @@ use App\Http\Components\Backend\Controller as baseController;
 use App\Model\OrderModel;
 use App\Model\OrderItemModel;
 use App\Model\BillofladingModel;
+use App\Model\OptionModel;
 
 class OrderController extends baseController
 {
@@ -20,6 +21,7 @@ class OrderController extends baseController
         $this->mdOrder = new OrderModel;
         $this->mdOrderItem = new OrderItemModel;
         $this->mdBillofladingModel = new BillofladingModel;
+        $this->mdOption = new OptionModel;
     }
 
     public function orderSuccess()
@@ -54,10 +56,12 @@ class OrderController extends baseController
     {
         $listItem = $this->mdOrderItem->getBy('order_id', $id);
         $orderInfo = $this->mdOrder->getBy('id', $id);
+        $priceByWeight = $this->mdOption->getOption('priceByWeight');
 
         $this->loadTemplate('order/detail-order.tpl', [
             'mdBillofladingModel' => $this->mdBillofladingModel,
             'orderInfo' => $orderInfo,
+            'priceByWeight' => json_decode($priceByWeight),
             'listItem' => $listItem,
             'apiHandlePrice' => ApiHandlePrice::getInstance(),
             'updateOrderNotice' => Session()->getFlashBag()->get('updateOrder'),
@@ -116,7 +120,8 @@ class OrderController extends baseController
                         'shop_name' => $value['shop_name'],
                         'order_item_id' => json_encode($value['order_item_id']),
                         'weight' => $value['weight'],
-                        'price' => $value['price'],
+                        'price' => $this->convertPriceToInt($value['price']),
+                        'price_ship' => $this->convertPriceToInt($value['price_ship']),
                         'general_id' => implode('-',$value['order_item_id']),
                     ],
                     isset( $checkBillItem[0]['id'] ) ? $checkBillItem[0]['id'] : null
@@ -155,5 +160,37 @@ class OrderController extends baseController
                 'output' => $output
             ]
         );
+    }
+
+    public function priceByWeight(){
+        $currentPrice = $this->mdOption->getOption('priceByWeight');
+        $this->loadTemplate('order/price-by-weight.tpl', [
+            'apiHandlePrice' => ApiHandlePrice::getInstance(),
+            'currentPrice' => json_decode($currentPrice),
+            'apiHandlePrice' => ApiHandlePrice::getInstance(),
+            'updatePriceKg' => Session()->getFlashBag()->get('updatePriceKg'),
+        ], ['path' => 'backend/']);
+    }
+
+    public function validateAddPriceWeight(Request $request)
+    {   
+        if( !empty( $request->get('avt_price') ) ) {
+            $currentPrice = $this->mdOption->getOption('priceByWeight');
+
+            $addData = [];
+
+            if( empty( $currentPrice ) ) {
+                $addData[] = $this->convertPriceToInt($request->get('avt_price'));
+            }else{
+                $currentPrice = json_decode($currentPrice);
+                $currentPrice[] = $this->convertPriceToInt($request->get('avt_price'));
+                $addData = $currentPrice;
+            }
+            
+            $this->mdOption->setOption('priceByWeight', $addData);
+
+            Session()->getFlashBag()->set('updatePriceKg', ['type' => true, 'notice' => 'Update thông tin thành công.']);
+            redirect(url('/admcp/price-by-weight'));
+        }  
     }
 }

@@ -93,4 +93,6 @@
         }
     });
 
+    $('.avt-price').number( true, 2 );
+
 })(jQuery);

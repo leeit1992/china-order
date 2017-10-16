@@ -70,6 +70,12 @@ class AdminDataMenu
                         'link'  => url('/admcp/order-manage'),
                         'display' => '',
                         'conditionOpen' => ['orderManage'],
+                    ],
+                    [
+                        'label' => 'Giá tiền / Kg',
+                        'link'  => url('/admcp/price-by-weight'),
+                        'display' => '',
+                        'conditionOpen' => ['priceByWeight'],
                     ]
                 ]
             ],

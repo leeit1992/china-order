@@ -118,6 +118,8 @@ $route->get('/admcp/detail-order/{id}', 'Backend\OrderController@orderDetail');
 $route->post('/admcp/update-order', 'Backend\OrderController@updateOrder');
 
 $route->get('/admcp/ajax-admcp-order-manage','Backend\OrderController@ajaxOrderManage');
+$route->get('/admcp/price-by-weight','Backend\OrderController@priceByWeight');
+$route->post('/admcp/validate-price-by-weight','Backend\OrderController@validateAddPriceWeight');
 
 /*=====  End of Order  ======*/
 

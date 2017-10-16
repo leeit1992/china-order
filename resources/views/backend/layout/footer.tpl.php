@@ -21,6 +21,7 @@
 		array(
 				'jquery'  	    	=> assets('js/jquery.min.js'),
 				'jquery-ui'  	    => assets('backend/jquery-ui/jquery-ui.js'),
+				'jquery-number'  	=> assets('js/jquery.number.min.js'),
 				'tether'  	    	=> assets('frontend/user-tool/js/tether.min.js'),
 				'bootstrap'  	    => assets('frontend/user-tool/js/bootstrap.min.js'),
 				'jquery.cookie'     => assets('frontend/user-tool/js/jquery.cookie.js'),

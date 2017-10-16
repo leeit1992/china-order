@@ -6,6 +6,7 @@
  */
 (function($){
 	"use strict";
+
 	var AVT_ADMCP_ORDER = Backbone.View.extend({
 		el : '#avt-admcp-handle-order',
 
@@ -13,12 +14,12 @@
 
 		events: {
 			'submit #avt-admcp-order-form' : 'handleForm',
+			'click .avt-price-kg-choose' : 'addPriceKg'
 		},
 
-		iinitialize: function() {
-			var self = this;
-			
-		},
+		initialize: function() {
+         
+        },
 
 		/**
 	     * Handle form data before search.
@@ -73,6 +74,24 @@
             	$(".avt-admcp-orders-js", self.el).html( dataResult.output );
             });
 		},
+
+		addPriceKg: function(e) {
+			var price = $(e.currentTarget).attr('data-price');
+			var priceText = $(e.currentTarget).attr('data-text');
+			var dataKey = $(e.currentTarget).attr('data-key');
+			var weight = $(e.currentTarget).closest('.avt-item-order-form-' + dataKey).find('.avt-order-shop-weight').val();
+
+			if( 0 != weight.length  ){
+				var wrapPrice = $(e.currentTarget).closest('.avt-item-order-form-' + dataKey).find('.avt-price-kg').html(priceText);
+				
+				$(e.currentTarget).closest('.avt-item-order-form-' + dataKey).find('.avt-price-set-from-weight').val( price * weight);
+			}else{
+				alert('Số cân nặng phải lớn hơn 0.');
+			}
+			
+			
+			return false;
+		}
 
 	});
 	new AVT_ADMCP_ORDER;

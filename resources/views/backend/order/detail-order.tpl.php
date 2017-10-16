@@ -24,7 +24,7 @@
         height: 36px;
     }
 </style>
-<div id="page-user-tool-cart">
+<div id="avt-admcp-handle-order">
     <!-- Page Header-->
     <header class="page-header">
         <div class="container-fluid">
@@ -69,6 +69,11 @@
                     }
                 ?>
                 <?php 
+                $totalPrice = 0;
+                $countItem = 0;
+                $hasPurchase = 0;
+                $totalPriceTrans = 0;
+                $totalWeight = 0;
                 foreach ($newListByIdSale as $_listItem): 
                     $genKey = uniqid();
                     $name = 'avt_bill['.$genKey.']';
@@ -84,10 +89,6 @@
                         </div>
                     </div>
                     <?php
-                        $totalPrice = 0;
-                        $countItem = 0;
-                        $hasPurchase = 0;
-
                     foreach ($_listItem as $value) :
                         $dataItem = json_decode($value['order_item_content'], true);
 
@@ -172,32 +173,46 @@
                     <hr>
                     <?php
                         $infoBill = $mdBillofladingModel->getBy('general_id', implode('-', $listOrderItem));
+                        $totalPriceTrans += isset( $infoBill[0]['price'] ) ? $infoBill[0]['price'] : 0;
+                        $totalWeight += isset( $infoBill[0]['weight'] ) ? $infoBill[0]['weight'] : 0;
                     ?>
-                    <div class="row">
+                    <div class="row avt-item-order-form-<?php echo $genKey ?>">
                         <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
                             <div class="form-group">
+                                <label>Dự kiến ngày hàng về</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control op-datepicker atl-order-fix-input" name="<?php echo $name ?>[date]" placeholder="Ngày Hàng Về" value="<?php echo isset( $infoBill[0]['day_in_stock'] ) ? $infoBill[0]['day_in_stock'] : '' ?>">
-                                    <span class="input-group-btn atl-input-group-btn">
-                                        <button type="button" class="btn btn-primary">Ngày Hàng Về</button>
+                                 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
+                            <div class="form-group">
+                                <label>Số KG</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control atl-order-fix-input avt-order-shop-weight" name="<?php echo $name ?>[weight]" placeholder="Cân Nặng" value="<?php echo isset( $infoBill[0]['weight'] ) ? $infoBill[0]['weight'] : '' ?>">
+
+                                    <span class="input-group-btn atl-input-group-btn avt-price-kg-group">
+                                        <button data-toggle="dropdown" type="button" class="btn btn-white dropdown-toggle" aria-expanded="false">
+                                            <span class="avt-price-kg">Action</span>
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <?php foreach ($priceByWeight as $value) {
+                                                echo '<li><a class="avt-price-kg-choose" data-key="'.$genKey.'" data-text="'.$apiHandlePrice->formatPrice( $value , 'vnđ').'" data-price="'.$value.'" href="#"> '.$apiHandlePrice->formatPrice( $value , 'vnđ').' / kg</a></li>';
+                                            } ?>
+                                            
+                                        </ul>
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
                             <div class="form-group">
+                                <label>Tiền vận chuyển</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control atl-order-fix-input" name="<?php echo $name ?>[weight]" placeholder="Cân Nặng" value="<?php echo isset( $infoBill[0]['weight'] ) ? $infoBill[0]['weight'] : '' ?>">
-                                    <span class="input-group-btn atl-input-group-btn">
-                                        <button type="button" class="btn btn-primary">KG</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input type="text" class="form-control atl-order-fix-input" name="<?php echo $name ?>[price]" placeholder="Thành Tiền" value="<?php echo isset( $infoBill[0]['price'] ) ? $infoBill[0]['price'] : '' ?>">
+
+                                    <input type="text" class="form-control atl-order-fix-input avt-price avt-price-set-from-weight" name="<?php echo $name ?>[price]" placeholder="Thành Tiền" value="<?php echo isset( $infoBill[0]['price'] ) ? $infoBill[0]['price'] : '' ?>">
                                     <span class="input-group-btn atl-input-group-btn">
                                         <button type="button" class="btn btn-primary">VNĐ</button>
                                     </span>
@@ -206,13 +221,23 @@
                         </div>
                         <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
                             <div class="form-group">
+                                <label>Mã vận đơn</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control atl-order-fix-input" name="<?php echo $name ?>[code]" placeholder="Mã vận đơn" value="<?php echo isset( $infoBill[0]['code'] ) ? $infoBill[0]['code'] : '' ?>">
                                     <input type="hidden" name="<?php echo $name ?>[order_id]" value="<?php echo $_listItem[0]['order_id'] ?>">
                                     <input type="hidden" name="<?php echo $name ?>[shop_name]" value="<?php echo $_listItem[0]['order_item_seller'] ?>">
                                     <input type="hidden" name="<?php echo $name ?>[check_order_item_id]" value="<?php echo implode('-', $listOrderItem) ?>">
+                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
+                            <div class="form-group">
+                                <label>Phí ship</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control atl-order-fix-input avt-price" name="<?php echo $name ?>[price_ship]" placeholder="Phí Ship" value="<?php echo isset( $infoBill[0]['price_ship'] ) ? $infoBill[0]['price_ship'] : '' ?>">
                                     <span class="input-group-btn atl-input-group-btn">
-                                        <button type="button" class="btn btn-primary">Mã vận đơn</button>
+                                        <button type="button" class="btn btn-primary">VNĐ</button>
                                     </span>
                                 </div>
                             </div>
@@ -333,7 +358,7 @@
                             <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control atl-order-fix-input" readonly="" placeholder="Thành Tiền" value="<?php echo isset( $infoBill[0]['price'] ) ? $infoBill[0]['price'] : '' ?>">
+                                        <input type="text" class="form-control atl-order-fix-input avt-price" readonly="" placeholder="Thành Tiền" value="<?php echo isset( $infoBill[0]['price'] ) ? $infoBill[0]['price'] : '' ?>">
                                         <span class="input-group-btn atl-input-group-btn">
                                             <button type="button" class="btn btn-primary">VNĐ</button>
                                         </span>
@@ -351,10 +376,7 @@
                                 </div>
                             </div>
                         </div>
-                        <?php endforeach; ?>
-                       
-                    
-                   
+                        <?php endforeach; ?>            
                 </div>
                 <?php endif ?>
 
@@ -375,11 +397,17 @@
                                         <b>Đã mua</b> : <?php echo $hasPurchase ?>
                                         <hr>
                                         <b>Còn lại</b> : <?php echo $countItem - $hasPurchase ?>
+                                        <hr>
+                                        <b>Tổng số cân nặng</b> : <?php echo $totalWeight ?> kg
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Tổng tiền hoá đơn</td>
                                     <td>
+                                        <span id="total-price-trans">
+                                        Tiền vận chuyển : <?php echo $apiHandlePrice->formatPrice($totalPriceTrans, 'vnđ') ?>
+                                        </span>
+                                        <hr>
                                         <span id="total-price">
                                         <?php echo $apiHandlePrice->formatPrice($totalPrice) ?>
                                         </span>
@@ -446,7 +474,6 @@
 
 <?php
 registerScrips(array(
-    'page-user-tool-cart' => assets('frontend/user-tool/js/userTool-page-cart-debug.js'),
-    'cart' => assets('frontend/user-tool/js/cart.js'),
+    'page-adm-order' => assets('frontend/user-tool/js/admcp-page-order.min.js'),
 ));
 ?>
