@@ -405,5 +405,6 @@ View('layout/form-chat.tpl');
 registerScrips(array(
     'page-user-tool-cart' => assets('frontend/user-tool/js/userTool-page-cart-debug.js'),
     'cart' => assets('frontend/user-tool/js/cart.js'),
+    'page-chat' => assets('frontend/user-tool/js/page-chat-debug.js'),
 ));
 ?>

@@ -16,14 +16,12 @@
 .chat li.left .chat-body
 {
     margin-left: 60px;
-    padding-top: 5px;
     padding-bottom: 15px;
 }
 
 .chat li.right .chat-body
 {
     margin-right: 60px;
-    padding-top: 5px;
     padding-bottom: 15px;
 }
 
@@ -32,10 +30,12 @@
 {
     margin: 0;
     color: #777777;
+    font-size: 13px;
 }
 
 .chat-img > img{
     border-radius: 50%;
+    max-width: 100%;
 }
 .avt-form-chat {
     position: fixed;
@@ -46,13 +46,27 @@
     
 }
 .avt-form-chat .card-header{
-    background: #03A9F4;
+    background: #292b2c;
     color: white;
+    cursor: pointer;
 }
 .avt-form-chat .card-body{
     overflow-y: scroll;
     height: 350px;
 }
+
+.chat-img.pull-left, .chat-img.pull-right {
+    width: 40px;
+    height: 10px;
+}
+
+.chat .primary-font{
+    font-size: 12px;
+}
+.avt-chat-input{
+    font-size: 13px;
+}
+
 ::-webkit-scrollbar-track
 {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -72,7 +86,7 @@
 }
 </style>
 
-<div class="avt-form-chat">
+<div id="avt-form-chat" class="avt-form-chat">
     <div class="card">
         <div class="card-header d-flex align-items-center" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
             <h3 class="h4">Admin</h3>
@@ -200,9 +214,9 @@
             </div>
             <div class="card-footer">
                 <div class="input-group">
-                    <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                    <input id="btn-input-chat" type="text" class="form-control input-sm avt-chat-input" placeholder="Type your message here..." />
                     <span class="input-group-btn">
-                        <button class="btn btn-warning btn-sm" id="btn-chat">
+                        <button class="btn btn-warning btn-sm" id="btn-send-chat">
                             Send</button>
                     </span>
                 </div>

@@ -91,6 +91,16 @@ $route->get('/user-tool/manage-transport', 'Frontend\TransportController@manageL
 /*=====  End of Transport  ======*/
 
 
+/*============================
+=            Chat            =
+============================*/
+
+$route->post('/user-tool/chat-validate', 'Frontend\ChatController@addChat');
+
+/*=====  End of Chat  ======*/
+
+
+
 
 /**
  * Admin User Tool
