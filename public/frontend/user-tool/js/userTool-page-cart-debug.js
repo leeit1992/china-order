@@ -29,7 +29,7 @@
                     $(el).prop('checked', false)
                 });
             }
-        }
+        },
 
     });
     new PAGE_USER_TOOL_CART;
