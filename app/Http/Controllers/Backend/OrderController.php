@@ -9,6 +9,7 @@ use App\Model\OrderModel;
 use App\Model\OrderItemModel;
 use App\Model\BillofladingModel;
 use App\Model\OptionModel;
+use App\Model\NoticeModel;
 
 class OrderController extends baseController
 {
@@ -54,6 +55,16 @@ class OrderController extends baseController
 
     public function orderDetail($id)
     {
+        // setting status seen notice
+        $mdNotice = new NoticeModel;
+        $condiNotice =  [ 'notice_link' => '/admcp/detail-order/'. $id,
+                          'notice_receiver' => Session()->get('avt_admin_user_id')
+                        ];
+        $notice = $mdNotice->getByArray( $condiNotice );
+        if (!empty($notice)) {
+            $mdNotice->save( [ 'notice_status' => 2 ], $notice[0]['id'] );
+        }
+
         $listItem = $this->mdOrderItem->getBy('order_id', $id);
         $orderInfo = $this->mdOrder->getBy('id', $id);
         $priceByWeight = $this->mdOption->getOption('priceByWeight');

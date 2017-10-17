@@ -161,6 +161,9 @@ $route->get('/admcp/user-edit/{id}', 'Backend\UsersController@userEdit');
 $route->post('/admcp/edit-user-validate', 'Backend\UsersController@editUserValidate');
 $route->get('/admcp/user-delete/{id}','Backend\UsersController@deleteUser' );
 
+$route->get('/admcp/notice-manage', 'Backend\UsersController@noticeManage');
+$route->get('/admcp/notice-delete/{id}','Backend\UsersController@deleteNotice' );
+
 /*=====  End of User  ======*/
 
 /*============================

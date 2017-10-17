@@ -6,6 +6,7 @@ use App\Http\Components\Backend\Controller as baseController;
 use Atl\Validation\Validation;
 use App\Model\UserModel;
 use App\Http\Components\ApiHandlePrice;
+use App\Model\NoticeModel;
 
 class UsersController extends baseController
 {
@@ -16,6 +17,7 @@ class UsersController extends baseController
 
         // Model data system.
         $this->mdUser = new UserModel;
+        $this->mdNotice = new NoticeModel;
         $this->helperPrice = ApiHandlePrice::getInstance();
     }
 
@@ -91,5 +93,21 @@ class UsersController extends baseController
         $this->mdUser->deleteMetaData( $id );
         Session()->getFlashBag()->set( 'noticeSuccess', 'Delete user succes !' );
         redirect( url('/admcp/user-manage') );
+    }
+
+    public function noticeManage()
+    {
+        $this->loadTemplate('user/noticeManage.tpl', [
+            'listNotice' => $this->mdNotice->getBy( 'notice_receiver', Session()->get('avt_admin_user_id')),
+            'noticeSuccess' => Session()->getFlashBag()->get('noticeSuccess')
+        ], ['path' => 'backend/']);
+    }
+
+    public function deleteNotice( $id ){
+        // Remove user
+        $this->mdNotice->delete( $id );
+
+        Session()->getFlashBag()->set( 'noticeSuccess', 'Delete user succes !' );
+        redirect( url('/admcp/notice-manage') );
     }
 }

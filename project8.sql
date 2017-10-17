@@ -211,6 +211,20 @@ CREATE TABLE `avt_users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `avt_notices`;
+CREATE TABLE `avt_notices` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `notice_title` varchar(255) DEFAULT NULL,
+  `notice_description` text,
+  `notice_sender` int(11) DEFAULT NULL,
+  `notice_receiver` int(11) DEFAULT NULL,
+  `notice_status` tinyint(2) DEFAULT NULL,
+  `notice_link` varchar(255) DEFAULT NULL,
+  `notice_type` varchar(30) DEFAULT NULL,
+  `notice_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- ----------------------------
 --  Records of `avt_users`
 -- ----------------------------

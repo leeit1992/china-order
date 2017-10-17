@@ -3,8 +3,9 @@ namespace App\Http\Components\Backend;
 
 use Atl\Routing\Controller as baseController;
 use App\Http\Components\Backend\AdminDataMenu;
-
 use App\Model\OptionModel;
+use App\Model\NoticeModel;
+use App\Model\UserModel;
 
 class Controller extends baseController{
 	
@@ -14,7 +15,8 @@ class Controller extends baseController{
 		parent::__construct();
 
 		$this->mdOption = new OptionModel;
-
+		$this->mdNotice = new NoticeModel;
+		$this->mdUser = new UserModel;
 		$this->currentcyRate = $this->mdOption->getOption('currency_rate');
 	}
 
@@ -37,10 +39,18 @@ class Controller extends baseController{
 			$pathFolder. 'layout/header.tpl'
 		);
 
+		// condition array and get list notice
+		$condiNotice =  [ 'notice_status' => 1,
+						  'notice_receiver' => Session()->get('avt_admin_user_id')
+					    ];
+		$listNotice = $this->mdNotice->getByArray( $condiNotice );
 		$output .= View(
 			$pathFolder. 'layout/menuNav.tpl',
 			[
-				'menuAdmin' => AdminDataMenu::getInstance( $this->getRoute() ),
+				'menuAdmin'  => AdminDataMenu::getInstance( $this->getRoute() ),
+				'listNotice' => $listNotice,
+				'totalNotice'=> count($listNotice),
+				'mdUser'     => $this->mdUser
 			]
 
 		);

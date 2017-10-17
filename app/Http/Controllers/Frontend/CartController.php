@@ -6,6 +6,8 @@ use App\Http\Components\ApiHandlePrice;
 use App\Http\Components\Frontend\Controller as baseController;
 use App\Model\OrderModel;
 use App\Model\OrderItemModel;
+use App\Model\NoticeModel;
+use App\Model\UserModel;
 
 class CartController extends baseController
 {
@@ -16,6 +18,8 @@ class CartController extends baseController
 
         $this->mdOrder = new OrderModel();
         $this->mdOrderItem = new OrderItemModel();
+        $this->mdNotice = new NoticeModel();
+        $this->mdUser = new UserModel();
         // var_dump(Session()->get('avt_cart'));
         // Session()->set('avt_cart', []);
     }
@@ -100,13 +104,6 @@ class CartController extends baseController
         if (empty($listCart)) {
             $listCart = [];
         }
-        // foreach ( $listCart as $k => $items ) {
-        //     print_r($k);die;
-        //     if ( $items['id'] === $id ) {
-        //         //print_r($listCart);die;
-        //     }
-        // }
-        //print_r($listCart);die;
         $this->loadTemplate('cart/listItem.tpl', [
             'listCart' => $listCart,
             'apiHandlePrice' => ApiHandlePrice::getInstance(),
@@ -152,7 +149,7 @@ class CartController extends baseController
     public function addToOrder(Request $request)
     {
         $listCart = Session()->get('avt_cart');
-
+        
         if (!empty($listCart)) {
             $lastId = $this->mdOrder->save([
                 'order_code' => $request->get('avt_order_code'),
@@ -180,8 +177,23 @@ class CartController extends baseController
                     ]);
                 }
             }
+            $listAdmin = $this->mdUser->getUserBy( 'user_role', 1 );
+            if (!empty($listAdmin)) {
+                foreach ($listAdmin as $item) {
+                    $this->mdNotice->save([
+                        'notice_title'       => 'Đơn đặt hàng mới '. $request->get('avt_order_code'),
+                        'notice_description' => '',
+                        'notice_sender'      => Session()->get('avt_user_id'),
+                        'notice_receiver'    => $item['id'],
+                        'notice_status'      => 1,
+                        'notice_link'        => '/admcp/detail-order/'. $lastId,
+                        'notice_type'        => 'new_order',
+                        'notice_date'        => date('Y-m-d H:s:j')
+                    ]);
+                }
+            }
         }
-
+   
         redirect(url('/user-tool/order-success/'. $lastId));
         // Session()->set('avt_cart', []);
     }

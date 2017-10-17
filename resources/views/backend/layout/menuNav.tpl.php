@@ -30,36 +30,28 @@
                         </li>
                         <!-- Notifications-->
                         <!-- Messages                        -->
-                        <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange">10</span></a>
-                            <ul aria-labelledby="notifications" class="dropdown-menu">
-                                <li>
-                                    <a rel="nofollow" href="#" class="dropdown-item d-flex">
-                                        <div class="msg-profile"> <img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
-                                        <div class="msg-body">
-                                            <h3 class="h5">Jason Doe</h3><span>Sent You Message</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a rel="nofollow" href="#" class="dropdown-item d-flex">
-                                        <div class="msg-profile"> <img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
-                                        <div class="msg-body">
-                                            <h3 class="h5">Frank Williams</h3><span>Sent You Message</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a rel="nofollow" href="#" class="dropdown-item d-flex">
-                                        <div class="msg-profile"> <img src="img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
-                                        <div class="msg-body">
-                                            <h3 class="h5">Ashley Wood</h3><span>Sent You Message</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong>Read all messages    </strong></a></li>
-                            </ul>
-                        </li>
-              
+                        <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i>
+                        <?php if ($totalNotice > 0): ?>
+                            <span class="badge bg-orange"><?php echo $totalNotice ?></span></a>
+                                <ul aria-labelledby="notifications" class="dropdown-menu">
+                                    <?php foreach ($listNotice as $item): ?>
+                                        <li><a rel="nofollow" href="<?php echo url($item['notice_link']); ?>" class="dropdown-item d-flex">
+                                                <div class="msg-body">
+                                                    <h3 class="h5">
+                                                        <?php $user = $mdUser->getUserBy( 'id', $item['notice_sender']);
+                                                            echo $user[0]['user_display_name']
+                                                        ?>
+                                                    </h3><span>
+                                                        <?php echo $item['notice_title']; ?>
+                                                    </span>
+                                                </div>
+                                        </a></li>
+                                    <?php endforeach ?>
+
+                                    <li><a rel="nofollow" href="<?php echo url('/admcp/order-manage') ?>" class="dropdown-item all-notifications text-center"> <strong>Read all messages    </strong></a></li>
+                                </ul>
+                            </li>
+                        <?php endif ?>
                         <!-- Logout    -->
                         <li class="nav-item"><a href="<?php echo url('/admcp/logout') ?>" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
                     </ul>

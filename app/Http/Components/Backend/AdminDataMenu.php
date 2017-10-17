@@ -128,6 +128,12 @@ class AdminDataMenu
                         'link'  => url('/admcp/change-pass'),
                         'display' => '',
                         'conditionOpen' => ['orderManage'],
+                    ],
+                    [
+                        'label' => 'Quản lý thông báo',
+                        'link'  => url('/admcp/notice-manage'),
+                        'display' => '',
+                        'conditionOpen' => ['orderManage'],
                     ]
                 ]
             ]
