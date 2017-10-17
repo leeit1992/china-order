@@ -26,8 +26,11 @@
                         <?php /*
                         <input type="checkbox" value="<?php echo $key ?>" class="checkbox-template avt-checkbox-primary-js">
                         */ ?>
-                        <a href="<?php echo url('/user-tool/delete-cart') ?>" title="Delete All"><i class="fa fa-trash"></i></a>&nbsp;&nbsp;
-                       <label> Người bán: <?php echo $carts[0]['wangwang']; ?> </label>
+                        <a href="<?php echo url('/user-tool/delete-carts/'.$key) ?>" title="Delete All"><i class="fa fa-trash"></i></a>&nbsp;&nbsp;
+                        <?php foreach ($carts as $value) {
+                            $seller = $value['wangwang'];
+                        } ?>
+                        <label> Người bán: <?php echo $seller; ?> </label>
                     </div>
                 </div>
                 </div>

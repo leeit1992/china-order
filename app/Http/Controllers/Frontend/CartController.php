@@ -100,7 +100,13 @@ class CartController extends baseController
         if (empty($listCart)) {
             $listCart = [];
         }
-
+        // foreach ( $listCart as $k => $items ) {
+        //     print_r($k);die;
+        //     if ( $items['id'] === $id ) {
+        //         //print_r($listCart);die;
+        //     }
+        // }
+        //print_r($listCart);die;
         $this->loadTemplate('cart/listItem.tpl', [
             'listCart' => $listCart,
             'apiHandlePrice' => ApiHandlePrice::getInstance(),
@@ -193,19 +199,25 @@ class CartController extends baseController
         return isset($matches[1][0]) ?  html_entity_decode($matches[1][0]) : $name;
     }
 
-    public function deleteCart( $id = null ){
+    public function deleteCart( $id ){
         $listCart = Session()->get( 'avt_cart' );
-        if ( $id ) {
-            foreach ( $listCart as $k => $items ) {
-                foreach ( $items as $key => $value ) {
-                    if ( $value['id'] === $id ) {
-                        unset( $listCart[$k][$key] );
-                    }
+        foreach ( $listCart as $k => $items ) {
+            foreach ( $items as $key => $value ) {
+                if ( $value['id'] === $id ) {
+                    unset( $listCart[$k][$key] );
                 }
             }
-            Session()->set('avt_cart', $listCart);
-        } else {
-            $listCart = [];
+        }
+        Session()->set('avt_cart', $listCart);
+        redirect( url( '/user-tool/cart') );
+    }
+
+    public function deleteCarts( $id ){
+        $listCart = Session()->get( 'avt_cart' );
+        foreach ( $listCart as $key => $items ) {
+            if ( $key === $id ) {
+                unset( $listCart[$key] );
+            }
         }
         Session()->set('avt_cart', $listCart);
         redirect( url( '/user-tool/cart') );
