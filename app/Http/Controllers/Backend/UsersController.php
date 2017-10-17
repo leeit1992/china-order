@@ -107,7 +107,7 @@ class UsersController extends baseController
         // Remove user
         $this->mdNotice->delete( $id );
 
-        Session()->getFlashBag()->set( 'noticeSuccess', 'Delete user succes !' );
+        Session()->getFlashBag()->set( 'noticeSuccess', 'Delete notice succes !' );
         redirect( url('/admcp/notice-manage') );
     }
 }
