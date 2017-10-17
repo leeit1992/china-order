@@ -36,13 +36,19 @@
                                 $countItem = 0;
                                 foreach ($cartInfo as $carts) :
                                     foreach ($carts as $value): 
-                                    $colorSize = explode(';',$value['color_size']);
+                                    $colorSize = explode(';', $value['property']);
+
+                                    foreach ($colorSize as $keyS => $valueS) {
+                                        if (empty($valueS)) {
+                                            unset($colorSize[$keyS]);
+                                        }
+                                    }
                                     $countItem +=  $value['quantity']
                                 ?>
                                 <li>
                                     <a rel="nofollow" href="#" class="dropdown-item d-flex">
                                         <div class="msg-profile">
-                                            <img src="<?php echo $value['item_image'] ?>" class="img-fluid rounded-circle">
+                                            <img src="<?php echo urldecode($value['image_origin']) ?>" class="img-fluid rounded-circle">
                                         </div>
                                         <div class="msg-body">
                                             <h3 class="h5"><?php echo isset($value['type']) ? ucfirst($value['type']) : '' ?></h3>

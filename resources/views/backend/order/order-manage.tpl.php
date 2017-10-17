@@ -47,6 +47,7 @@
                                 <li><a href="<?php echo url('/admcp/order-manage?status=2') ?>">Đã thanh toán chờ mua<sup>(<?php echo count($payWaitBuy) ?>)</sup></a></li>
                                 <li><a href="<?php echo url('/admcp/order-manage?statusBuy=2') ?>">Đã mua<sup>(<?php echo count($hasBuy) ?>)</sup></a></li>
                                 <li><a href="<?php echo url('/admcp/order-manage?statusDelivery=2') ?>">Đã giao hàng<sup>(<?php echo count($delivery) ?>)</sup></a></li>
+                                <li><a href="<?php echo url('/admcp/order-manage?statusBuy=3') ?>">Tất toán<sup>(<?php echo count($outStock) ?>)</sup></a></li>
                                 <li><a href="<?php echo url('/admcp/order-manage?statusBuy=3') ?>">Hết hàng<sup>(<?php echo count($outStock) ?>)</sup></a></li>
                             </ul>
                             <div class="orderslist-ct">

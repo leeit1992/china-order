@@ -103,4 +103,8 @@ class MoneyController extends baseController
 
         redirect(url('/admcp/info-pay'));
     }
+
+    public function removeRecharge(Request $request){
+        
+    }
 }

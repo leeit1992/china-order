@@ -74,6 +74,7 @@
                 $hasPurchase = 0;
                 $totalPriceTrans = 0;
                 $totalWeight = 0;
+                $totalPriceShip = 0;
                 foreach ($newListByIdSale as $_listItem): 
                     $genKey = uniqid();
                     $name = 'avt_bill['.$genKey.']';
@@ -175,7 +176,20 @@
                         $infoBill = $mdBillofladingModel->getBy('general_id', implode('-', $listOrderItem));
                         $totalPriceTrans += isset( $infoBill[0]['price'] ) ? $infoBill[0]['price'] : 0;
                         $totalWeight += isset( $infoBill[0]['weight'] ) ? $infoBill[0]['weight'] : 0;
+                        $totalPriceShip += isset( $infoBill[0]['price_ship'] ) ? $infoBill[0]['price_ship'] : 0;
                     ?>
+                    <div style="margin-left: 10px;">
+                        <div class="i-checks">
+                      <input type="radio" value="1" name="trans_type" class="checkbox-template">
+                      <label for="checkboxCustom2">Giá theo kg
+                      </label>
+                    </div>
+                    <div class="i-checks">
+                      <input  type="radio" name="trans_type" value="2" class="checkbox-template">
+                      <label for="checkboxCustom2">Giá theo đầu sản phẩm</label>
+                    </div>
+                    </div>
+                    
                     <div class="row avt-item-order-form-<?php echo $genKey ?>">
                         <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
                             <div class="form-group">
@@ -186,7 +200,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
+                        <div class="right-col col-lg-3 align-items-center avt-input-weight" style="margin-top: 10px;">
                             <div class="form-group">
                                 <label>Số KG</label>
                                 <div class="input-group">
@@ -233,11 +247,11 @@
                         </div>
                         <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
                             <div class="form-group">
-                                <label>Phí ship</label>
+                                <label>Phí ship nội địa</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control atl-order-fix-input avt-price" name="<?php echo $name ?>[price_ship]" placeholder="Phí Ship" value="<?php echo isset( $infoBill[0]['price_ship'] ) ? $infoBill[0]['price_ship'] : '' ?>">
                                     <span class="input-group-btn atl-input-group-btn">
-                                        <button type="button" class="btn btn-primary">VNĐ</button>
+                                        <button type="button" class="btn btn-primary">¥</button>
                                     </span>
                                 </div>
                             </div>
@@ -375,6 +389,16 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control atl-order-fix-input avt-price" readonly="" value="<?php echo isset( $infoBill[0]['price_ship'] ) ? $infoBill[0]['price_ship'] : '' ?>">
+                                        <span class="input-group-btn atl-input-group-btn">
+                                            <button type="button" class="btn btn-primary">Phí ship nội địa</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <?php endforeach; ?>            
                 </div>
@@ -404,25 +428,37 @@
                                 <tr>
                                     <td>Tổng tiền hoá đơn</td>
                                     <td>
-                                        <span id="total-price-trans">
-                                        Tiền vận chuyển : <?php echo $apiHandlePrice->formatPrice($totalPriceTrans, 'vnđ') ?>
+                                        <span id="total-price">
+                                        <input type="hidden" name="avt_total_price_cn" value="<?php echo $totalPrice ?>">
+                                        <input type="hidden" name="avt_total_price_vn" value="<?php echo $cartTotalPriceVN ?>">
+                                        Tiền đơn hàng: <?php echo $apiHandlePrice->formatPrice($totalPrice) ?> = <?php echo $apiHandlePrice->formatPrice($cartTotalPriceVN, 'vnđ')  ?>
                                         </span>
                                         <hr>
-                                        <span id="total-price">
-                                        <?php echo $apiHandlePrice->formatPrice($totalPrice) ?>
+                                        <span id="total-price-trans">
+                                        Tiền vận chuyển : <?php echo $apiHandlePrice->formatPrice($totalPriceTrans, 'vnđ') ?> /  <?php echo $totalWeight ?> kg
                                         </span>
-                                        <input type="hidden" name="avt_total_price_cn" value="<?php echo $totalPrice ?>">
+                                        <hr>
+                                        <span id="total-price-trans">
+                                        Phí ship nội địa : <?php echo $apiHandlePrice->formatPrice($totalPriceShip) ?>
+                                        </span>
+                                                       
                                         <hr> = 
                                         <span id="total-price-vnd">
-                                            <?php echo $apiHandlePrice->formatPrice($cartTotalPriceVN, 'vnđ')  ?>
+                                            <?php echo $apiHandlePrice->formatPrice($cartTotalPriceVN + $totalPriceTrans + $totalPriceShip, 'vnđ')  ?>
                                         </span>
-                                        <input type="hidden" name="avt_total_price_vn" value="<?php echo $cartTotalPriceVN ?>">
+                                        
                                         <?php if (1 == $orderInfo[0]['order_status']) :  ?>
                                         <hr>
                                         <span style="color: #ff9800;"> 
                                             <i class="fa fa-exclamation-triangle"></i> Đơn hàng chưa được thanh toán.
                                         </span>
                                         <?php endif; ?>
+                                        <br>
+                                        <?php if (2 == $orderInfo[0]['order_status']) {
+                                            echo '<span style="color: #4CAF50; font-size: 20px;"> 
+                                                                <i class="fa fa-exclamation-triangle"></i> Đơn hàng đã tất toán.
+                                                            </span>';
+                                        }?>
                                     </td> 
                                 </tr>
     

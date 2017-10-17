@@ -25,6 +25,7 @@
 				'bootstrap'  	    => assets('frontend/user-tool/js/bootstrap.min.js'),
 				'jquery.cookie'     => assets('frontend/user-tool/js/jquery.cookie.js'),
 				'jquery.validate'  	=> assets('frontend/user-tool/js/jquery.validate.min.js'),
+				'jquery-number'  	=> assets('js/jquery.number.min.js'),
 
 				'jqfrontuery'  	    => assets('frontend/user-tool/js/front.js'),
 				

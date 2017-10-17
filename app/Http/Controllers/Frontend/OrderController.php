@@ -132,7 +132,8 @@ class OrderController extends baseController
                     'payment_type' => $request->get('avt_pay_type'),
                     'rest_payment' => $infoOrder[0]['order_total_price_vn'] - $priceCount,
                     'date' => date('Y-m-d H:s:j'),
-                    'desc' => 'Thanh toán cho đơn hàng ' . $infoOrder[0]['order_code']
+                    'desc' => 'Thanh toán cho đơn hàng ' . $infoOrder[0]['order_code'],
+                    'user_id' => Session()->get('avt_user_id'),
                     ]);
 
                     $this->mdUser->save([

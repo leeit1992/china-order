@@ -42,7 +42,7 @@
                         <div class="card-body">
                             <ul class="tabs">
                                 <li><a href="<?php echo url('/user-tool/order-manage') ?>" class="active">Tất cả<sup>(<?php echo count($listOrder) ?>)</sup></a></li>
-                                <li><a href="<?php echo url('/user-tool/order-manage?status=1') ?>">chưa thanh toán<sup>(<?php echo count($notPayment) ?>)</sup></a></li>
+                                <li><a href="<?php echo url('/user-tool/order-manage?status=1') ?>">Chưa thanh toán<sup>(<?php echo count($notPayment) ?>)</sup></a></li>
                                 <li><a href="<?php echo url('/user-tool/order-manage?status=2') ?>">Đã thanh toán chờ mua<sup>(<?php echo count($payWaitBuy) ?>)</sup></a></li>
                                 <li><a href="<?php echo url('/user-tool/order-manage?statusBuy=2') ?>">Đã mua<sup>(<?php echo count($hasBuy) ?>)</sup></a></li>
                                 <li><a href="<?php echo url('/user-tool/order-manage?statusDelivery=2') ?>">Đã giao hàng<sup>(<?php echo count($delivery) ?>)</sup></a></li>

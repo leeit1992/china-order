@@ -33,7 +33,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 form-control-label">Ngày nạp (*)</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="avt_recharge_date" class="form-control">
+                                    <input type="text" name="avt_recharge_date" class="form-control op-datepicker">
                                 </div>
                             </div>
                             <div class="line"></div>
@@ -49,7 +49,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 form-control-label">Số tiền nạp (*)</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="avt_recharge_price" class="form-control">
+                                    <input type="text" name="avt_recharge_price" class="form-control avt-price">
                                 </div>
                             </div>
                             <div class="line"></div>

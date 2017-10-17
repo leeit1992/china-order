@@ -70,6 +70,7 @@
                     $hasPurchase = 0;
                     $totalPriceTrans = 0;
                     $totalWeight = 0;
+                    $totalPriceShip = 0;
                     foreach ($newListByIdSale as $_listItem): 
                 ?>
                 <div class="avt-group-item bg-white has-shadow" <?php echo ( 'filter_purchase' == $getHandle ) ? 'style="display:none;"' : '' ?>    >
@@ -191,6 +192,7 @@
                             $infoBill = $mdBillofladingModel->getBy('general_id', $value['id']);
                             $totalPriceTrans += isset( $infoBill[0]['price'] ) ? $infoBill[0]['price'] : 0;
                             $totalWeight += isset( $infoBill[0]['weight'] ) ? $infoBill[0]['weight'] : 0;
+                            $totalPriceShip += isset( $infoBill[0]['price_ship'] ) ? $infoBill[0]['price_ship'] : 0;
                         ?>
                         <div class="row" id="item-<?php echo $dataItem['id'] ?>">
                             <div class="left-col col-lg-4 d-flex align-items-center justify-content-between">
@@ -273,7 +275,7 @@
                             <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control atl-order-fix-input" readonly="" placeholder="Thành Tiền" value="<?php echo isset( $infoBill[0]['price'] ) ? $infoBill[0]['price'] : '' ?>">
+                                        <input type="text" class="form-control atl-order-fix-input avt-price" readonly="" placeholder="Thành Tiền" value="<?php echo isset( $infoBill[0]['price'] ) ? $apiHandlePrice->formatPrice($infoBill[0]['price'], '') : '' ?>">
                                         <span class="input-group-btn atl-input-group-btn">
                                             <button type="button" class="btn btn-primary">VNĐ</button>
                                         </span>
@@ -286,6 +288,16 @@
                                         <input type="text" class="form-control atl-order-fix-input" readonly="" placeholder="Mã vận đơn" value="<?php echo isset( $infoBill[0]['code'] ) ? $infoBill[0]['code'] : '' ?>">
                                         <span class="input-group-btn atl-input-group-btn">
                                             <button type="button" class="btn btn-primary">Mã vận đơn</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-col col-lg-3 align-items-center" style="margin-top: 10px;">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control atl-order-fix-input avt-price" readonly="" placeholder="Mã vận đơn" value="<?php echo isset( $infoBill[0]['price_ship'] ) ? $apiHandlePrice->formatPrice($infoBill[0]['price_ship'], '') : '' ?>">
+                                        <span class="input-group-btn atl-input-group-btn">
+                                            <button type="button" class="btn btn-primary">Phí ship nội địa</button>
                                         </span>
                                     </div>
                                 </div>
@@ -317,19 +329,24 @@
                                 <tr>
                                     <td>Tổng tiền hoá đơn</td>
                                     <td>
-                                        <span id="total-price-trans">
-                                        Tiền vận chuyển : <?php echo $apiHandlePrice->formatPrice($totalPriceTrans, 'vnđ') ?>
+                                        <span id="total-price">
+                                        <input type="hidden" name="avt_total_price_cn" value="<?php echo $totalPrice ?>">
+                                        <input type="hidden" name="avt_total_price_vn" value="<?php echo $cartTotalPriceVN ?>">
+                                        Tiền đơn hàng: <?php echo $apiHandlePrice->formatPrice($totalPrice) ?> = <?php echo $apiHandlePrice->formatPrice($cartTotalPriceVN, 'vnđ')  ?>
                                         </span>
                                         <hr>
-                                        <span id="total-price">
-                                        <?php echo $apiHandlePrice->formatPrice($totalPrice) ?>
+                                        <span id="total-price-trans">
+                                        Tiền vận chuyển : <?php echo $apiHandlePrice->formatPrice($totalPriceTrans, 'vnđ') ?> / <?php echo $totalWeight ?> kg
                                         </span>
-                                        <input type="hidden" name="avt_total_price_cn" value="<?php echo $totalPrice ?>">
+                                        <hr>
+                                        <span id="total-price-trans">
+                                        Phí ship nội địa: <?php echo $apiHandlePrice->formatPrice($totalPriceShip, 'vnđ') ?>
+                                        </span>
+                                                       
                                         <hr> = 
                                         <span id="total-price-vnd">
-                                            <?php echo $apiHandlePrice->formatPrice($cartTotalPriceVN, 'vnđ')  ?>
+                                            <?php echo $apiHandlePrice->formatPrice($cartTotalPriceVN + $totalPriceTrans + $totalPriceShip, 'vnđ')  ?>
                                         </span>
-                                        <input type="hidden" name="avt_total_price_vn" value="<?php echo $cartTotalPriceVN ?>">
                                         <?php if (1 == $orderInfo[0]['order_status']) :  ?>
                                         <hr>
                                         <span style="color: #ff9800;"> 

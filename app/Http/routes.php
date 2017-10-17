@@ -144,6 +144,7 @@ $route->get('/admcp/recharge', 'Backend\MoneyController@recharge');
 $route->get('/admcp/recharge/{id}', 'Backend\MoneyController@recharge');
 $route->get('/admcp/recharge-manage', 'Backend\MoneyController@rechargeManage');
 $route->get('/admcp/info-pay', 'Backend\MoneyController@managePay');
+$route->get('/admcp/remove-recharge/{id}', 'Backend\MoneyController@removeRecharge');
 
 $route->post('/admcp/recharge-validate', 'Backend\MoneyController@rechargeValidate');
 $route->post('/admcp/add-pay-validate', 'Backend\MoneyController@addPayValidate');

@@ -18,7 +18,15 @@
 		},
 
 		initialize: function() {
-         
+			console.log($("input[name=trans_type]"));
+        	$("input[name=trans_type]").change(function(){
+        		if( 2 == $(this).val() ) {
+        			$(".avt-input-weight").hide();
+        		}else{
+        			$(".avt-input-weight").show();
+        		}
+        		
+        	})
         },
 
 		/**

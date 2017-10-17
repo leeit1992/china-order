@@ -64,7 +64,7 @@ class MoneyController extends baseController
             $this->mdRecharge->save([
                 'name' => $request->get('avt_recharge_name'),
                 'date' => $request->get('avt_recharge_date'),
-                'price' => $request->get('avt_recharge_price'),
+                'price' => $this->convertPriceToInt($request->get('avt_recharge_price')),
                 'type' => $request->get('avt_recharge_type'),
                 'bank_id' => $request->get('avt_recharge_bank'),
                 'note' => $request->get('avt_recharge_note'),
@@ -83,6 +83,7 @@ class MoneyController extends baseController
     public function revenueExpenditure()
     {
         $listData = $this->mdExpenditure->getBy('user_id', Session()->get('avt_user_id'));
+        // $listData = $this->mdExpenditure->getAll();
         $total_rest_payment = 0;
         foreach ($listData as $items) {
             if (is_numeric($items['rest_payment'])) {

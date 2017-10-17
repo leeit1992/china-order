@@ -29,6 +29,7 @@
 				                        <th>Thời gian</th>
 				                        <th>Ghi chú</th>
 				                        <th>Trạng thái</th>
+				                        <th>#</th>
 				                    </tr>
 				                </thead>
 				                <tbody>
@@ -54,6 +55,9 @@
 				                        	?>
 				                        	
 				                        </td>
+				                        <td>
+                                        <a href="<?php echo url('/admcp/remove-recharge/'.$value['id']) ?>"> <i class="fa fa-times"></i> </a>
+                                    </td>
 				                    </tr>
 				                    <?php endforeach; ?>
 				                </tbody>
