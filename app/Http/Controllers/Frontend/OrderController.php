@@ -33,16 +33,39 @@ class OrderController extends baseController
         ], ['path' => 'frontend/userTool/']);
     }
 
-    public function orderManage()
+    public function orderManage( Request $request )
     {
-
         $listOrder = $this->mdOrder->getBy('user_id',Session()->get('avt_user_id') );
-
         $notPayment = $this->mdOrder->getBy('order_status', 1);
         $payWaitBuy = $this->mdOrder->getBy('order_status', 2);
         $delivery = $this->mdOrder->getBy('order_delivery_status', 2);
         $hasBuy = $this->mdOrder->getBy('order_buy_status', 2);
         $outStock = $this->mdOrder->getBy('order_buy_status', 3);
+
+        if (!empty($request->get('status'))) {
+            $listOrder = [];
+            if ($request->get('status') == 1) {
+                $listOrder = $notPayment;
+            } elseif ($request->get('status') == 2) {
+                $listOrder = $payWaitBuy;
+            }
+        }
+
+        if (!empty($request->get('statusBuy'))) {
+            $listOrder = [];
+            if ($request->get('statusBuy') == 2) {
+                $listOrder = $hasBuy;
+            } elseif ($request->get('statusBuy') == 3) {
+                $listOrder = $outStock;
+            }
+        }
+
+        if (!empty($request->get('statusDelivery'))) {
+            $listOrder = [];
+            if ($request->get('statusDelivery') == 2) {
+                $listOrder = $delivery;
+            }
+        }
 
         $this->loadTemplate('order/order-manage.tpl', [
             'listOrder' => $listOrder,
