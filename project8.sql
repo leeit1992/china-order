@@ -53,6 +53,7 @@ CREATE TABLE `avt_billoflading` (
   `price` varchar(255) DEFAULT NULL,
   `status` tinyint(2) DEFAULT NULL,
   `price_ship` varchar(255) DEFAULT NULL,
+  `price_status` tinyint(2) DEFAULT NULL
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
@@ -75,6 +76,7 @@ CREATE TABLE `avt_expenditure` (
   `rest_payment` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   `desc` varchar(255) DEFAULT NULL,
+  `user_id` int(11) NOT NULL
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
@@ -82,7 +84,7 @@ CREATE TABLE `avt_expenditure` (
 --  Records of `avt_expenditure`
 -- ----------------------------
 BEGIN;
-INSERT INTO `avt_expenditure` VALUES ('3', '15', '17297856', '80', '4324464', '2017-10-06 18:54:06', 'Thanh toán cho ??n hàng Custommer-HN-06-10-2017'), ('4', '18', '1864759', '80', '466189.68', '2017-10-06 19:57:06', 'Thanh toán cho ??n hàng Custommer-HN-06-10-2017'), ('5', '19', '11715984', '80', '2928996', '2017-10-06 19:06:06', 'Thanh toán cho ??n hàng '), ('6', '20', '5630016', '80', '1407504', '2017-10-06 19:28:06', 'Thanh toán cho ??n hàng User1-HN-06-10-2017'), ('7', '23', '5630016', '80', '1407504', '2017-10-06 19:43:06', 'Thanh toán cho ??n hàng Custommer-HN-06-10-2017'), ('8', '26', '563568', '80', '140892', '2017-10-06 20:56:06', 'Thanh toán cho ??n hàng Custommer-HN-06-10-2017'), ('9', '29', '6012902', '80', '1503225.6', '2017-10-16 01:45:16', 'Thanh toán cho ??n hàng Custommer-HN-10-10-2017'), ('10', '30', '6012902', '80', '1503225.6', '2017-10-16 01:40:16', 'Thanh toán cho ??n hàng Custommer-HN-16-10-2017'), ('11', '31', '7516128', '100', '0', '2017-10-16 01:58:16', 'Thanh toán cho ??n hàng Custommer-HN-16-10-2017'), ('12', '32', '6012902', '80', '1503225.6', '2017-10-16 01:20:16', 'Thanh toán cho ??n hàng Custommer-HN-16-10-2017');
+INSERT INTO `avt_expenditure` VALUES ('3', '15', '17297856', '80', '4324464', '2017-10-06 18:54:06', 'Thanh toán cho ??n hàng Custommer-HN-06-10-2017', '3'), ('4', '18', '1864759', '80', '466189.68', '2017-10-06 19:57:06', 'Thanh toán cho ??n hàng Custommer-HN-06-10-2017', '3'), ('5', '19', '11715984', '80', '2928996', '2017-10-06 19:06:06', 'Thanh toán cho ??n hàng ', '3'), ('6', '20', '5630016', '80', '1407504', '2017-10-06 19:28:06', 'Thanh toán cho ??n hàng User1-HN-06-10-2017', '3'), ('7', '23', '5630016', '80', '1407504', '2017-10-06 19:43:06', 'Thanh toán cho ??n hàng Custommer-HN-06-10-2017', '3'), ('8', '26', '563568', '80', '140892', '2017-10-06 20:56:06', 'Thanh toán cho ??n hàng Custommer-HN-06-10-2017', '3'), ('9', '29', '6012902', '80', '1503225.6', '2017-10-16 01:45:16', 'Thanh toán cho ??n hàng Custommer-HN-10-10-2017', '3'), ('10', '30', '6012902', '80', '1503225.6', '2017-10-16 01:40:16', 'Thanh toán cho ??n hàng Custommer-HN-16-10-2017', '3'), ('11', '31', '7516128', '100', '0', '2017-10-16 01:58:16', 'Thanh toán cho ??n hàng Custommer-HN-16-10-2017', '3'), ('12', '32', '6012902', '80', '1503225.6', '2017-10-16 01:20:16', 'Thanh toán cho ??n hàng Custommer-HN-16-10-2017', '3');
 COMMIT;
 
 -- ----------------------------
@@ -147,6 +149,7 @@ CREATE TABLE `avt_orders` (
   `user_id` int(11) DEFAULT NULL,
   `order_seller` varchar(255) DEFAULT NULL,
   `order_info_pay` text,
+  `order_arises_price` varchar(255) DEFAULT NULL
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 

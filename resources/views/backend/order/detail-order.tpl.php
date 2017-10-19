@@ -180,12 +180,12 @@
                     ?>
                     <div style="margin-left: 10px;">
                         <div class="i-checks">
-                      <input type="radio" value="1" name="trans_type" class="checkbox-template">
+                      <input type="radio" value="1" checked name="<?php echo $name ?>[price-status]" class="checkbox-template avt-price-status">
                       <label for="checkboxCustom2">Giá theo kg
                       </label>
                     </div>
                     <div class="i-checks">
-                      <input  type="radio" name="trans_type" value="2" class="checkbox-template">
+                      <input  type="radio" name="<?php echo $name ?>[price-status]" value="2" class="checkbox-template avt-price-status" <?php echo ( isset($infoBill[0]['price_status']) && $infoBill[0]['price_status'] == 2) ? 'checked' : '' ?>>
                       <label for="checkboxCustom2">Giá theo đầu sản phẩm</label>
                     </div>
                     </div>
@@ -200,7 +200,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="right-col col-lg-3 align-items-center avt-input-weight" style="margin-top: 10px;">
+                        <div class="right-col col-lg-3 align-items-center avt-input-weight" style="margin-top: 10px;<?php echo ( isset($infoBill[0]['price_status']) && $infoBill[0]['price_status'] == 2) ? 'display: none' : '' ?>">
                             <div class="form-group">
                                 <label>Số KG</label>
                                 <div class="input-group">
@@ -436,7 +436,12 @@
                                         </span>
                                         <hr>
                                         <span id="total-price-trans">
-                                        Tiền vận chuyển : <?php echo $apiHandlePrice->formatPrice($totalPriceTrans, 'vnđ') ?> /  <?php echo $totalWeight ?> kg
+                                        Tiền vận chuyển : 
+                                        <?php if ($totalWeight > 0): ?>
+                                            <?php echo $apiHandlePrice->formatPrice($totalPriceTrans, 'vnđ') ?> /  <?php echo $totalWeight ?> kg
+                                        <?php else: ?>
+                                            <?php echo $apiHandlePrice->formatPrice($totalPriceTrans, 'vnđ') ?>
+                                        <?php endif ?>
                                         </span>
                                         <hr>
                                         <span id="total-price-trans">
@@ -449,10 +454,16 @@
                                         </span>
                                         
                                         <?php if (1 == $orderInfo[0]['order_status']) :  ?>
-                                        <hr>
-                                        <span style="color: #ff9800;"> 
-                                            <i class="fa fa-exclamation-triangle"></i> Đơn hàng chưa được thanh toán.
-                                        </span>
+                                            <hr>
+                                            <span style="color: #ff9800;"> 
+                                                <i class="fa fa-exclamation-triangle"></i> Đơn hàng chưa được thanh toán.
+                                            </span>
+                                        <?php endif; ?>
+                                        <?php if (3 == $orderInfo[0]['order_status']) :  ?>
+                                            <hr>
+                                            <span class="text-danger"> 
+                                                <i class="fa fa-exclamation-triangle"></i> Đơn hàng chờ thanh toán phát sinh.
+                                            </span>
                                         <?php endif; ?>
                                         <br>
                                         <?php if (2 == $orderInfo[0]['order_status']) {

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Backend;
 use Atl\Foundation\Request;
 use App\Http\Components\ApiHandlePrice;
 use App\Http\Components\Backend\Controller as baseController;
-
 use App\Model\OrderModel;
 use App\Model\OrderItemModel;
 use App\Model\BillofladingModel;
@@ -23,6 +22,7 @@ class OrderController extends baseController
         $this->mdOrderItem = new OrderItemModel;
         $this->mdBillofladingModel = new BillofladingModel;
         $this->mdOption = new OptionModel;
+        $this->mdNotice = new NoticeModel;
     }
 
     public function orderSuccess()
@@ -37,6 +37,7 @@ class OrderController extends baseController
         $payWaitBuy = $this->mdOrder->getBy('order_status', 2);
         $delivery = $this->mdOrder->getBy('order_delivery_status', 2);
         $hasBuy = $this->mdOrder->getBy('order_buy_status', 2);
+        $restPercent = $this->mdOrder->getByRestPercent();
         $outStock = $this->mdOrder->getBy('order_buy_status', 3);
 
         if (!empty($request->get('status'))) {
@@ -57,6 +58,13 @@ class OrderController extends baseController
             }
         }
 
+        if (!empty($request->get('statusRest'))) {
+            $listOrder = [];
+            if ($request->get('statusRest') == 1) {
+                $listOrder = $restPercent;
+            }
+        }
+
         if (!empty($request->get('statusDelivery'))) {
             $listOrder = [];
             if ($request->get('statusDelivery') == 2) {
@@ -70,6 +78,7 @@ class OrderController extends baseController
             'payWaitBuy' => $payWaitBuy,
             'delivery'   => $delivery,
             'hasBuy'     => $hasBuy,
+            'restPercent' => $restPercent,
             'outStock'     => $outStock,
             'apiHandlePrice' => ApiHandlePrice::getInstance()
         ], ['path' => 'backend/']);
@@ -78,13 +87,12 @@ class OrderController extends baseController
     public function orderDetail($id)
     {
         // setting status seen notice
-        $mdNotice = new NoticeModel;
         $condiNotice =  [ 'notice_link' => '/admcp/detail-order/'. $id,
                           'notice_receiver' => Session()->get('avt_admin_user_id')
                         ];
-        $notice = $mdNotice->getByArray( $condiNotice );
+        $notice = $this->mdNotice->getByArray( $condiNotice );
         if (!empty($notice)) {
-            $mdNotice->save( [ 'notice_status' => 2 ], $notice[0]['id'] );
+            $this->mdNotice->save( [ 'notice_status' => 2 ], $notice[0]['id'] );
         }
 
         $listItem = $this->mdOrderItem->getBy('order_id', $id);
@@ -116,7 +124,12 @@ class OrderController extends baseController
 
     public function updateOrder(Request $request)
     {
-
+        $totalShipPriceNew = 0;
+        $totalShipPrice = 0;
+        $listBill = $this->mdBillofladingModel->getBy('order_id', $request->get('avt_oder_id'));
+        foreach ($listBill as $value) {
+            $totalShipPrice += $value['price_ship'];
+        }
         foreach ($request->get('avt_order_item') as $keyId => $value) {
             $this->mdOrderItem->save([
                 'order_item_real_purchase' => $value['purchase_number']
@@ -157,6 +170,14 @@ class OrderController extends baseController
 
                 $checkBillItem = $this->mdBillofladingModel->getBy('general_id', $value['check_order_item_id']);
 
+                if ( $value['price-status'] == 1 ) {
+                    $price_status = 1;
+                    $weight = $value['weight'];
+                } elseif ( $value['price-status'] == 2 ) {
+                    $price_status = 2;
+                    $weight = '';
+                }
+
                 $this->mdBillofladingModel->save(
                     [
                         'day_in_stock' => $value['date'],
@@ -164,14 +185,35 @@ class OrderController extends baseController
                         'order_id' => $value['order_id'],
                         'shop_name' => $value['shop_name'],
                         'order_item_id' => json_encode($value['order_item_id']),
-                        'weight' => $value['weight'],
+                        'weight' => $weight,
+                        'price_status' => $price_status,
                         'price' => $this->convertPriceToInt($value['price']),
                         'price_ship' => $this->convertPriceToInt($value['price_ship']),
                         'general_id' => implode('-',$value['order_item_id']),
                     ],
                     isset( $checkBillItem[0]['id'] ) ? $checkBillItem[0]['id'] : null
                 );
+                $totalShipPriceNew += $this->convertPriceToInt($value['price_ship']);
             }
+        }
+
+        $infoOrder = $this->mdOrder->getBy( 'id', $request->get('avt_oder_id') );
+        if ( $totalShipPriceNew > $totalShipPrice && $infoOrder[0]["order_status"] == 2) {
+            $this->mdOrder->save([
+                'order_status' => 3,
+                'order_arises_price'=> $totalShipPriceNew - $totalShipPrice,
+                ],
+                $request->get('avt_oder_id'));
+            $this->mdNotice->save([
+                'notice_title'       => 'Thanh toán phí phát sinh '. $infoOrder[0]["order_code"],
+                'notice_description' => '',
+                'notice_sender'      => Session()->get('avt_admin_user_id'),
+                'notice_receiver'    => $infoOrder[0]['user_id'],
+                'notice_status'      => 1,
+                'notice_link'        => '/user-tool/detail-order/'. $request->get('avt_oder_id'),
+                'notice_type'        => 'arises_price',
+                'notice_date'        => date('Y-m-d H:s:j')
+            ]);
         }
 
         Session()->getFlashBag()->set('updateOrder', ['type' => true, 'notice' => 'Update thông tin thành công.']);

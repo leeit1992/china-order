@@ -355,58 +355,70 @@
                                         <?php endif; ?>
                                     </td> 
                                 </tr>
-                                <tr>
-                                    <td>
-                                    </td>
-                                    <td>
-                                        <?php if (empty($orderInfo[0]['order_info_pay'])) : ?>
-                                        <div class="col-sm-9">
-                                            <div class="i-checks">
-                                                <input id="avt_status_1" name="avt_pay_type" value="100" checked="checked" type="radio" class="checkbox-template">
-                                                <label for="avt_status_1">Thanh toán toàn bộ đơn hàng.</label>
-                                            </div>
-                                            <div class="i-checks">
-                                                <input id="avt_status_2" name="avt_pay_type" value="80" type="radio" class="checkbox-template">
-                                                <label for="avt_status_2">Thanh toán 80% đơn hàng.</label>
-                                            </div>
-                                        </div>
-                                        <?php endif; ?>
-                                        <hr>
-                                        <?php
-                                        if (!empty($orderInfo[0]['order_info_pay'])) :
-                                            $dataInfoPay = json_decode($orderInfo[0]['order_info_pay'], true);
-                                        ?>
-                                        <b>Đã thanh toán </b> : <?php echo 100 - $dataInfoPay['rest_percent'] ?> % = <?php echo $apiHandlePrice->formatPrice($dataInfoPay['has_pay'], 'vnđ') ?>
-                                        <hr>
-                                        <b>Số còn lại </b> :  <?php echo $dataInfoPay['rest_percent'] ?> % = <?php echo $apiHandlePrice->formatPrice($dataInfoPay['rest_pay'], 'vnđ') ?>
-                                        <?php endif; ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>
-                                        <input type="hidden" name="avt_oder_id" value="<?php echo $orderInfo[0]['id'] ?>">
-                                        <?php
-                                        if (empty($orderInfo[0]['order_info_pay'])) {
-                                            echo '<button type="submit" class="btn btn-primary">Thanh toán tiền </button>';
-                                        }
+                                <input type="hidden" name="avt_oder_id" value="<?php echo $orderInfo[0]['id'] ?>">
+                                <?php if ($orderInfo[0]['order_status'] == 3): ?>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            <span class="text-danger"><i class="fa fa-exclamation-triangle"></i> Đơn hàng cần thanh toán phí phát sinh</span>
+                                            <input type="hidden" name="avt_pay_type" value="arises_price"><hr>
+                                            <p class="text-danger">Phí phát sinh: <?php echo $apiHandlePrice->formatPrice( $orderInfo[0]['order_arises_price'], 'vnđ' ) ?></p><hr>
+                                            <button type="submit" class="btn btn-primary">Thanh toán tiền phát sinh</button>
+                                        </td>
+                                    <?php else: ?>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td>
+                                                <?php if (empty($orderInfo[0]['order_info_pay'])) : ?>
+                                                <div class="col-sm-9">
+                                                    <div class="i-checks">
+                                                        <input id="avt_status_1" name="avt_pay_type" value="100" checked="checked" type="radio" class="checkbox-template">
+                                                        <label for="avt_status_1">Thanh toán toàn bộ đơn hàng.</label>
+                                                    </div>
+                                                    <div class="i-checks">
+                                                        <input id="avt_status_2" name="avt_pay_type" value="80" type="radio" class="checkbox-template">
+                                                        <label for="avt_status_2">Thanh toán 80% đơn hàng.</label>
+                                                    </div>
+                                                </div>
+                                                <?php endif; ?>
+                                                <hr>
+                                                <?php
+                                                if (!empty($orderInfo[0]['order_info_pay'])) :
+                                                    $dataInfoPay = json_decode($orderInfo[0]['order_info_pay'], true);
+                                                ?>
+                                                <b>Đã thanh toán </b> : <?php echo 100 - $dataInfoPay['rest_percent'] ?> % = <?php echo $apiHandlePrice->formatPrice($dataInfoPay['has_pay'], 'vnđ') ?>
+                                                <hr>
+                                                <b>Số còn lại </b> :  <?php echo $dataInfoPay['rest_percent'] ?> % = <?php echo $apiHandlePrice->formatPrice($dataInfoPay['rest_pay'], 'vnđ') ?>
+                                                <?php endif; ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                   <?php
+                                                    if (empty($orderInfo[0]['order_info_pay'])) {
+                                                        echo '<button type="submit" class="btn btn-primary">Thanh toán tiền </button>';
+                                                    }
 
-                                        if (!empty($orderInfo[0]['order_info_pay'])) {
-                                            if (0 != $dataInfoPay['rest_pay']) {
+                                                    if (!empty($orderInfo[0]['order_info_pay'])) {
+                                                        if (0 != $dataInfoPay['rest_pay']) {
 
-                                                echo '<input type="hidden" name="avt_pay_type" value="pay_emaining_amount">';
-                                                echo '<button type="submit" value="pay_emaining_amount" class="btn btn-primary">Tất toán </button>';
-                                            } else {
-                                                echo '<span style="color: #4CAF50; font-size: 20px;"> 
-                                                                <i class="fa fa-exclamation-triangle"></i> Đơn hàng đã tất toán.
-                                                            </span>';
-                                            }
-                                        }
-                                        ?>
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
+                                                            echo '<input type="hidden" name="avt_pay_type" value="pay_emaining_amount">';
+                                                            echo '<button type="submit" value="pay_emaining_amount" class="btn btn-primary">Tất toán </button>';
+                                                        } else {
+                                                            echo '<span style="color: #4CAF50; font-size: 20px;"> 
+                                                                            <i class="fa fa-exclamation-triangle"></i> Đơn hàng đã tất toán.
+                                                                        </span>';
+                                                        }
+                                                    }
+                                                ?>
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    <?php endif ?>
                             </tbody>
                         </table>
                     </div>

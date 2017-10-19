@@ -3,7 +3,7 @@ namespace App\Http\Components\Frontend;
 
 use Atl\Routing\Controller as baseController;
 use App\Http\Components\Frontend\FrontendDataMenu;
-
+use App\Model\NoticeModel;
 use App\Model\OptionModel;
 
 class Controller extends baseController{
@@ -14,6 +14,7 @@ class Controller extends baseController{
 		parent::__construct();
 
 		$this->mdOption = new OptionModel;
+		$this->mdNotice = new NoticeModel;
 
 		$this->currentcyRate = $this->mdOption->getOption('currency_rate');
 	}
@@ -42,11 +43,19 @@ class Controller extends baseController{
 			$pathFolder. 'layout/header.tpl'
 		);
 
+		// condition array and get list notice
+		$condiNotice =  [ 'notice_status' => 1,
+						  'notice_receiver' => Session()->get('avt_user_id')
+					    ];
+		$listNotice = $this->mdNotice->getByArray( $condiNotice );
 		$output .= View(
 			$pathFolder. 'layout/menuNav.tpl',
 			[
 				'menuAdmin' => FrontendDataMenu::getInstance( $this->getRoute() ),
-				'cartInfo' => $cartInfo
+				'cartInfo' => $cartInfo,
+				'listNotice' => $listNotice,
+				'totalNotice'=> count($listNotice),
+				'mdUser'     => $this->mdUser
 			]
 
 		);

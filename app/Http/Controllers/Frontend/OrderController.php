@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Frontend;
 use Atl\Foundation\Request;
 use App\Http\Components\ApiHandlePrice;
 use App\Http\Components\Frontend\Controller as baseController;
-
 use App\Model\OrderModel;
 use App\Model\OrderItemModel;
 use App\Model\UserModel;
 use App\Model\ExpenditureModel;
 use App\Model\BillofladingModel;
+use App\Model\NoticeModel;
 
 class OrderController extends baseController
 {
@@ -24,6 +24,7 @@ class OrderController extends baseController
         $this->mdUser = new UserModel;
         $this->mdExpenditure = new ExpenditureModel;
         $this->mdBillofladingModel = new BillofladingModel;
+        $this->mdNotice = new NoticeModel;
     }
 
     public function orderSuccess($id = null)
@@ -108,6 +109,7 @@ class OrderController extends baseController
     {
         $infoUser = $this->mdUser->getUserBy('id', Session()->get('avt_user_id'));
         $infoOrder = $this->mdOrder->getBy('id', $request->get('avt_oder_id'));
+        //pr($infoOrder[0]);die;
 
         switch ($request->get('avt_pay_type')) {
             case 'pay_emaining_amount':
@@ -133,7 +135,40 @@ class OrderController extends baseController
                     Session()->getFlashBag()->set('updateOrder', ['type' => false, 'notice' => 'Tiền trong tải khoản của bạn không đủ. vui lòng nạp thêm tiền vào tài khoản.']);
                 }
                 break;
-            
+            case 'arises_price':
+                if ($infoUser[0]['user_money'] > $infoOrder[0]['order_arises_price']) {
+                    $argsSave = [
+                        'order_status' => 2,
+                        'order_arises_price' => '',
+                    ];
+                    $this->mdOrder->save($argsSave, $request->get('avt_oder_id'));
+
+                    $this->mdUser->save([
+                        'user_money' => $infoUser[0]['user_money'] - $infoOrder[0]['order_arises_price']
+                    ], Session()->get('avt_user_id'));
+
+                    $listAdmin = $this->mdUser->getUserBy( 'user_role', 1 );
+                    if (!empty($listAdmin)) {
+                        foreach ($listAdmin as $item) {
+                            $this->mdNotice->save([
+                                'notice_title'       => 'Đã thanh toán phí phát sinh '. $infoOrder[0]["order_code"],
+                                'notice_description' => '',
+                                'notice_sender'      => Session()->get('avt_user_id'),
+                                'notice_receiver'    => $item['id'],
+                                'notice_status'      => 1,
+                                'notice_link'        => '/admcp/detail-order/'. $request->get('avt_oder_id'),
+                                'notice_type'        => 'arises_price_done',
+                                'notice_date'        => date('Y-m-d H:s:j')
+                            ]);
+                        }
+                    }
+
+                    Session()->getFlashBag()->set('updateOrder', ['type' => true, 'notice' => 'Thanh toán chi phí phát sinh thành công.']);
+                } else {
+                    Session()->getFlashBag()->set('updateOrder', ['type' => false, 'notice' => 'Tiền trong tải khoản của bạn không đủ. vui lòng nạp thêm tiền vào tài khoản.']);
+                }
+                break;
+
             default:
                 $priceCount = $request->get('avt_pay_type') / 100 * $infoOrder[0]['order_total_price_vn'];
 

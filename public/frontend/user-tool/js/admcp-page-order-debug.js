@@ -18,12 +18,13 @@
 		},
 
 		initialize: function() {
-			console.log($("input[name=trans_type]"));
-        	$("input[name=trans_type]").change(function(){
+        	$(".avt-price-status").change(function(){
+        		var $wrap = $(this).closest('.avt-group-item');
+        		console.log($wrap);
         		if( 2 == $(this).val() ) {
-        			$(".avt-input-weight").hide();
+        			$wrap.find(".avt-input-weight").hide();
         		}else{
-        			$(".avt-input-weight").show();
+        			$wrap.find(".avt-input-weight").show();
         		}
         		
         	})

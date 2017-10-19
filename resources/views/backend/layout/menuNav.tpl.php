@@ -30,9 +30,8 @@
                         </li>
                         <!-- Notifications-->
                         <!-- Messages                        -->
-                        <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i>
-                        <?php if ($totalNotice > 0): ?>
-                            <span class="badge bg-orange"><?php echo $totalNotice ?></span></a>
+                        <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange"><?php echo ($totalNotice > 0) ? $totalNotice : '' ?></span></a>
+                            <?php if ($totalNotice > 0): ?>
                                 <ul aria-labelledby="notifications" class="dropdown-menu">
                                     <?php foreach ($listNotice as $item): ?>
                                         <li><a rel="nofollow" href="<?php echo url($item['notice_link']); ?>" class="dropdown-item d-flex">
@@ -50,8 +49,8 @@
 
                                     <li><a rel="nofollow" href="<?php echo url('/admcp/order-manage') ?>" class="dropdown-item all-notifications text-center"> <strong>Read all messages    </strong></a></li>
                                 </ul>
-                            </li>
-                        <?php endif ?>
+                            <?php endif ?>
+                        </li>
                         <!-- Logout    -->
                         <li class="nav-item"><a href="<?php echo url('/admcp/logout') ?>" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
                     </ul>

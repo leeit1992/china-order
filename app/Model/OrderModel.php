@@ -55,6 +55,19 @@ class OrderModel extends Model
 			);
 	}
 
+	public function getByRestPercent() {
+		return $this->db->select(
+			$this->table, 
+				'*', 
+				[
+					'order_info_pay[~]' => ':0,',
+					'ORDER' => [
+						'id' => 'DESC'
+					]
+				]
+			);
+	}
+
 	/**
 	 * Handle search by key in Admcp
 	 * 
