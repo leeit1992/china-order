@@ -101,6 +101,7 @@ class OrderController extends baseController
             'mdBillofladingModel' => $this->mdBillofladingModel,
             'orderInfo' => $orderInfo,
             'priceByWeight' => json_decode($priceByWeight),
+            'currentcyRate' => $this->currentcyRate,
             'listItem' => $listItem,
             'apiHandlePrice' => ApiHandlePrice::getInstance(),
             'updateOrderNotice' => Session()->getFlashBag()->get('updateOrder'),

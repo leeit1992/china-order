@@ -428,6 +428,7 @@
                                 <tr>
                                     <td>Tổng tiền hoá đơn</td>
                                     <td>
+                                        <?php  ?>
                                         <span id="total-price">
                                         <input type="hidden" name="avt_total_price_cn" value="<?php echo $totalPrice ?>">
                                         <input type="hidden" name="avt_total_price_vn" value="<?php echo $cartTotalPriceVN ?>">
@@ -439,12 +440,12 @@
                                         </span>
                                         <hr>
                                         <span id="total-price-trans">
-                                        Phí ship nội địa : <?php echo $apiHandlePrice->formatPrice($totalPriceShip) ?>
+                                        Phí ship nội địa : <?php echo $apiHandlePrice->formatPrice($totalPriceShip) ?> = <?php echo $apiHandlePrice->formatPrice($totalPriceShip * $currentcyRate, 'vnđ') ?>
                                         </span>
                                                        
                                         <hr> = 
                                         <span id="total-price-vnd">
-                                            <?php echo $apiHandlePrice->formatPrice($cartTotalPriceVN + $totalPriceTrans + $totalPriceShip, 'vnđ')  ?>
+                                            <?php echo $apiHandlePrice->formatPrice($cartTotalPriceVN, 'vnđ')  ?>
                                         </span>
                                         
                                         <?php if (1 == $orderInfo[0]['order_status']) :  ?>

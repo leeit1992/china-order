@@ -78,7 +78,7 @@
     }
 
     $('.op-datepicker').datepicker({
-        dateFormat: 'yy/mm/dd',
+        dateFormat: 'yy-mm-dd',
         numberOfMonths: 1,
         minDate : 0,
         onSelect: function( selectedDate ) {
