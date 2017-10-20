@@ -467,9 +467,16 @@
                                         <?php endif; ?>
                                         <br>
                                         <?php if (2 == $orderInfo[0]['order_status']) {
-                                            echo '<span style="color: #4CAF50; font-size: 20px;"> 
+                                            $info_pay = json_decode($orderInfo[0]['order_info_pay'], true);
+                                            if ($info_pay['rest_percent'] == 0) {
+                                                echo '<span style="color: #4CAF50; font-size: 20px;"> 
                                                                 <i class="fa fa-exclamation-triangle"></i> Đơn hàng đã tất toán.
                                                             </span>';
+                                            } elseif ( $info_pay['rest_percent'] == 20) {
+                                                echo '<span style="color: #4CAF50; font-size: 20px;"> 
+                                                                <i class="fa fa-exclamation-triangle"></i> Đơn hàng đã thanh toán 80%.
+                                                            </span>';
+                                            }
                                         }?>
                                     </td> 
                                 </tr>
@@ -480,8 +487,12 @@
                                     <td>
                                         <div class="col-sm-9">
                                             <div class="i-checks">
-                                                <input id="avt_status_1" <?php echo checked($orderInfo[0]['order_status'], 2); ?> name="avt_has_pay" value="1" type="checkbox" class="checkbox-template">
+                                                <input id="avt_status_1" <?php if ($orderInfo[0]['order_status'] == 2 || $orderInfo[0]['order_status'] == 3): echo 'checked' ?>
+                                                <?php endif ?> name="avt_has_pay" value="1" type="checkbox" class="checkbox-template">
                                                 <label for="avt_status_1">Đã thanh toán chờ mua</label>
+                                                <?php if ($orderInfo[0]['order_status'] == 3): ?>
+                                                    <input id="avt_status_1" name="avt_has_arises" value="1" type="hidden">
+                                                <?php endif ?>
                                             </div>
                                             <div class="i-checks">
                                                 <input id="avt_status_2" <?php echo checked($orderInfo[0]['order_buy_status'], 2); ?> name="avt_has_purchase" value="1" type="checkbox" class="checkbox-template">

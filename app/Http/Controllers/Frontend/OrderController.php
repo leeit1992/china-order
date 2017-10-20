@@ -98,6 +98,7 @@ class OrderController extends baseController
             'updateOrderNotice' => Session()->getFlashBag()->get('updateOrder'),
             'getHandle' => isset( $_GET['handle'] ) ? $_GET['handle'] : '',
             'mesData' => $mesData,
+            'currentcyRate' => $this->currentcyRate,
             'dataUser' => [
                 'userID' => Session()->get('avt_user_id'),
                 'userName' => Session()->get('avt_user_name'),
@@ -139,7 +140,7 @@ class OrderController extends baseController
                 if ($infoUser[0]['user_money'] > $infoOrder[0]['order_arises_price']) {
                     $argsSave = [
                         'order_status' => 2,
-                        'order_arises_price' => '',
+                        'order_arises_price' => 0,
                     ];
                     $this->mdOrder->save($argsSave, $request->get('avt_oder_id'));
 

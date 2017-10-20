@@ -84,17 +84,8 @@ class OrderController extends baseController
         ], ['path' => 'backend/']);
     }
 
-    public function orderDetail($id)
+    public function orderDetail( $id )
     {
-        // setting status seen notice
-        $condiNotice =  [ 'notice_link' => '/admcp/detail-order/'. $id,
-                          'notice_receiver' => Session()->get('avt_admin_user_id')
-                        ];
-        $notice = $this->mdNotice->getByArray( $condiNotice );
-        if (!empty($notice)) {
-            $this->mdNotice->save( [ 'notice_status' => 2 ], $notice[0]['id'] );
-        }
-
         $listItem = $this->mdOrderItem->getBy('order_id', $id);
         $orderInfo = $this->mdOrder->getBy('id', $id);
         $priceByWeight = $this->mdOption->getOption('priceByWeight');
@@ -124,11 +115,12 @@ class OrderController extends baseController
 
     public function updateOrder(Request $request)
     {
-        $totalShipPriceNew = 0;
-        $totalShipPrice = 0;
+        $totalPriceNew = 0;
+        $totalPrice = 0;
         $listBill = $this->mdBillofladingModel->getBy('order_id', $request->get('avt_oder_id'));
         foreach ($listBill as $value) {
-            $totalShipPrice += $value['price_ship'];
+            $totalPrice += $value['price_ship'] * $this->currentcyRate;
+            $totalPrice += $value['price'];
         }
         foreach ($request->get('avt_order_item') as $keyId => $value) {
             $this->mdOrderItem->save([
@@ -148,7 +140,11 @@ class OrderController extends baseController
         ];
 
         if (1 == $request->get('avt_has_pay')) {
-            $argsSave['order_status'] = 2;
+            if (1 == $request->get('avt_has_arises')) {
+                $argsSave['order_status'] = 3;
+            } else {
+                $argsSave['order_status'] = 2;
+            }
         }
 
         if (1 == $request->get('avt_has_purchase')) {
@@ -193,15 +189,16 @@ class OrderController extends baseController
                     ],
                     isset( $checkBillItem[0]['id'] ) ? $checkBillItem[0]['id'] : null
                 );
-                $totalShipPriceNew += $this->convertPriceToInt($value['price_ship']);
+                $totalPriceNew += $this->convertPriceToInt($value['price_ship']) * $this->currentcyRate;
+                $totalPriceNew += $this->convertPriceToInt($value['price']);
             }
         }
 
         $infoOrder = $this->mdOrder->getBy( 'id', $request->get('avt_oder_id') );
-        if ( $totalShipPriceNew > $totalShipPrice && $infoOrder[0]["order_status"] == 2) {
+        if ( $totalPriceNew !== $totalPrice && ( $infoOrder[0]["order_status"] == 2 || $infoOrder[0]["order_status"] == 3 )) {
             $this->mdOrder->save([
                 'order_status' => 3,
-                'order_arises_price'=> $totalShipPriceNew - $totalShipPrice,
+                'order_arises_price'=> (int)$infoOrder[0]['order_arises_price'] + $totalPriceNew - $totalPrice,
                 ],
                 $request->get('avt_oder_id'));
             $this->mdNotice->save([

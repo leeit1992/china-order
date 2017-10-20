@@ -3,8 +3,9 @@ namespace App\Http\Controllers;
 
 use Atl\Routing\Controller as baseController;
 use Atl\Validation\Validation;
+use Atl\Foundation\Request;
 use Atl\Pagination\Pagination;
-
+use App\Model\NoticeModel;
 
 class MainController extends baseController{
 
@@ -59,6 +60,29 @@ class MainController extends baseController{
 		} else{
 			var_dump($validator->getMessages());
 		}
+	}
+	/**
+	 * Handle status notice
+	 * 
+	 * @param  Request $request POST | GET
+	 * @return 
+	 */
+	public function handleNoticeStatus( Request $request ) {
+		$mdNotice = new NoticeModel;
+		$message = [];
+		$notice = $mdNotice->getBy( 'id' , $request->get('id') );
+		if ( $notice[0]['notice_status'] == 1 ) {
+			$mdNotice->save( 
+				[
+					'notice_status' => 2,
+				],
+				$request->get('id')
+			);
+			$message['status'] = true;
+		}else{
+			$message['status'] = false;
+		}
+		echo json_encode($message);
 	}
 
 }

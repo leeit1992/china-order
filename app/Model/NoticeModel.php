@@ -66,6 +66,7 @@ class NoticeModel extends Model
                 $condi['"'.$key.'"'] = $value;
             }
         }
+        $condi['ORDER'] = ['id' => 'DESC'];
         return $this->db->select(
             $this->table,
             '*',

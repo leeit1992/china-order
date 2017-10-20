@@ -26,12 +26,11 @@
 				'jquery.cookie'     => assets('frontend/user-tool/js/jquery.cookie.js'),
 				'jquery.validate'  	=> assets('frontend/user-tool/js/jquery.validate.min.js'),
 				'jquery-number'  	=> assets('js/jquery.number.min.js'),
-
 				'jqfrontuery'  	    => assets('frontend/user-tool/js/front.js'),
-				
 				'underscore' 		=> assets('js/backbone/underscore.js'),
 				'backbone' 			=> assets('js/backbone/backbone-min.js'),
 				'user-tool-backend' => assets('frontend/user-tool/js/backend-debug.js'),
+				'page-header'       => assets('frontend/user-tool/js/page-header-debug.js'),
 			)
 	);
 	?>

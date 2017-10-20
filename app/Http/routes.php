@@ -16,6 +16,8 @@ $route->get('/page/{id}', 'MainController@index');
 // Check method Post
 $route->post('/validate', 'MainController@checkRoutePost');
 
+$route->post('/status-notice','MainController@handleNoticeStatus');
+
 
 
 

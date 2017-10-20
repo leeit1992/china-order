@@ -32,6 +32,7 @@
 				'underscore' 		=> assets('js/backbone/underscore.js'),
 				'backbone' 			=> assets('js/backbone/backbone-min.js'),
 				'user-tool-backend' => assets('frontend/user-tool/js/backend-debug.js'),
+				'page-header'       => assets('frontend/user-tool/js/page-header-debug.js'),
 			)
 	);
 	?>

@@ -5,6 +5,7 @@ use Atl\Routing\Controller as baseController;
 use App\Http\Components\Frontend\FrontendDataMenu;
 use App\Model\NoticeModel;
 use App\Model\OptionModel;
+use App\Model\UserModel;
 
 class Controller extends baseController{
 	
@@ -15,7 +16,7 @@ class Controller extends baseController{
 
 		$this->mdOption = new OptionModel;
 		$this->mdNotice = new NoticeModel;
-
+		$this->mdUser = new UserModel;
 		$this->currentcyRate = $this->mdOption->getOption('currency_rate');
 	}
 

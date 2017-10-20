@@ -82,7 +82,9 @@
                                                     <div class="progress">
                                                         <div role="progressbar" style="width: <?php echo $countPer ?>%; height: 4px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
                                                     </div>
-                                                    <?php } else {
+                                                    <?php } elseif (3 == $value['order_status']) {
+                                                        echo '<span class="text-danger">Chờ thanh toán phát sinh</span>';
+                                                    } else {
                                                         echo '<span style="color:red;">Chưa thanh toán</span>';
                                                 } ?>
                                                 </td>

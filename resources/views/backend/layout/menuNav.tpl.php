@@ -34,7 +34,7 @@
                             <?php if ($totalNotice > 0): ?>
                                 <ul aria-labelledby="notifications" class="dropdown-menu">
                                     <?php foreach ($listNotice as $item): ?>
-                                        <li><a rel="nofollow" href="<?php echo url($item['notice_link']); ?>" class="dropdown-item d-flex">
+                                        <li><a rel="nofollow" href="#" data-link="<?php echo url($item['notice_link']); ?>" class="dropdown-item d-flex avt-notice-status" data-id="<?php echo $item['id']; ?>">
                                                 <div class="msg-body">
                                                     <h3 class="h5">
                                                         <?php $user = $mdUser->getUserBy( 'id', $item['notice_sender']);

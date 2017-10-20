@@ -336,11 +336,16 @@
                                         </span>
                                         <hr>
                                         <span id="total-price-trans">
-                                        Tiền vận chuyển : <?php echo $apiHandlePrice->formatPrice($totalPriceTrans, 'vnđ') ?> / <?php echo $totalWeight ?> kg
+                                        Tiền vận chuyển : 
+                                        <?php if ($totalWeight > 0): ?>
+                                            <?php echo $apiHandlePrice->formatPrice($totalPriceTrans, 'vnđ') ?> /  <?php echo $totalWeight ?> kg
+                                        <?php else: ?>
+                                            <?php echo $apiHandlePrice->formatPrice($totalPriceTrans, 'vnđ') ?>
+                                        <?php endif ?>
                                         </span>
                                         <hr>
                                         <span id="total-price-trans">
-                                        Phí ship nội địa: <?php echo $apiHandlePrice->formatPrice($totalPriceShip, 'vnđ') ?>
+                                        Phí ship nội địa: <?php echo $apiHandlePrice->formatPrice($totalPriceShip) ?> = <?php echo $apiHandlePrice->formatPrice($totalPriceShip * $currentcyRate, 'vnđ') ?>
                                         </span>
                                                        
                                         <hr> = 
