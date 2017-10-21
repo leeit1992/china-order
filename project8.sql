@@ -1,48 +1,58 @@
-/*
- Navicat Premium Data Transfer
+-- phpMyAdmin SQL Dump
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
+--
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 21, 2017 lúc 03:54 AM
+-- Phiên bản máy phục vụ: 10.1.25-MariaDB
+-- Phiên bản PHP: 5.6.31
 
- Source Server         : Mamp
- Source Server Type    : MySQL
- Source Server Version : 50542
- Source Host           : localhost
- Source Database       : project8
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
- Target Server Type    : MySQL
- Target Server Version : 50542
- File Encoding         : utf-8
 
- Date: 10/16/2017 08:32:11 AM
-*/
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-SET NAMES utf8;
-SET FOREIGN_KEY_CHECKS = 0;
+--
+-- Cơ sở dữ liệu: `project8`
+--
 
--- ----------------------------
---  Table structure for `avt_banks`
--- ----------------------------
-DROP TABLE IF EXISTS `avt_banks`;
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `avt_banks`
+--
+
 CREATE TABLE `avt_banks` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `bank_name` varchar(255) DEFAULT NULL,
   `bank_user_name` varchar(255) DEFAULT NULL,
   `bank_number` varchar(255) DEFAULT NULL,
-  `bank_address` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `bank_address` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- ----------------------------
---  Records of `avt_banks`
--- ----------------------------
-BEGIN;
-INSERT INTO `avt_banks` VALUES ('1', 'Vietcombank', 'Le Trung Ha', '060967967', 'Dong Da'), ('2', 'Viettinbank', 'Le Trung Ha', '060967967', 'Hn'), ('3', 'ACB', 'Le Trung Ha', '12345678', 'Tay Ha Noi');
-COMMIT;
+--
+-- Đang đổ dữ liệu cho bảng `avt_banks`
+--
 
--- ----------------------------
---  Table structure for `avt_billoflading`
--- ----------------------------
-DROP TABLE IF EXISTS `avt_billoflading`;
+INSERT INTO `avt_banks` (`id`, `bank_name`, `bank_user_name`, `bank_number`, `bank_address`) VALUES
+(1, 'Vietcombank', 'Le Trung Ha', '060967967', 'Dong Da'),
+(2, 'Viettinbank', 'Le Trung Ha', '060967967', 'Hn'),
+(3, 'ACB', 'Le Trung Ha', '12345678', 'Tay Ha Noi');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `avt_billoflading`
+--
+
 CREATE TABLE `avt_billoflading` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `day_in_stock` varchar(255) DEFAULT NULL,
   `code` varchar(255) DEFAULT NULL,
   `order_id` int(11) DEFAULT NULL,
@@ -54,22 +64,16 @@ CREATE TABLE `avt_billoflading` (
   `status` tinyint(2) DEFAULT NULL,
   `price_ship` varchar(255) DEFAULT NULL,
   `price_status` tinyint(2) DEFAULT NULL
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- ----------------------------
---  Records of `avt_billoflading`
--- ----------------------------
-BEGIN;
-INSERT INTO `avt_billoflading` VALUES ('15', '2017/10/09', '234567890', '18', '\r\n                          雯蕙萱\r\n                      ', '[\"47\"]', '47', '10', '150000', null, null), ('16', '2017/10/19', '12345678', '18', '', '[\"46\"]', '46', '12', '150000', null, null), ('17', '2017/10/13', '12345678', '18', '皮偌乔旗舰店', '[\"45\"]', '45', '11', '150000', null, null), ('18', '2017/10/25', '123456', '26', 'thành công', '[\"67\"]', '67', '20', '150000', null, null), ('19', '', '', '26', 'Jie Qiu Mei', '[\"66\",\"65\",\"64\"]', '66-65-64', '', '', null, null), ('20', '2017/10/19', '0123456789', '29', 'Yiwu Weicang nhà máy may mặc', '[\"79\"]', '79', '15', '38325', null, '123'), ('21', '', '', '29', 'qq5314299', '[\"78\",\"77\"]', '78-77', '10', '25550', null, ''), ('22', '', '', '29', 'fiitvr旗舰店', '[\"76\"]', '76', '', '', null, '');
-COMMIT;
+-- --------------------------------------------------------
 
--- ----------------------------
---  Table structure for `avt_expenditure`
--- ----------------------------
-DROP TABLE IF EXISTS `avt_expenditure`;
+--
+-- Cấu trúc bảng cho bảng `avt_expenditure`
+--
+
 CREATE TABLE `avt_expenditure` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `order_id` int(11) DEFAULT NULL,
   `payment` int(11) DEFAULT NULL,
   `payment_type` varchar(255) DEFAULT NULL,
@@ -77,65 +81,55 @@ CREATE TABLE `avt_expenditure` (
   `date` datetime DEFAULT NULL,
   `desc` varchar(255) DEFAULT NULL,
   `user_id` int(11) NOT NULL
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- ----------------------------
---  Records of `avt_expenditure`
--- ----------------------------
-BEGIN;
-INSERT INTO `avt_expenditure` VALUES ('3', '15', '17297856', '80', '4324464', '2017-10-06 18:54:06', 'Thanh toán cho ??n hàng Custommer-HN-06-10-2017', '3'), ('4', '18', '1864759', '80', '466189.68', '2017-10-06 19:57:06', 'Thanh toán cho ??n hàng Custommer-HN-06-10-2017', '3'), ('5', '19', '11715984', '80', '2928996', '2017-10-06 19:06:06', 'Thanh toán cho ??n hàng ', '3'), ('6', '20', '5630016', '80', '1407504', '2017-10-06 19:28:06', 'Thanh toán cho ??n hàng User1-HN-06-10-2017', '3'), ('7', '23', '5630016', '80', '1407504', '2017-10-06 19:43:06', 'Thanh toán cho ??n hàng Custommer-HN-06-10-2017', '3'), ('8', '26', '563568', '80', '140892', '2017-10-06 20:56:06', 'Thanh toán cho ??n hàng Custommer-HN-06-10-2017', '3'), ('9', '29', '6012902', '80', '1503225.6', '2017-10-16 01:45:16', 'Thanh toán cho ??n hàng Custommer-HN-10-10-2017', '3'), ('10', '30', '6012902', '80', '1503225.6', '2017-10-16 01:40:16', 'Thanh toán cho ??n hàng Custommer-HN-16-10-2017', '3'), ('11', '31', '7516128', '100', '0', '2017-10-16 01:58:16', 'Thanh toán cho ??n hàng Custommer-HN-16-10-2017', '3'), ('12', '32', '6012902', '80', '1503225.6', '2017-10-16 01:20:16', 'Thanh toán cho ??n hàng Custommer-HN-16-10-2017', '3');
-COMMIT;
+-- --------------------------------------------------------
 
--- ----------------------------
---  Table structure for `avt_options`
--- ----------------------------
-DROP TABLE IF EXISTS `avt_options`;
+--
+-- Cấu trúc bảng cho bảng `avt_notices`
+--
+
+CREATE TABLE `avt_notices` (
+  `id` int(11) NOT NULL,
+  `notice_title` varchar(255) DEFAULT NULL,
+  `notice_description` text,
+  `notice_sender` int(11) DEFAULT NULL,
+  `notice_receiver` int(11) DEFAULT NULL,
+  `notice_status` tinyint(2) DEFAULT NULL,
+  `notice_link` varchar(255) DEFAULT NULL,
+  `notice_type` varchar(30) DEFAULT NULL,
+  `notice_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `avt_options`
+--
+
 CREATE TABLE `avt_options` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `option_key` varchar(255) DEFAULT NULL,
   `option_value` longtext,
-  `option_type` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `option_type` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- ----------------------------
---  Records of `avt_options`
--- ----------------------------
-BEGIN;
-INSERT INTO `avt_options` VALUES ('1', 'currency_rate', '3449', null), ('2', 'priceByWeight', '[\"2555\",\"2555\",\"2555\",\"36300\",\"12345\",\"32165\",\"12345\",\"12345\"]', null);
-COMMIT;
+--
+-- Đang đổ dữ liệu cho bảng `avt_options`
+--
 
--- ----------------------------
---  Table structure for `avt_order_items`
--- ----------------------------
-DROP TABLE IF EXISTS `avt_order_items`;
-CREATE TABLE `avt_order_items` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_item_content` longtext,
-  `order_item_quantity` int(11) DEFAULT NULL,
-  `order_item_real_purchase` int(11) DEFAULT NULL,
-  `order_item_status` tinyint(2) DEFAULT NULL,
-  `order_id` int(11) DEFAULT NULL,
-  `order_item_seller` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `order_item_seller_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
+INSERT INTO `avt_options` (`id`, `option_key`, `option_value`, `option_type`) VALUES
+(1, 'currency_rate', '3449', NULL),
+(2, 'priceByWeight', '[\"2555\",\"2555\",\"2555\",\"36300\",\"12345\",\"32165\",\"12345\",\"12345\"]', NULL);
 
--- ----------------------------
---  Records of `avt_order_items`
--- ----------------------------
-BEGIN;
-INSERT INTO `avt_order_items` VALUES ('34', '{\"type\":\"taobao\",\"item_id\":\"538307284343\",\"item_price\":\"1680\",\"item_image\":\"\\/\\/gd1.alicdn.com\\/bao\\/uploaded\\/i1\\/TB1y_qVNXXXXXaiXFXXXXXXXXXX_!!0-item_pic.jpg_600x600.jpg\",\"seller_name\":\"\\u0111\\u1ed3ng c\\u1ecf\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">\\u0111\\u1ed3ng c\\u1ecf<\\/font><\\/font>\",\"quantity\":\"1\",\"color_size\":\";S;Tr\\u1eafng\",\"comment\":\"Dat cai nay\",\"data_value\":\"S;Tr\\u1eafng\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"item_link\":\"https:\\/\\/world.taobao.com\\/item\\/538307284343.htm?fromSite=main&ali_trackid=2:mm_23603226_12514033_47306234:1507279791_213_2096803968&spm=a21bo.7925826.192013.3.75b10b51F8p9kM\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d743be718a2\"}', '1', '0', '1', '15', 'đồng cỏ', 'dong-co'), ('35', '{\"type\":\"taobao\",\"item_id\":\"538307284343\",\"item_price\":\"1680\",\"item_image\":\"\\/\\/gd1.alicdn.com\\/bao\\/uploaded\\/i1\\/TB1y_qVNXXXXXaiXFXXXXXXXXXX_!!0-item_pic.jpg_600x600.jpg\",\"seller_name\":\"\\u0111\\u1ed3ng c\\u1ecf\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">\\u0111\\u1ed3ng c\\u1ecf<\\/font><\\/font>\",\"quantity\":\"1\",\"color_size\":\";M;Tr\\u1eafng\",\"comment\":\"Dat cai nay 2\",\"data_value\":\"M;Tr\\u1eafng\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"item_link\":\"https:\\/\\/world.taobao.com\\/item\\/538307284343.htm?fromSite=main&ali_trackid=2:mm_23603226_12514033_47306234:1507279791_213_2096803968&spm=a21bo.7925826.192013.3.75b10b51F8p9kM\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d743cd436c8\"}', '1', '0', '1', '15', 'đồng cỏ', 'dong-co'), ('36', '{\"type\":\"taobao\",\"item_id\":\"538224774225\",\"item_price\":\"2200\",\"item_image\":\"\\/\\/gd3.alicdn.com\\/bao\\/uploaded\\/i3\\/TB1Ih1RNXXXXXb9XFXXXXXXXXXX_!!0-item_pic.jpg_600x600.jpg\",\"seller_name\":\"\\u0111\\u1ed3ng c\\u1ecf\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">\\u0111\\u1ed3ng c\\u1ecf<\\/font><\\/font>\",\"quantity\":\"1\",\"color_size\":\";M;Tr\\u1eafng\",\"comment\":\"test 3\",\"data_value\":\"M;Tr\\u1eafng\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"item_link\":\"https:\\/\\/world.taobao.com\\/item\\/538224774225.htm?spm=a312a.7728556.2015080705.15.2c81989418Djmx&id=538224774225&scm=1007.12006.46753.i538307284343&pvid=3d91e285-fd57-4cd2-8d7f-a6aadfd2a1e9\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d743da90096\"}', '1', '0', '1', '15', 'đồng cỏ', 'dong-co'), ('37', '{\"type\":\"taobao\",\"item_id\":\"557791693750\",\"item_price\":\"279\",\"item_image\":\"\\/\\/img.alicdn.com\\/bao\\/uploaded\\/i4\\/747549202\\/TB2au9bao4WMKJjSspmXXcznpXa_!!747549202.jpg_430x430q90.jpg\",\"seller_name\":\"\\u4e39\\u5c3c\\u718a\\u7bb1\\u5305\\u65d7\\u8230\\u5e97\",\"seller_id\":\"%E4%B8%B9%E5%B0%BC%E7%86%8A%E7%AE%B1%E5%8C%85%E6%97%97%E8%88%B0%E5%BA%97\",\"quantity\":\"1\",\"color_size\":\";Xanh\",\"comment\":\"tui sach\",\"data_value\":\"1627207:28338\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"item_link\":\"https:\\/\\/world.tmall.com\\/item\\/557791693750.htm?id=557791693750&ali_trackid=2:mm_100033239_12440245_47166247:1507279933_278_855851952&spm=a21bo.7925826.192013.3.666ec34ce78l0I&skuId=3461266720624\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d7448660458\"}', '1', '0', '1', '15', '丹尼熊箱包旗舰店', 'e4-b8-b9-e5-b0-bc-e7-86-8a-e7-ae-b1-e5-8c-85-e6-97-97-e8-88-b0-e5-ba-97'), ('38', '{\"type\":\"taobao\",\"item_id\":\"557507716113\",\"item_price\":\"269\",\"item_image\":\"\\/\\/img.alicdn.com\\/bao\\/uploaded\\/i4\\/747549202\\/TB2aBr1X93PL1JjSZFxXXcBBVXa_!!747549202.jpg_430x430q90.jpg\",\"seller_name\":\"\\u4e39\\u5c3c\\u718a\\u7bb1\\u5305\\u65d7\\u8230\\u5e97\",\"seller_id\":\"%E4%B8%B9%E5%B0%BC%E7%86%8A%E7%AE%B1%E5%8C%85%E6%97%97%E8%88%B0%E5%BA%97\",\"quantity\":\"1\",\"color_size\":\";Tr\\u1eafng v\\u1edbi m\\u00e0u \\u0111\\u1ecf\",\"comment\":\"test 3\",\"data_value\":\"1627207:75443515\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"item_link\":\"https:\\/\\/world.tmall.com\\/item\\/557507716113.htm?spm=a312a.7700718.1998025129.2.1113119fC4ozDK&abtest=_AB-LR32-PR32&pvid=c70743cb-0094-443c-8d62-168d7c70ae39&pos=2&abbucket=_AB-M32_B13&acm=03054.1003.1.1539344&id=557507716113&scm=1007.12144.81309.23864_0&skuId=3623709362840\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d74514d74ca\"}', '1', '0', '1', '15', '丹尼熊箱包旗舰店', 'e4-b8-b9-e5-b0-bc-e7-86-8a-e7-ae-b1-e5-8c-85-e6-97-97-e8-88-b0-e5-ba-97'), ('39', '{\"type\":\"taobao\",\"item_id\":\"558468708704\",\"item_price\":\"89.9\",\"item_image\":\"\\/\\/img.alicdn.com\\/bao\\/uploaded\\/i1\\/913217145\\/TB2IyWSf.F7MKJjSZFLXXcMBVXa_!!913217145.jpg_430x430q90.jpg\",\"seller_name\":\"\\u76ae\\u504c\\u4e54\\u65d7\\u8230\\u5e97\",\"seller_id\":\"%E7%9A%AE%E5%81%8C%E4%B9%94%E6%97%97%E8%88%B0%E5%BA%97\",\"quantity\":\"1\",\"color_size\":\";V\\u00e1y B\\u0103ng t\\u1ea3i;73cm \",\"comment\":\"test 1\",\"data_value\":\"1627207:3232483;122216343:3227230\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"outer_id\":\"3639166547891\",\"item_link\":\"https:\\/\\/world.tmall.com\\/item\\/558468708704.htm?id=558468708704&ali_trackid=2:mm_111843268_13986158_55974682:1507292325_3k2_1516530590&spm=a21bo.7925826.192013.3.49d4c491tV6jYL&skuId=3639166547891\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d775d0a46c1\"}', '1', '0', '1', '16', '皮偌乔旗舰店', 'e7-9a-ae-e5-81-8c-e4-b9-94-e6-97-97-e8-88-b0-e5-ba-97'), ('40', '{\"type\":\"taobao\",\"item_id\":\"549596347523\",\"item_price\":\"360\",\"item_title\":\"\\n            \\n                Tu\\u1ef3 ch\\u1ec9nh \\n            s\\u00e1ng t\\u1ea1o b\\u1ea3ng b\\u00e0n gh\\u1ebf v\\u00e0 b\\u00e0n gh\\u1ebf tatami b\\u1ea3ng b\\u00e0n tr\\u00e0 th\\u1ea5p b\\u1ea3ng Nh\\u1eadt nh\\u1ecf c\\u00e0 ph\\u00ea b\\u1ea3ng \\u0111\\u01a1n gi\\u1ea3n c\\u1eeda s\\u1ed5 th\\u1ef1c t\\u1ebf\\n        \",\"item_image\":\"\\/\\/gd2.alicdn.com\\/imgextra\\/i4\\/383840896\\/TB2LTgNrNxmpuFjSZFNXXXrRXXa_!!383840896.jpg_400x400.jpg\",\"quantity\":\"1\",\"color_size\":\";B\\u00e0n nh\\u1ecf 80 * 50 * 50 cm;Ho\\u00e0n th\\u00e0nh\",\"comment\":\"test 2\",\"data_value\":\"1627207:3232483;122216927:16541580\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"outer_id\":\"3506346450867\",\"item_link\":\"https:\\/\\/item.taobao.com\\/item.htm?id=549596347523&toSite=main\",\"is_addon\":\"1\",\"version\":\"20140225\",\"seller_name\":\"\",\"id\":\"59d775dac1ff2\"}', '1', '0', '1', '16', '', '549596347523'), ('41', '{\"type\":\"taobao\",\"item_id\":\"549452626021\",\"item_price\":\"104.28\",\"item_title\":\"\\n            \\n                \\u5b9a\\u5236\\n            \\u98d8\\u7a97\\u684c\\u6b27\\u5f0f\\u521b\\u610f\\u7b80\\u7ea6\\u69bb\\u69bb\\u7c73\\u684c \\u8336\\u51e0\\u7095\\u684c\\u9633\\u53f0\\u684c\\u5b50\\u77ee\\u684c\\u56fd\\u5b66\\u684c\\u6905\\n        \",\"item_image\":\"\\/\\/gd3.alicdn.com\\/imgextra\\/i4\\/931708086\\/TB24BdvsodnpuFjSZPhXXbChpXa_!!931708086.jpg_400x400.jpg\",\"seller_name\":\"\\n                          \\u96ef\\u8559\\u8431\\n                      \",\"seller_id\":\"\\n                          \\u96ef\\u8559\\u8431\\n                      \",\"quantity\":\"2\",\"color_size\":\";\\u5c0f\\u53f7\\u8336\\u51e060*45*30;\\u6574\\u88c5\",\"comment\":\"test 3\",\"data_value\":\"1627207:3232483;122216927:16541580\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"outer_id\":\"3504738138155\",\"item_link\":\"https:\\/\\/item.taobao.com\\/item.htm?id=549452626021&toSite=main\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d775e41e519\"}', '2', '0', '1', '16', '\n                          雯蕙萱\n                      ', ''), ('42', '{\"type\":\"taobao\",\"item_id\":\"558468708704\",\"item_price\":\"89.9\",\"item_image\":\"\\/\\/img.alicdn.com\\/bao\\/uploaded\\/i1\\/913217145\\/TB2IyWSf.F7MKJjSZFLXXcMBVXa_!!913217145.jpg_430x430q90.jpg\",\"seller_name\":\"\\u76ae\\u504c\\u4e54\\u65d7\\u8230\\u5e97\",\"seller_id\":\"%E7%9A%AE%E5%81%8C%E4%B9%94%E6%97%97%E8%88%B0%E5%BA%97\",\"quantity\":\"1\",\"color_size\":\";V\\u00e1y B\\u0103ng t\\u1ea3i;73cm \",\"comment\":\"test 1\",\"data_value\":\"1627207:3232483;122216343:3227230\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"outer_id\":\"3639166547891\",\"item_link\":\"https:\\/\\/world.tmall.com\\/item\\/558468708704.htm?id=558468708704&ali_trackid=2:mm_111843268_13986158_55974682:1507292325_3k2_1516530590&spm=a21bo.7925826.192013.3.49d4c491tV6jYL&skuId=3639166547891\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d775d0a46c1\"}', '1', '0', '1', '17', '皮偌乔旗舰店', 'e7-9a-ae-e5-81-8c-e4-b9-94-e6-97-97-e8-88-b0-e5-ba-97'), ('43', '{\"type\":\"taobao\",\"item_id\":\"549596347523\",\"item_price\":\"360\",\"item_title\":\"\\n            \\n                Tu\\u1ef3 ch\\u1ec9nh \\n            s\\u00e1ng t\\u1ea1o b\\u1ea3ng b\\u00e0n gh\\u1ebf v\\u00e0 b\\u00e0n gh\\u1ebf tatami b\\u1ea3ng b\\u00e0n tr\\u00e0 th\\u1ea5p b\\u1ea3ng Nh\\u1eadt nh\\u1ecf c\\u00e0 ph\\u00ea b\\u1ea3ng \\u0111\\u01a1n gi\\u1ea3n c\\u1eeda s\\u1ed5 th\\u1ef1c t\\u1ebf\\n        \",\"item_image\":\"\\/\\/gd2.alicdn.com\\/imgextra\\/i4\\/383840896\\/TB2LTgNrNxmpuFjSZFNXXXrRXXa_!!383840896.jpg_400x400.jpg\",\"quantity\":\"1\",\"color_size\":\";B\\u00e0n nh\\u1ecf 80 * 50 * 50 cm;Ho\\u00e0n th\\u00e0nh\",\"comment\":\"test 2\",\"data_value\":\"1627207:3232483;122216927:16541580\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"outer_id\":\"3506346450867\",\"item_link\":\"https:\\/\\/item.taobao.com\\/item.htm?id=549596347523&toSite=main\",\"is_addon\":\"1\",\"version\":\"20140225\",\"seller_name\":\"\",\"id\":\"59d775dac1ff2\"}', '1', '0', '1', '17', '', '549596347523'), ('44', '{\"type\":\"taobao\",\"item_id\":\"549452626021\",\"item_price\":\"104.28\",\"item_title\":\"\\n            \\n                \\u5b9a\\u5236\\n            \\u98d8\\u7a97\\u684c\\u6b27\\u5f0f\\u521b\\u610f\\u7b80\\u7ea6\\u69bb\\u69bb\\u7c73\\u684c \\u8336\\u51e0\\u7095\\u684c\\u9633\\u53f0\\u684c\\u5b50\\u77ee\\u684c\\u56fd\\u5b66\\u684c\\u6905\\n        \",\"item_image\":\"\\/\\/gd3.alicdn.com\\/imgextra\\/i4\\/931708086\\/TB24BdvsodnpuFjSZPhXXbChpXa_!!931708086.jpg_400x400.jpg\",\"seller_name\":\"\\n                          \\u96ef\\u8559\\u8431\\n                      \",\"seller_id\":\"\\n                          \\u96ef\\u8559\\u8431\\n                      \",\"quantity\":\"2\",\"color_size\":\";\\u5c0f\\u53f7\\u8336\\u51e060*45*30;\\u6574\\u88c5\",\"comment\":\"test 3\",\"data_value\":\"1627207:3232483;122216927:16541580\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"outer_id\":\"3504738138155\",\"item_link\":\"https:\\/\\/item.taobao.com\\/item.htm?id=549452626021&toSite=main\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d775e41e519\"}', '2', '0', '1', '17', '\n                          雯蕙萱\n                      ', ''), ('45', '{\"type\":\"taobao\",\"item_id\":\"558468708704\",\"item_price\":\"89.9\",\"item_image\":\"\\/\\/img.alicdn.com\\/bao\\/uploaded\\/i1\\/913217145\\/TB2IyWSf.F7MKJjSZFLXXcMBVXa_!!913217145.jpg_430x430q90.jpg\",\"seller_name\":\"\\u76ae\\u504c\\u4e54\\u65d7\\u8230\\u5e97\",\"seller_id\":\"%E7%9A%AE%E5%81%8C%E4%B9%94%E6%97%97%E8%88%B0%E5%BA%97\",\"quantity\":\"1\",\"color_size\":\";V\\u00e1y B\\u0103ng t\\u1ea3i;73cm \",\"comment\":\"test 1\",\"data_value\":\"1627207:3232483;122216343:3227230\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"outer_id\":\"3639166547891\",\"item_link\":\"https:\\/\\/world.tmall.com\\/item\\/558468708704.htm?id=558468708704&ali_trackid=2:mm_111843268_13986158_55974682:1507292325_3k2_1516530590&spm=a21bo.7925826.192013.3.49d4c491tV6jYL&skuId=3639166547891\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d775d0a46c1\"}', '1', '1', '1', '18', '皮偌乔旗舰店', 'e7-9a-ae-e5-81-8c-e4-b9-94-e6-97-97-e8-88-b0-e5-ba-97'), ('46', '{\"type\":\"taobao\",\"item_id\":\"549596347523\",\"item_price\":\"360\",\"item_title\":\"\\n            \\n                Tu\\u1ef3 ch\\u1ec9nh \\n            s\\u00e1ng t\\u1ea1o b\\u1ea3ng b\\u00e0n gh\\u1ebf v\\u00e0 b\\u00e0n gh\\u1ebf tatami b\\u1ea3ng b\\u00e0n tr\\u00e0 th\\u1ea5p b\\u1ea3ng Nh\\u1eadt nh\\u1ecf c\\u00e0 ph\\u00ea b\\u1ea3ng \\u0111\\u01a1n gi\\u1ea3n c\\u1eeda s\\u1ed5 th\\u1ef1c t\\u1ebf\\n        \",\"item_image\":\"\\/\\/gd2.alicdn.com\\/imgextra\\/i4\\/383840896\\/TB2LTgNrNxmpuFjSZFNXXXrRXXa_!!383840896.jpg_400x400.jpg\",\"quantity\":\"1\",\"color_size\":\";B\\u00e0n nh\\u1ecf 80 * 50 * 50 cm;Ho\\u00e0n th\\u00e0nh\",\"comment\":\"test 2\",\"data_value\":\"1627207:3232483;122216927:16541580\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"outer_id\":\"3506346450867\",\"item_link\":\"https:\\/\\/item.taobao.com\\/item.htm?id=549596347523&toSite=main\",\"is_addon\":\"1\",\"version\":\"20140225\",\"seller_name\":\"\",\"id\":\"59d775dac1ff2\"}', '1', '1', '1', '18', '', '549596347523'), ('47', '{\"type\":\"taobao\",\"item_id\":\"549452626021\",\"item_price\":\"104.28\",\"item_title\":\"\\n            \\n                \\u5b9a\\u5236\\n            \\u98d8\\u7a97\\u684c\\u6b27\\u5f0f\\u521b\\u610f\\u7b80\\u7ea6\\u69bb\\u69bb\\u7c73\\u684c \\u8336\\u51e0\\u7095\\u684c\\u9633\\u53f0\\u684c\\u5b50\\u77ee\\u684c\\u56fd\\u5b66\\u684c\\u6905\\n        \",\"item_image\":\"\\/\\/gd3.alicdn.com\\/imgextra\\/i4\\/931708086\\/TB24BdvsodnpuFjSZPhXXbChpXa_!!931708086.jpg_400x400.jpg\",\"seller_name\":\"\\n                          \\u96ef\\u8559\\u8431\\n                      \",\"seller_id\":\"\\n                          \\u96ef\\u8559\\u8431\\n                      \",\"quantity\":\"2\",\"color_size\":\";\\u5c0f\\u53f7\\u8336\\u51e060*45*30;\\u6574\\u88c5\",\"comment\":\"test 3\",\"data_value\":\"1627207:3232483;122216927:16541580\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"outer_id\":\"3504738138155\",\"item_link\":\"https:\\/\\/item.taobao.com\\/item.htm?id=549452626021&toSite=main\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d775e41e519\"}', '2', '2', '1', '18', '\n                          雯蕙萱\n                      ', ''), ('48', '{\"type\":\"taobao\",\"item_id\":\"12288361793\",\"item_price\":\"58\",\"item_image\":\"\\/\\/gd2.alicdn.com\\/bao\\/uploaded\\/i6\\/T1yAGYXoRXXXa4ogHa_090926.jpg_600x600.jpg\",\"seller_name\":\"taotian159\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">taotian159<\\/font><\\/font>\",\"quantity\":\"1\",\"color_size\":\";T\\u1ea5t c\\u1ea3 c\\u00e1c c\\u00e1ch, tr\\u01b0\\u1edbc 5 gi\\u1edd chi\\u1ec1u thanh to\\u00e1n, giao h\\u00e0ng c\\u00f9ng ng\\u00e0y;X\\u00e1m nh\\u1ea1t\",\"comment\":\"Test \",\"data_value\":\"T\\u1ea5t c\\u1ea3 c\\u00e1c c\\u00e1ch, tr\\u01b0\\u1edbc 5 gi\\u1edd chi\\u1ec1u thanh to\\u00e1n, giao h\\u00e0ng c\\u00f9ng ng\\u00e0y;X\\u00e1m nh\\u1ea1t\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"item_link\":\"https:\\/\\/world.taobao.com\\/item\\/12288361793.htm?fromSite=main&spm=5706.1529727.a31f1.4.1badcdb2wKDAqz&scm=1007.12883.24200.100200300000003&pvid=5e670250-2b9f-47d1-9686-6f38de980796\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d77b0171638\"}', '1', '0', '1', '19', 'taotian159', 'taotian159'), ('49', '{\"type\":\"taobao\",\"item_id\":\"10370238017\",\"item_price\":\"55\",\"item_image\":\"\\/\\/gd1.alicdn.com\\/bao\\/uploaded\\/i5\\/T1b8yiXjXsXXcgTF76_060526.jpg_600x600.jpg\",\"seller_name\":\"taotian159\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">taotian159<\\/font><\\/font>\",\"quantity\":\"1\",\"color_size\":\";Trong ph\\u1ea7n d\\u00e0i;Tr\\u1eafng\",\"comment\":\"test 2\",\"data_value\":\"Trong ph\\u1ea7n d\\u00e0i;Tr\\u1eafng\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"item_link\":\"https:\\/\\/world.taobao.com\\/item\\/10370238017.htm?spm=a312a.7728556.2015080705.20.1456f7efZxz9A4&id=10370238017&scm=1007.12006.72291.i12288361793&pvid=f78fe491-76ec-4d2b-9b70-64ed6e3b6611\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d77b165ac18\"}', '1', '0', '1', '19', 'taotian159', 'taotian159'), ('50', '{\"type\":\"taobao\",\"item_id\":\"17796521648\",\"item_price\":\"48\",\"item_image\":\"\\/\\/gd1.alicdn.com\\/bao\\/uploaded\\/i1\\/10133041393316118\\/T169TtFepcXXXXXXXX_!!0-item_pic.jpg_600x600.jpg\",\"seller_name\":\"taotian159\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">taotian159<\\/font><\\/font>\",\"quantity\":\"1\",\"color_size\":\";L;Cao b\\u1ed3i m\\u00e0u xanh\",\"comment\":\"test 3\",\"data_value\":\"L;Cao b\\u1ed3i m\\u00e0u xanh\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"item_link\":\"https:\\/\\/world.taobao.com\\/item\\/17796521648.htm?fromSite=main&spm=a21wu.241046-global.4691948847.37.719891d6YueF5e&scm=1007.15423.84311.100200300000005&pvid=e6985efe-b614-48da-9702-7cc05ad41fd8\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d77b358e430\"}', '1', '0', '1', '19', 'taotian159', 'taotian159'), ('51', '{\"type\":\"taobao\",\"item_id\":\"559008475157\",\"item_price\":\"1988\",\"item_image\":\"https:\\/\\/img.alicdn.com\\/imgextra\\/i4\\/2235450581\\/TB2_N.va6uhSKJjSspjXXci8VXa_!!2235450581.jpg_430x430q90.jpg\",\"seller_name\":\"Nh\\u1ea3y c\\u00e1c c\\u1eeda h\\u00e0ng nh\\u01b0\\u1ee3ng quy\\u1ec1n k\\u1ef9 thu\\u1eadt s\\u1ed1\",\"seller_id\":\"<strong><font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">Nh\\u1ea3y c\\u00e1c c\\u1eeda h\\u00e0ng nh\\u01b0\\u1ee3ng quy\\u1ec1n k\\u1ef9 thu\\u1eadt s\\u1ed1<\\/font><\\/font><\\/strong>\",\"quantity\":\"2\",\"color_size\":\";[Vr m\\u1ed9t phi\\u00ean b\\u1ea3n m\\u00e1y - ch\\u01a1i]\",\"comment\":\"test 4\",\"data_value\":\"1627207:3232483\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"outer_id\":\"3643552890560\",\"item_link\":\"https:\\/\\/detail.tmall.com\\/item.htm?id=559008475157&toSite=main&skuId=3643552890560\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d77b8aaecbc\"}', '2', '0', '1', '19', 'Nhảy các cửa hàng nhượng quyền kỹ thuật số', 'nhay-cac-cua-hang-nhuong-quyen-ky-thuat-so'), ('52', '{\"type\":\"taobao\",\"item_id\":\"559008475157\",\"item_price\":\"1988\",\"item_image\":\"https:\\/\\/img.alicdn.com\\/imgextra\\/i4\\/2235450581\\/TB2_N.va6uhSKJjSspjXXci8VXa_!!2235450581.jpg_430x430q90.jpg\",\"seller_name\":\"Nh\\u1ea3y c\\u00e1c c\\u1eeda h\\u00e0ng nh\\u01b0\\u1ee3ng quy\\u1ec1n k\\u1ef9 thu\\u1eadt s\\u1ed1\",\"seller_id\":\"<strong><font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">Nh\\u1ea3y c\\u00e1c c\\u1eeda h\\u00e0ng nh\\u01b0\\u1ee3ng quy\\u1ec1n k\\u1ef9 thu\\u1eadt s\\u1ed1<\\/font><\\/font><\\/strong>\",\"quantity\":\"1\",\"color_size\":\";[Vr m\\u1ed9t phi\\u00ean b\\u1ea3n m\\u00e1y - ch\\u01a1i]\",\"comment\":\"test 4\",\"data_value\":\"1627207:3232483\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"outer_id\":\"3643552890560\",\"item_link\":\"https:\\/\\/detail.tmall.com\\/item.htm?id=559008475157&toSite=main&skuId=3643552890560\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d77ce970e1a\"}', '1', '0', '1', '20', 'Nhảy các cửa hàng nhượng quyền kỹ thuật số', 'nhay-cac-cua-hang-nhuong-quyen-ky-thuat-so'), ('53', '{\"type\":\"taobao\",\"item_id\":\"559008475157\",\"item_price\":\"1988\",\"item_image\":\"https:\\/\\/img.alicdn.com\\/imgextra\\/i4\\/2235450581\\/TB2_N.va6uhSKJjSspjXXci8VXa_!!2235450581.jpg_430x430q90.jpg\",\"seller_name\":\"Nh\\u1ea3y c\\u00e1c c\\u1eeda h\\u00e0ng nh\\u01b0\\u1ee3ng quy\\u1ec1n k\\u1ef9 thu\\u1eadt s\\u1ed1\",\"seller_id\":\"<strong><font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">Nh\\u1ea3y c\\u00e1c c\\u1eeda h\\u00e0ng nh\\u01b0\\u1ee3ng quy\\u1ec1n k\\u1ef9 thu\\u1eadt s\\u1ed1<\\/font><\\/font><\\/strong>\",\"quantity\":\"1\",\"color_size\":\";[Vr m\\u1ed9t phi\\u00ean b\\u1ea3n m\\u00e1y - ch\\u01a1i]\",\"comment\":\"test 4\",\"data_value\":\"1627207:3232483\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"outer_id\":\"3643552890560\",\"item_link\":\"https:\\/\\/detail.tmall.com\\/item.htm?id=559008475157&toSite=main&skuId=3643552890560\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d77ce970e1a\"}', '1', '0', '1', '21', 'Nhảy các cửa hàng nhượng quyền kỹ thuật số', 'nhay-cac-cua-hang-nhuong-quyen-ky-thuat-so'), ('54', '{\"type\":\"taobao\",\"item_id\":\"559008475157\",\"item_price\":\"1988\",\"item_image\":\"https:\\/\\/img.alicdn.com\\/imgextra\\/i4\\/2235450581\\/TB2_N.va6uhSKJjSspjXXci8VXa_!!2235450581.jpg_430x430q90.jpg\",\"seller_name\":\"Nh\\u1ea3y c\\u00e1c c\\u1eeda h\\u00e0ng nh\\u01b0\\u1ee3ng quy\\u1ec1n k\\u1ef9 thu\\u1eadt s\\u1ed1\",\"seller_id\":\"<strong><font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">Nh\\u1ea3y c\\u00e1c c\\u1eeda h\\u00e0ng nh\\u01b0\\u1ee3ng quy\\u1ec1n k\\u1ef9 thu\\u1eadt s\\u1ed1<\\/font><\\/font><\\/strong>\",\"quantity\":\"1\",\"color_size\":\";[Vr m\\u1ed9t phi\\u00ean b\\u1ea3n m\\u00e1y - ch\\u01a1i]\",\"comment\":\"test 4\",\"data_value\":\"1627207:3232483\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"outer_id\":\"3643552890560\",\"item_link\":\"https:\\/\\/detail.tmall.com\\/item.htm?id=559008475157&toSite=main&skuId=3643552890560\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d77ce970e1a\"}', '1', '0', '1', '22', 'Nhảy các cửa hàng nhượng quyền kỹ thuật số', 'nhay-cac-cua-hang-nhuong-quyen-ky-thuat-so'), ('55', '{\"type\":\"taobao\",\"item_id\":\"559008475157\",\"item_price\":\"1988\",\"item_image\":\"https:\\/\\/img.alicdn.com\\/imgextra\\/i4\\/2235450581\\/TB2_N.va6uhSKJjSspjXXci8VXa_!!2235450581.jpg_430x430q90.jpg\",\"seller_name\":\"Nh\\u1ea3y c\\u00e1c c\\u1eeda h\\u00e0ng nh\\u01b0\\u1ee3ng quy\\u1ec1n k\\u1ef9 thu\\u1eadt s\\u1ed1\",\"seller_id\":\"<strong><font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">Nh\\u1ea3y c\\u00e1c c\\u1eeda h\\u00e0ng nh\\u01b0\\u1ee3ng quy\\u1ec1n k\\u1ef9 thu\\u1eadt s\\u1ed1<\\/font><\\/font><\\/strong>\",\"quantity\":\"1\",\"color_size\":\";[Vr m\\u1ed9t phi\\u00ean b\\u1ea3n m\\u00e1y - ch\\u01a1i]\",\"comment\":\"test 4\",\"data_value\":\"1627207:3232483\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"outer_id\":\"3643552890560\",\"item_link\":\"https:\\/\\/detail.tmall.com\\/item.htm?id=559008475157&toSite=main&skuId=3643552890560\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d77ce970e1a\"}', '1', '0', '1', '23', 'Nhảy các cửa hàng nhượng quyền kỹ thuật số', 'nhay-cac-cua-hang-nhuong-quyen-ky-thuat-so'), ('56', '{\"type\":\"alibaba\",\"item_id\":\"545685693026\",\"item_title\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">B\\u00e1n bu\\u00f4n th\\u1eddi trang m\\u1edbi xu h\\u01b0\\u1edbng sinh vi\\u00ean nam v\\u00e0 n\\u1eef sinh \\u0111\\u00f4i LED xem silicone s\\u00e1ng c\\u00e1 nh\\u00e2n th\\u1ea1ch anh xem c\\u00e1 nh\\u00e2n<\\/font><\\/font>\",\"item_image\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/961\\/294\\/4020492169_779489260.60x60.jpg\",\"comment\":\"test\",\"item_link\":\"https:\\/\\/detail.1688.com\\/offer\\/545685693026.html?spm=a261y.7663282.0.0.3c15bd2cHj0k7b\",\"item_price\":\"10.00\",\"price_table\":\"undefined\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\">Jie Qiu Mei<\\/font>\",\"seller_name\":\"Jie Qiu Mei\",\"quantity\":\"4\",\"min\":\"563091\",\"color\":\"\\u767d\\u8272\",\"color_size\":\"\\u767d\\u8272;\",\"pos\":\"1\",\"length_pos\":\"3\",\"version\":\"20140225\",\"id\":\"59d7817601599\"}', '4', '0', '1', '24', 'Jie Qiu Mei', 'jie-qiu-mei'), ('57', '{\"type\":\"alibaba\",\"item_id\":\"545685693026\",\"item_title\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">B\\u00e1n bu\\u00f4n th\\u1eddi trang m\\u1edbi xu h\\u01b0\\u1edbng sinh vi\\u00ean nam v\\u00e0 n\\u1eef sinh \\u0111\\u00f4i LED xem silicone s\\u00e1ng c\\u00e1 nh\\u00e2n th\\u1ea1ch anh xem c\\u00e1 nh\\u00e2n<\\/font><\\/font>\",\"item_image\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/961\\/294\\/4020492169_779489260.60x60.jpg\",\"comment\":\"test\",\"item_link\":\"https:\\/\\/detail.1688.com\\/offer\\/545685693026.html?spm=a261y.7663282.0.0.3c15bd2cHj0k7b\",\"item_price\":\"10.00\",\"price_table\":\"undefined\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\">Jie Qiu Mei<\\/font>\",\"seller_name\":\"Jie Qiu Mei\",\"quantity\":\"5\",\"min\":\"566551\",\"color\":\"\\u9ec4\\u8272\",\"color_size\":\"\\u9ec4\\u8272;\",\"pos\":\"2\",\"length_pos\":\"3\",\"version\":\"20140225\",\"id\":\"59d781767f631\"}', '5', '0', '1', '24', 'Jie Qiu Mei', 'jie-qiu-mei'), ('58', '{\"type\":\"alibaba\",\"item_id\":\"545685693026\",\"item_title\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">B\\u00e1n bu\\u00f4n th\\u1eddi trang m\\u1edbi xu h\\u01b0\\u1edbng sinh vi\\u00ean nam v\\u00e0 n\\u1eef sinh \\u0111\\u00f4i LED xem silicone s\\u00e1ng c\\u00e1 nh\\u00e2n th\\u1ea1ch anh xem c\\u00e1 nh\\u00e2n<\\/font><\\/font>\",\"item_image\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/961\\/294\\/4020492169_779489260.60x60.jpg\",\"comment\":\"test\",\"item_link\":\"https:\\/\\/detail.1688.com\\/offer\\/545685693026.html?spm=a261y.7663282.0.0.3c15bd2cHj0k7b\",\"item_price\":\"10.00\",\"price_table\":\"undefined\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\">Jie Qiu Mei<\\/font>\",\"seller_name\":\"Jie Qiu Mei\",\"quantity\":\"3\",\"min\":\"566526\",\"color\":\"\\u7ea2\\u8272\",\"color_size\":\"\\u7ea2\\u8272;\",\"pos\":\"3\",\"length_pos\":\"3\",\"version\":\"20140225\",\"id\":\"59d78177032c0\"}', '3', '0', '1', '24', 'Jie Qiu Mei', 'jie-qiu-mei'), ('59', '{\"type\":\"taobao\",\"item_id\":\"556309281542\",\"item_price\":\"79\",\"item_image\":\"https:\\/\\/gd4.alicdn.com\\/bao\\/uploaded\\/i4\\/3237192654\\/TB2eoDNb1UkyKJjSsphXXbdaVXa_!!3237192654.jpg_600x600.jpg\",\"seller_name\":\"th\\u00e0nh c\\u00f4ng\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">th\\u00e0nh c\\u00f4ng<\\/font><\\/font>\",\"quantity\":\"1\",\"color_size\":\";M;8026 \\u767d\\u8272\\u52a0\\u7ed2\\u6b3e\",\"comment\":\"test\",\"data_value\":\"M;8026 ph\\u1ea7n tr\\u1eafng c\\u1ed9ng th\\u00eam ti\\u1ec1n m\\u1eb7t\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"item_link\":\"https:\\/\\/world.taobao.com\\/item\\/556309281542.htm?fromSite=main&ali_refid=a3_430409_1006:1150718191:N:%E5%A6%88%E5%A6%88%E8%A3%85%E7%A7%8B%E8%A3%85%E5%A4%96%E5%A5%97:a91645f21c54f24bf3c6a9d5099a4ec1&ali_trackid=1_a91645f21c54f24bf3c6a9d5099a4ec1&spm=a230r.7195193.0.0.RO7wTq\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d781861948e\"}', '1', '0', '1', '24', 'thành công', 'thanh-cong'), ('60', '{\"type\":\"alibaba\",\"item_id\":\"545685693026\",\"item_title\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">B\\u00e1n bu\\u00f4n th\\u1eddi trang m\\u1edbi xu h\\u01b0\\u1edbng sinh vi\\u00ean nam v\\u00e0 n\\u1eef sinh \\u0111\\u00f4i LED xem silicone s\\u00e1ng c\\u00e1 nh\\u00e2n th\\u1ea1ch anh xem c\\u00e1 nh\\u00e2n<\\/font><\\/font>\",\"item_image\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/961\\/294\\/4020492169_779489260.60x60.jpg\",\"comment\":\"test\",\"item_link\":\"https:\\/\\/detail.1688.com\\/offer\\/545685693026.html?spm=a261y.7663282.0.0.3c15bd2cHj0k7b\",\"item_price\":\"10.00\",\"price_table\":\"undefined\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\">Jie Qiu Mei<\\/font>\",\"seller_name\":\"Jie Qiu Mei\",\"quantity\":\"4\",\"min\":\"563091\",\"color\":\"\\u767d\\u8272\",\"color_size\":\"\\u767d\\u8272;\",\"pos\":\"1\",\"length_pos\":\"3\",\"version\":\"20140225\",\"id\":\"59d7817601599\"}', '4', '0', '1', '25', 'Jie Qiu Mei', 'jie-qiu-mei'), ('61', '{\"type\":\"alibaba\",\"item_id\":\"545685693026\",\"item_title\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">B\\u00e1n bu\\u00f4n th\\u1eddi trang m\\u1edbi xu h\\u01b0\\u1edbng sinh vi\\u00ean nam v\\u00e0 n\\u1eef sinh \\u0111\\u00f4i LED xem silicone s\\u00e1ng c\\u00e1 nh\\u00e2n th\\u1ea1ch anh xem c\\u00e1 nh\\u00e2n<\\/font><\\/font>\",\"item_image\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/961\\/294\\/4020492169_779489260.60x60.jpg\",\"comment\":\"test\",\"item_link\":\"https:\\/\\/detail.1688.com\\/offer\\/545685693026.html?spm=a261y.7663282.0.0.3c15bd2cHj0k7b\",\"item_price\":\"10.00\",\"price_table\":\"undefined\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\">Jie Qiu Mei<\\/font>\",\"seller_name\":\"Jie Qiu Mei\",\"quantity\":\"5\",\"min\":\"566551\",\"color\":\"\\u9ec4\\u8272\",\"color_size\":\"\\u9ec4\\u8272;\",\"pos\":\"2\",\"length_pos\":\"3\",\"version\":\"20140225\",\"id\":\"59d781767f631\"}', '5', '0', '1', '25', 'Jie Qiu Mei', 'jie-qiu-mei'), ('62', '{\"type\":\"alibaba\",\"item_id\":\"545685693026\",\"item_title\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">B\\u00e1n bu\\u00f4n th\\u1eddi trang m\\u1edbi xu h\\u01b0\\u1edbng sinh vi\\u00ean nam v\\u00e0 n\\u1eef sinh \\u0111\\u00f4i LED xem silicone s\\u00e1ng c\\u00e1 nh\\u00e2n th\\u1ea1ch anh xem c\\u00e1 nh\\u00e2n<\\/font><\\/font>\",\"item_image\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/961\\/294\\/4020492169_779489260.60x60.jpg\",\"comment\":\"test\",\"item_link\":\"https:\\/\\/detail.1688.com\\/offer\\/545685693026.html?spm=a261y.7663282.0.0.3c15bd2cHj0k7b\",\"item_price\":\"10.00\",\"price_table\":\"undefined\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\">Jie Qiu Mei<\\/font>\",\"seller_name\":\"Jie Qiu Mei\",\"quantity\":\"3\",\"min\":\"566526\",\"color\":\"\\u7ea2\\u8272\",\"color_size\":\"\\u7ea2\\u8272;\",\"pos\":\"3\",\"length_pos\":\"3\",\"version\":\"20140225\",\"id\":\"59d78177032c0\"}', '3', '0', '1', '25', 'Jie Qiu Mei', 'jie-qiu-mei'), ('63', '{\"type\":\"taobao\",\"item_id\":\"556309281542\",\"item_price\":\"79\",\"item_image\":\"https:\\/\\/gd4.alicdn.com\\/bao\\/uploaded\\/i4\\/3237192654\\/TB2eoDNb1UkyKJjSsphXXbdaVXa_!!3237192654.jpg_600x600.jpg\",\"seller_name\":\"th\\u00e0nh c\\u00f4ng\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">th\\u00e0nh c\\u00f4ng<\\/font><\\/font>\",\"quantity\":\"1\",\"color_size\":\";M;8026 \\u767d\\u8272\\u52a0\\u7ed2\\u6b3e\",\"comment\":\"test\",\"data_value\":\"M;8026 ph\\u1ea7n tr\\u1eafng c\\u1ed9ng th\\u00eam ti\\u1ec1n m\\u1eb7t\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"item_link\":\"https:\\/\\/world.taobao.com\\/item\\/556309281542.htm?fromSite=main&ali_refid=a3_430409_1006:1150718191:N:%E5%A6%88%E5%A6%88%E8%A3%85%E7%A7%8B%E8%A3%85%E5%A4%96%E5%A5%97:a91645f21c54f24bf3c6a9d5099a4ec1&ali_trackid=1_a91645f21c54f24bf3c6a9d5099a4ec1&spm=a230r.7195193.0.0.RO7wTq\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d781861948e\"}', '1', '0', '1', '25', 'thành công', 'thanh-cong'), ('64', '{\"type\":\"alibaba\",\"item_id\":\"545685693026\",\"item_title\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">B\\u00e1n bu\\u00f4n th\\u1eddi trang m\\u1edbi xu h\\u01b0\\u1edbng sinh vi\\u00ean nam v\\u00e0 n\\u1eef sinh \\u0111\\u00f4i LED xem silicone s\\u00e1ng c\\u00e1 nh\\u00e2n th\\u1ea1ch anh xem c\\u00e1 nh\\u00e2n<\\/font><\\/font>\",\"item_image\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/961\\/294\\/4020492169_779489260.60x60.jpg\",\"comment\":\"test\",\"item_link\":\"https:\\/\\/detail.1688.com\\/offer\\/545685693026.html?spm=a261y.7663282.0.0.3c15bd2cHj0k7b\",\"item_price\":\"10.00\",\"price_table\":\"undefined\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\">Jie Qiu Mei<\\/font>\",\"seller_name\":\"Jie Qiu Mei\",\"quantity\":\"4\",\"min\":\"563091\",\"color\":\"\\u767d\\u8272\",\"color_size\":\"\\u767d\\u8272;\",\"pos\":\"1\",\"length_pos\":\"3\",\"version\":\"20140225\",\"id\":\"59d7817601599\"}', '4', '0', '1', '26', 'Jie Qiu Mei', 'jie-qiu-mei'), ('65', '{\"type\":\"alibaba\",\"item_id\":\"545685693026\",\"item_title\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">B\\u00e1n bu\\u00f4n th\\u1eddi trang m\\u1edbi xu h\\u01b0\\u1edbng sinh vi\\u00ean nam v\\u00e0 n\\u1eef sinh \\u0111\\u00f4i LED xem silicone s\\u00e1ng c\\u00e1 nh\\u00e2n th\\u1ea1ch anh xem c\\u00e1 nh\\u00e2n<\\/font><\\/font>\",\"item_image\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/961\\/294\\/4020492169_779489260.60x60.jpg\",\"comment\":\"test\",\"item_link\":\"https:\\/\\/detail.1688.com\\/offer\\/545685693026.html?spm=a261y.7663282.0.0.3c15bd2cHj0k7b\",\"item_price\":\"10.00\",\"price_table\":\"undefined\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\">Jie Qiu Mei<\\/font>\",\"seller_name\":\"Jie Qiu Mei\",\"quantity\":\"5\",\"min\":\"566551\",\"color\":\"\\u9ec4\\u8272\",\"color_size\":\"\\u9ec4\\u8272;\",\"pos\":\"2\",\"length_pos\":\"3\",\"version\":\"20140225\",\"id\":\"59d781767f631\"}', '5', '5', '1', '26', 'Jie Qiu Mei', 'jie-qiu-mei'), ('66', '{\"type\":\"alibaba\",\"item_id\":\"545685693026\",\"item_title\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">B\\u00e1n bu\\u00f4n th\\u1eddi trang m\\u1edbi xu h\\u01b0\\u1edbng sinh vi\\u00ean nam v\\u00e0 n\\u1eef sinh \\u0111\\u00f4i LED xem silicone s\\u00e1ng c\\u00e1 nh\\u00e2n th\\u1ea1ch anh xem c\\u00e1 nh\\u00e2n<\\/font><\\/font>\",\"item_image\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/961\\/294\\/4020492169_779489260.60x60.jpg\",\"comment\":\"test\",\"item_link\":\"https:\\/\\/detail.1688.com\\/offer\\/545685693026.html?spm=a261y.7663282.0.0.3c15bd2cHj0k7b\",\"item_price\":\"10.00\",\"price_table\":\"undefined\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\">Jie Qiu Mei<\\/font>\",\"seller_name\":\"Jie Qiu Mei\",\"quantity\":\"3\",\"min\":\"566526\",\"color\":\"\\u7ea2\\u8272\",\"color_size\":\"\\u7ea2\\u8272;\",\"pos\":\"3\",\"length_pos\":\"3\",\"version\":\"20140225\",\"id\":\"59d78177032c0\"}', '3', '3', '1', '26', 'Jie Qiu Mei', 'jie-qiu-mei'), ('67', '{\"type\":\"taobao\",\"item_id\":\"556309281542\",\"item_price\":\"79\",\"item_image\":\"https:\\/\\/gd4.alicdn.com\\/bao\\/uploaded\\/i4\\/3237192654\\/TB2eoDNb1UkyKJjSsphXXbdaVXa_!!3237192654.jpg_600x600.jpg\",\"seller_name\":\"th\\u00e0nh c\\u00f4ng\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">th\\u00e0nh c\\u00f4ng<\\/font><\\/font>\",\"quantity\":\"1\",\"color_size\":\";M;8026 \\u767d\\u8272\\u52a0\\u7ed2\\u6b3e\",\"comment\":\"test\",\"data_value\":\"M;8026 ph\\u1ea7n tr\\u1eafng c\\u1ed9ng th\\u00eam ti\\u1ec1n m\\u1eb7t\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"item_link\":\"https:\\/\\/world.taobao.com\\/item\\/556309281542.htm?fromSite=main&ali_refid=a3_430409_1006:1150718191:N:%E5%A6%88%E5%A6%88%E8%A3%85%E7%A7%8B%E8%A3%85%E5%A4%96%E5%A5%97:a91645f21c54f24bf3c6a9d5099a4ec1&ali_trackid=1_a91645f21c54f24bf3c6a9d5099a4ec1&spm=a230r.7195193.0.0.RO7wTq\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d781861948e\"}', '1', '1', '1', '26', 'thành công', 'thanh-cong'), ('68', '{\"type\":\"alibaba\",\"item_id\":\"545685693026\",\"item_title\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">B\\u00e1n bu\\u00f4n th\\u1eddi trang m\\u1edbi xu h\\u01b0\\u1edbng sinh vi\\u00ean nam v\\u00e0 n\\u1eef sinh \\u0111\\u00f4i LED xem silicone s\\u00e1ng c\\u00e1 nh\\u00e2n th\\u1ea1ch anh xem c\\u00e1 nh\\u00e2n<\\/font><\\/font>\",\"item_image\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/961\\/294\\/4020492169_779489260.60x60.jpg\",\"comment\":\"test\",\"item_link\":\"https:\\/\\/detail.1688.com\\/offer\\/545685693026.html?spm=a261y.7663282.0.0.3c15bd2cHj0k7b\",\"item_price\":\"10.00\",\"price_table\":\"undefined\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\">Jie Qiu Mei<\\/font>\",\"seller_name\":\"Jie Qiu Mei\",\"quantity\":\"4\",\"min\":\"563091\",\"color\":\"\\u767d\\u8272\",\"color_size\":\"\\u767d\\u8272;\",\"pos\":\"1\",\"length_pos\":\"3\",\"version\":\"20140225\",\"id\":\"59d7817601599\"}', '4', '0', '1', '27', 'Jie Qiu Mei', 'jie-qiu-mei'), ('69', '{\"type\":\"alibaba\",\"item_id\":\"545685693026\",\"item_title\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">B\\u00e1n bu\\u00f4n th\\u1eddi trang m\\u1edbi xu h\\u01b0\\u1edbng sinh vi\\u00ean nam v\\u00e0 n\\u1eef sinh \\u0111\\u00f4i LED xem silicone s\\u00e1ng c\\u00e1 nh\\u00e2n th\\u1ea1ch anh xem c\\u00e1 nh\\u00e2n<\\/font><\\/font>\",\"item_image\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/961\\/294\\/4020492169_779489260.60x60.jpg\",\"comment\":\"test\",\"item_link\":\"https:\\/\\/detail.1688.com\\/offer\\/545685693026.html?spm=a261y.7663282.0.0.3c15bd2cHj0k7b\",\"item_price\":\"10.00\",\"price_table\":\"undefined\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\">Jie Qiu Mei<\\/font>\",\"seller_name\":\"Jie Qiu Mei\",\"quantity\":\"5\",\"min\":\"566551\",\"color\":\"\\u9ec4\\u8272\",\"color_size\":\"\\u9ec4\\u8272;\",\"pos\":\"2\",\"length_pos\":\"3\",\"version\":\"20140225\",\"id\":\"59d781767f631\"}', '5', '0', '1', '27', 'Jie Qiu Mei', 'jie-qiu-mei'), ('70', '{\"type\":\"alibaba\",\"item_id\":\"545685693026\",\"item_title\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">B\\u00e1n bu\\u00f4n th\\u1eddi trang m\\u1edbi xu h\\u01b0\\u1edbng sinh vi\\u00ean nam v\\u00e0 n\\u1eef sinh \\u0111\\u00f4i LED xem silicone s\\u00e1ng c\\u00e1 nh\\u00e2n th\\u1ea1ch anh xem c\\u00e1 nh\\u00e2n<\\/font><\\/font>\",\"item_image\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/961\\/294\\/4020492169_779489260.60x60.jpg\",\"comment\":\"test\",\"item_link\":\"https:\\/\\/detail.1688.com\\/offer\\/545685693026.html?spm=a261y.7663282.0.0.3c15bd2cHj0k7b\",\"item_price\":\"10.00\",\"price_table\":\"undefined\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\">Jie Qiu Mei<\\/font>\",\"seller_name\":\"Jie Qiu Mei\",\"quantity\":\"3\",\"min\":\"566526\",\"color\":\"\\u7ea2\\u8272\",\"color_size\":\"\\u7ea2\\u8272;\",\"pos\":\"3\",\"length_pos\":\"3\",\"version\":\"20140225\",\"id\":\"59d78177032c0\"}', '3', '0', '1', '27', 'Jie Qiu Mei', 'jie-qiu-mei'), ('71', '{\"type\":\"taobao\",\"item_id\":\"556309281542\",\"item_price\":\"79\",\"item_image\":\"https:\\/\\/gd4.alicdn.com\\/bao\\/uploaded\\/i4\\/3237192654\\/TB2eoDNb1UkyKJjSsphXXbdaVXa_!!3237192654.jpg_600x600.jpg\",\"seller_name\":\"th\\u00e0nh c\\u00f4ng\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">th\\u00e0nh c\\u00f4ng<\\/font><\\/font>\",\"quantity\":\"1\",\"color_size\":\";M;8026 \\u767d\\u8272\\u52a0\\u7ed2\\u6b3e\",\"comment\":\"test\",\"data_value\":\"M;8026 ph\\u1ea7n tr\\u1eafng c\\u1ed9ng th\\u00eam ti\\u1ec1n m\\u1eb7t\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"item_link\":\"https:\\/\\/world.taobao.com\\/item\\/556309281542.htm?fromSite=main&ali_refid=a3_430409_1006:1150718191:N:%E5%A6%88%E5%A6%88%E8%A3%85%E7%A7%8B%E8%A3%85%E5%A4%96%E5%A5%97:a91645f21c54f24bf3c6a9d5099a4ec1&ali_trackid=1_a91645f21c54f24bf3c6a9d5099a4ec1&spm=a230r.7195193.0.0.RO7wTq\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d781861948e\"}', '1', '0', '1', '27', 'thành công', 'thanh-cong'), ('72', '{\"type\":\"alibaba\",\"item_id\":\"545685693026\",\"item_title\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">B\\u00e1n bu\\u00f4n th\\u1eddi trang m\\u1edbi xu h\\u01b0\\u1edbng sinh vi\\u00ean nam v\\u00e0 n\\u1eef sinh \\u0111\\u00f4i LED xem silicone s\\u00e1ng c\\u00e1 nh\\u00e2n th\\u1ea1ch anh xem c\\u00e1 nh\\u00e2n<\\/font><\\/font>\",\"item_image\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/961\\/294\\/4020492169_779489260.60x60.jpg\",\"comment\":\"test\",\"item_link\":\"https:\\/\\/detail.1688.com\\/offer\\/545685693026.html?spm=a261y.7663282.0.0.3c15bd2cHj0k7b\",\"item_price\":\"10.00\",\"price_table\":\"undefined\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\">Jie Qiu Mei<\\/font>\",\"seller_name\":\"Jie Qiu Mei\",\"quantity\":\"4\",\"min\":\"563091\",\"color\":\"\\u767d\\u8272\",\"color_size\":\"\\u767d\\u8272;\",\"pos\":\"1\",\"length_pos\":\"3\",\"version\":\"20140225\",\"id\":\"59d7817601599\"}', '4', '0', '1', '28', 'Jie Qiu Mei', 'jie-qiu-mei'), ('73', '{\"type\":\"alibaba\",\"item_id\":\"545685693026\",\"item_title\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">B\\u00e1n bu\\u00f4n th\\u1eddi trang m\\u1edbi xu h\\u01b0\\u1edbng sinh vi\\u00ean nam v\\u00e0 n\\u1eef sinh \\u0111\\u00f4i LED xem silicone s\\u00e1ng c\\u00e1 nh\\u00e2n th\\u1ea1ch anh xem c\\u00e1 nh\\u00e2n<\\/font><\\/font>\",\"item_image\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/961\\/294\\/4020492169_779489260.60x60.jpg\",\"comment\":\"test\",\"item_link\":\"https:\\/\\/detail.1688.com\\/offer\\/545685693026.html?spm=a261y.7663282.0.0.3c15bd2cHj0k7b\",\"item_price\":\"10.00\",\"price_table\":\"undefined\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\">Jie Qiu Mei<\\/font>\",\"seller_name\":\"Jie Qiu Mei\",\"quantity\":\"5\",\"min\":\"566551\",\"color\":\"\\u9ec4\\u8272\",\"color_size\":\"\\u9ec4\\u8272;\",\"pos\":\"2\",\"length_pos\":\"3\",\"version\":\"20140225\",\"id\":\"59d781767f631\"}', '5', '0', '1', '28', 'Jie Qiu Mei', 'jie-qiu-mei'), ('74', '{\"type\":\"alibaba\",\"item_id\":\"545685693026\",\"item_title\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">B\\u00e1n bu\\u00f4n th\\u1eddi trang m\\u1edbi xu h\\u01b0\\u1edbng sinh vi\\u00ean nam v\\u00e0 n\\u1eef sinh \\u0111\\u00f4i LED xem silicone s\\u00e1ng c\\u00e1 nh\\u00e2n th\\u1ea1ch anh xem c\\u00e1 nh\\u00e2n<\\/font><\\/font>\",\"item_image\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/961\\/294\\/4020492169_779489260.60x60.jpg\",\"comment\":\"test\",\"item_link\":\"https:\\/\\/detail.1688.com\\/offer\\/545685693026.html?spm=a261y.7663282.0.0.3c15bd2cHj0k7b\",\"item_price\":\"10.00\",\"price_table\":\"undefined\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\">Jie Qiu Mei<\\/font>\",\"seller_name\":\"Jie Qiu Mei\",\"quantity\":\"3\",\"min\":\"566526\",\"color\":\"\\u7ea2\\u8272\",\"color_size\":\"\\u7ea2\\u8272;\",\"pos\":\"3\",\"length_pos\":\"3\",\"version\":\"20140225\",\"id\":\"59d78177032c0\"}', '3', '0', '1', '28', 'Jie Qiu Mei', 'jie-qiu-mei'), ('75', '{\"type\":\"taobao\",\"item_id\":\"556309281542\",\"item_price\":\"79\",\"item_image\":\"https:\\/\\/gd4.alicdn.com\\/bao\\/uploaded\\/i4\\/3237192654\\/TB2eoDNb1UkyKJjSsphXXbdaVXa_!!3237192654.jpg_600x600.jpg\",\"seller_name\":\"th\\u00e0nh c\\u00f4ng\",\"seller_id\":\"<font style=\\\"vertical-align: inherit;\\\"><font style=\\\"vertical-align: inherit;\\\">th\\u00e0nh c\\u00f4ng<\\/font><\\/font>\",\"quantity\":\"1\",\"color_size\":\";M;8026 \\u767d\\u8272\\u52a0\\u7ed2\\u6b3e\",\"comment\":\"test\",\"data_value\":\"M;8026 ph\\u1ea7n tr\\u1eafng c\\u1ed9ng th\\u00eam ti\\u1ec1n m\\u1eb7t\",\"ct\":\"c0f149fc45f29378355bee37990ef902\",\"item_link\":\"https:\\/\\/world.taobao.com\\/item\\/556309281542.htm?fromSite=main&ali_refid=a3_430409_1006:1150718191:N:%E5%A6%88%E5%A6%88%E8%A3%85%E7%A7%8B%E8%A3%85%E5%A4%96%E5%A5%97:a91645f21c54f24bf3c6a9d5099a4ec1&ali_trackid=1_a91645f21c54f24bf3c6a9d5099a4ec1&spm=a230r.7195193.0.0.RO7wTq\",\"is_addon\":\"1\",\"version\":\"20140225\",\"id\":\"59d781861948e\"}', '1', '0', '1', '28', 'thành công', 'thanh-cong'), ('76', '{\"title_origin\":\"vr k\\u00ednh m\\u1ed9t m\\u00e1y 3d tai nghe oppo \\u00e2m nh\\u1ea1c nh\\u01b0 k\\u00ea M\\u1ef9 t\\u00e1o t\\u1ed5ng h\\u1ee3p \\u0111i\\u1ec7n tho\\u1ea1i di \\u0111\\u1ed9ng m\\u0169 b\\u1ea3o hi\\u1ec3m\",\"title_translated\":\"vr k\\u00ednh m\\u1ed9t m\\u00e1y 3d tai nghe oppo \\u00e2m nh\\u1ea1c nh\\u01b0 k\\u00ea M\\u1ef9 t\\u00e1o t\\u1ed5ng h\\u1ee3p \\u0111i\\u1ec7n tho\\u1ea1i di \\u0111\\u1ed9ng m\\u0169 b\\u1ea3o hi\\u1ec3m\",\"price_origin\":\"232\",\"price_promotion\":\"116\",\"property_translated\":\"\\u3010VR k\\u00ednh + tai nghe \\u0111\\u1ed9 n\\u00e9t cao + vr g\\u00f3i\\u3011 - \\u3010Standard Edition\\u3011;\",\"property\":\"\\u3010VR k\\u00ednh + tai nghe \\u0111\\u1ed9 n\\u00e9t cao + vr g\\u00f3i\\u3011 - \\u3010Standard Edition\\u3011;\",\"data_value\":\"1627207:3232483\",\"image_model\":\"%2F%2Fimg.alicdn.com%2Fbao%2Fuploaded%2Fi4%2F3017877290%2FTB2zX_Ua5afF1Jjy1zcXXcu5XXa_!!3017877290.jpg_150x150q90.jpg\",\"image_origin\":\"%2F%2Fimg.alicdn.com%2Fbao%2Fuploaded%2Fi4%2F3017877290%2FTB2zX_Ua5afF1Jjy1zcXXcu5XXa_!!3017877290.jpg_150x150q90.jpg\",\"shop_id\":\"fiitvr\",\"shop_name\":\"\",\"wangwang\":\"fiitvr\\u65d7\\u8230\\u5e97\",\"quantity\":\"2\",\"stock\":\"150\",\"site\":\"TMALL\",\"comment\":\"test\",\"item_id\":\"546448645388\",\"link_origin\":\"https:\\/\\/detail.tmall.com\\/item.htm?id=546448645388&toSite=main&skuId=3467082694723\",\"outer_id\":\"3232483\",\"error\":\"0\",\"weight\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce6c2554b8\"}', '2', '0', '1', '29', 'fiitvr旗舰店', 'fiitvr'), ('77', '{\"title_origin\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"title_translated\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"price_origin\":\"528\",\"price_promotion\":\"0\",\"property_translated\":\"48;H\\u00ecnh;\",\"property\":\"48;H\\u00ecnh;\",\"data_value\":\"\",\"image_model\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"image_origin\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"shop_id\":\"shop57232790\",\"shop_name\":\"\",\"wangwang\":\"qq5314299\",\"quantity\":\"1\",\"stock\":\"1\",\"site\":\"TAOBAO\",\"comment\":\"test\",\"item_id\":\"557082156027\",\"link_origin\":\"https:\\/\\/world.taobao.com\\/item\\/557082156027.htm?fromSite=main&spm=5706.1529727.a31f1.4.58b254acMRPHXG&scm=1007.12883.24200.100200300000003&pvid=abaf9cfa-17bc-44ba-9971-efc18dcab8ee\",\"outer_id\":\"\",\"error\":\"0\",\"weight\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce6c5cdc68\"}', '1', '0', '1', '29', 'qq5314299', 'shop57232790'), ('78', '{\"title_origin\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"title_translated\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"price_origin\":\"528\",\"price_promotion\":\"0\",\"property_translated\":\"48;H\\u00ecnh;\",\"property\":\"48;H\\u00ecnh;\",\"data_value\":\"\",\"image_model\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"image_origin\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"shop_id\":\"shop57232790\",\"shop_name\":\"\",\"wangwang\":\"qq5314299\",\"quantity\":\"2\",\"stock\":\"1\",\"site\":\"TAOBAO\",\"comment\":\"\",\"item_id\":\"557082156027\",\"link_origin\":\"https:\\/\\/world.taobao.com\\/item\\/557082156027.htm?fromSite=main&spm=5706.1529727.a31f1.4.58b254acMRPHXG&scm=1007.12883.24200.100200300000003&pvid=abaf9cfa-17bc-44ba-9971-efc18dcab8ee\",\"outer_id\":\"\",\"error\":\"0\",\"weight\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce917848c8\"}', '2', '0', '1', '29', 'qq5314299', 'shop57232790'), ('79', '{\"title_origin\":\"2017 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng c\\u1ed9ng v\\u1edbi x\\u00e0 c\\u1ea1p nhung s\\u1ecdc d\\u00e0y! B\\u00e1n v\\u1edbi m\\u1ed9t s\\u1ef1 m\\u1ea5t m\\u00e1t! Khoan Chi\\u1ebfn \\u0111\\u1ea5u nh\\u00f3m \\u01b0a th\\u00edch\",\"title_translated\":\"2017 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng c\\u1ed9ng v\\u1edbi x\\u00e0 c\\u1ea1p nhung s\\u1ecdc d\\u00e0y! B\\u00e1n v\\u1edbi m\\u1ed9t s\\u1ef1 m\\u1ea5t m\\u00e1t! Khoan Chi\\u1ebfn \\u0111\\u1ea5u nh\\u00f3m \\u01b0a th\\u00edch\",\"price_origin\":\"18.80\",\"price_promotion\":\"18.80\",\"price_table\":\"[{}]\",\"property_translated\":\"S\\u1ecdc\\u0111en;T\\u1ea5tc\\u1ea3 s\\u00e2n (70-150) kg)\",\"property\":\"S\\u1ecdc\\u0111en;T\\u1ea5tc\\u1ea3 s\\u00e2n (70-150) kg)\",\"data_value\":\"\",\"image_model\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/444\\/692\\/4803296444_1480410558.150x150.jpg\",\"image_origin\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/444\\/692\\/4803296444_1480410558.150x150.jpg\",\"shop_id\":\"Yiwu Weicang nh\\u00e0 m\\u00e1y may m\\u1eb7c\",\"shop_name\":\"Yiwu Weicang nh\\u00e0 m\\u00e1y may m\\u1eb7c\",\"wangwang\":\"Yiwu Weicang nh\\u00e0 m\\u00e1y may m\\u1eb7c\",\"quantity\":\"4\",\"require_min\":\"2\",\"stock\":\"106850Tiaoc\\u00f3 th\\u1ec3 \\u0111\\u01b0\\u1ee3c b\\u00e1n\",\"site\":\"1688\",\"item_id\":\"557821781293\",\"link_origin\":\"https:\\/\\/detail.1688.com\\/offer\\/557821781293.html?spm=a26e3.8027625.1999173159.6.9swfdT\",\"outer_id\":\"\",\"weight\":\"0.3\",\"error\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce6ca99422\"}', '4', '4', '1', '29', 'Yiwu Weicang nhà máy may mặc', 'yiwu-weicang-nha-may-may-mac'), ('80', '{\"title_origin\":\"vr k\\u00ednh m\\u1ed9t m\\u00e1y 3d tai nghe oppo \\u00e2m nh\\u1ea1c nh\\u01b0 k\\u00ea M\\u1ef9 t\\u00e1o t\\u1ed5ng h\\u1ee3p \\u0111i\\u1ec7n tho\\u1ea1i di \\u0111\\u1ed9ng m\\u0169 b\\u1ea3o hi\\u1ec3m\",\"title_translated\":\"vr k\\u00ednh m\\u1ed9t m\\u00e1y 3d tai nghe oppo \\u00e2m nh\\u1ea1c nh\\u01b0 k\\u00ea M\\u1ef9 t\\u00e1o t\\u1ed5ng h\\u1ee3p \\u0111i\\u1ec7n tho\\u1ea1i di \\u0111\\u1ed9ng m\\u0169 b\\u1ea3o hi\\u1ec3m\",\"price_origin\":\"232\",\"price_promotion\":\"116\",\"property_translated\":\"\\u3010VR k\\u00ednh + tai nghe \\u0111\\u1ed9 n\\u00e9t cao + vr g\\u00f3i\\u3011 - \\u3010Standard Edition\\u3011;\",\"property\":\"\\u3010VR k\\u00ednh + tai nghe \\u0111\\u1ed9 n\\u00e9t cao + vr g\\u00f3i\\u3011 - \\u3010Standard Edition\\u3011;\",\"data_value\":\"1627207:3232483\",\"image_model\":\"%2F%2Fimg.alicdn.com%2Fbao%2Fuploaded%2Fi4%2F3017877290%2FTB2zX_Ua5afF1Jjy1zcXXcu5XXa_!!3017877290.jpg_150x150q90.jpg\",\"image_origin\":\"%2F%2Fimg.alicdn.com%2Fbao%2Fuploaded%2Fi4%2F3017877290%2FTB2zX_Ua5afF1Jjy1zcXXcu5XXa_!!3017877290.jpg_150x150q90.jpg\",\"shop_id\":\"fiitvr\",\"shop_name\":\"\",\"wangwang\":\"fiitvr\\u65d7\\u8230\\u5e97\",\"quantity\":\"2\",\"stock\":\"150\",\"site\":\"TMALL\",\"comment\":\"test\",\"item_id\":\"546448645388\",\"link_origin\":\"https:\\/\\/detail.tmall.com\\/item.htm?id=546448645388&toSite=main&skuId=3467082694723\",\"outer_id\":\"3232483\",\"error\":\"0\",\"weight\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce6c2554b8\"}', '2', '0', '1', '30', 'fiitvr旗舰店', 'fiitvr'), ('81', '{\"title_origin\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"title_translated\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"price_origin\":\"528\",\"price_promotion\":\"0\",\"property_translated\":\"48;H\\u00ecnh;\",\"property\":\"48;H\\u00ecnh;\",\"data_value\":\"\",\"image_model\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"image_origin\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"shop_id\":\"shop57232790\",\"shop_name\":\"\",\"wangwang\":\"qq5314299\",\"quantity\":\"1\",\"stock\":\"1\",\"site\":\"TAOBAO\",\"comment\":\"test\",\"item_id\":\"557082156027\",\"link_origin\":\"https:\\/\\/world.taobao.com\\/item\\/557082156027.htm?fromSite=main&spm=5706.1529727.a31f1.4.58b254acMRPHXG&scm=1007.12883.24200.100200300000003&pvid=abaf9cfa-17bc-44ba-9971-efc18dcab8ee\",\"outer_id\":\"\",\"error\":\"0\",\"weight\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce6c5cdc68\"}', '1', '0', '1', '30', 'qq5314299', 'shop57232790'), ('82', '{\"title_origin\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"title_translated\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"price_origin\":\"528\",\"price_promotion\":\"0\",\"property_translated\":\"48;H\\u00ecnh;\",\"property\":\"48;H\\u00ecnh;\",\"data_value\":\"\",\"image_model\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"image_origin\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"shop_id\":\"shop57232790\",\"shop_name\":\"\",\"wangwang\":\"qq5314299\",\"quantity\":\"2\",\"stock\":\"1\",\"site\":\"TAOBAO\",\"comment\":\"\",\"item_id\":\"557082156027\",\"link_origin\":\"https:\\/\\/world.taobao.com\\/item\\/557082156027.htm?fromSite=main&spm=5706.1529727.a31f1.4.58b254acMRPHXG&scm=1007.12883.24200.100200300000003&pvid=abaf9cfa-17bc-44ba-9971-efc18dcab8ee\",\"outer_id\":\"\",\"error\":\"0\",\"weight\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce917848c8\"}', '2', '0', '1', '30', 'qq5314299', 'shop57232790'), ('83', '{\"title_origin\":\"2017 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng c\\u1ed9ng v\\u1edbi x\\u00e0 c\\u1ea1p nhung s\\u1ecdc d\\u00e0y! B\\u00e1n v\\u1edbi m\\u1ed9t s\\u1ef1 m\\u1ea5t m\\u00e1t! Khoan Chi\\u1ebfn \\u0111\\u1ea5u nh\\u00f3m \\u01b0a th\\u00edch\",\"title_translated\":\"2017 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng c\\u1ed9ng v\\u1edbi x\\u00e0 c\\u1ea1p nhung s\\u1ecdc d\\u00e0y! B\\u00e1n v\\u1edbi m\\u1ed9t s\\u1ef1 m\\u1ea5t m\\u00e1t! Khoan Chi\\u1ebfn \\u0111\\u1ea5u nh\\u00f3m \\u01b0a th\\u00edch\",\"price_origin\":\"18.80\",\"price_promotion\":\"18.80\",\"price_table\":\"[{}]\",\"property_translated\":\"S\\u1ecdc\\u0111en;T\\u1ea5tc\\u1ea3 s\\u00e2n (70-150) kg)\",\"property\":\"S\\u1ecdc\\u0111en;T\\u1ea5tc\\u1ea3 s\\u00e2n (70-150) kg)\",\"data_value\":\"\",\"image_model\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/444\\/692\\/4803296444_1480410558.150x150.jpg\",\"image_origin\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/444\\/692\\/4803296444_1480410558.150x150.jpg\",\"shop_id\":\"Yiwu Weicang nh\\u00e0 m\\u00e1y may m\\u1eb7c\",\"shop_name\":\"Yiwu Weicang nh\\u00e0 m\\u00e1y may m\\u1eb7c\",\"wangwang\":\"Yiwu Weicang nh\\u00e0 m\\u00e1y may m\\u1eb7c\",\"quantity\":\"4\",\"require_min\":\"2\",\"stock\":\"106850Tiaoc\\u00f3 th\\u1ec3 \\u0111\\u01b0\\u1ee3c b\\u00e1n\",\"site\":\"1688\",\"item_id\":\"557821781293\",\"link_origin\":\"https:\\/\\/detail.1688.com\\/offer\\/557821781293.html?spm=a26e3.8027625.1999173159.6.9swfdT\",\"outer_id\":\"\",\"weight\":\"0.3\",\"error\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce6ca99422\"}', '4', '0', '1', '30', 'Yiwu Weicang nhà máy may mặc', 'yiwu-weicang-nha-may-may-mac'), ('84', '{\"title_origin\":\"vr k\\u00ednh m\\u1ed9t m\\u00e1y 3d tai nghe oppo \\u00e2m nh\\u1ea1c nh\\u01b0 k\\u00ea M\\u1ef9 t\\u00e1o t\\u1ed5ng h\\u1ee3p \\u0111i\\u1ec7n tho\\u1ea1i di \\u0111\\u1ed9ng m\\u0169 b\\u1ea3o hi\\u1ec3m\",\"title_translated\":\"vr k\\u00ednh m\\u1ed9t m\\u00e1y 3d tai nghe oppo \\u00e2m nh\\u1ea1c nh\\u01b0 k\\u00ea M\\u1ef9 t\\u00e1o t\\u1ed5ng h\\u1ee3p \\u0111i\\u1ec7n tho\\u1ea1i di \\u0111\\u1ed9ng m\\u0169 b\\u1ea3o hi\\u1ec3m\",\"price_origin\":\"232\",\"price_promotion\":\"116\",\"property_translated\":\"\\u3010VR k\\u00ednh + tai nghe \\u0111\\u1ed9 n\\u00e9t cao + vr g\\u00f3i\\u3011 - \\u3010Standard Edition\\u3011;\",\"property\":\"\\u3010VR k\\u00ednh + tai nghe \\u0111\\u1ed9 n\\u00e9t cao + vr g\\u00f3i\\u3011 - \\u3010Standard Edition\\u3011;\",\"data_value\":\"1627207:3232483\",\"image_model\":\"%2F%2Fimg.alicdn.com%2Fbao%2Fuploaded%2Fi4%2F3017877290%2FTB2zX_Ua5afF1Jjy1zcXXcu5XXa_!!3017877290.jpg_150x150q90.jpg\",\"image_origin\":\"%2F%2Fimg.alicdn.com%2Fbao%2Fuploaded%2Fi4%2F3017877290%2FTB2zX_Ua5afF1Jjy1zcXXcu5XXa_!!3017877290.jpg_150x150q90.jpg\",\"shop_id\":\"fiitvr\",\"shop_name\":\"\",\"wangwang\":\"fiitvr\\u65d7\\u8230\\u5e97\",\"quantity\":\"2\",\"stock\":\"150\",\"site\":\"TMALL\",\"comment\":\"test\",\"item_id\":\"546448645388\",\"link_origin\":\"https:\\/\\/detail.tmall.com\\/item.htm?id=546448645388&toSite=main&skuId=3467082694723\",\"outer_id\":\"3232483\",\"error\":\"0\",\"weight\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce6c2554b8\"}', '2', '0', '1', '31', 'fiitvr旗舰店', 'fiitvr'), ('85', '{\"title_origin\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"title_translated\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"price_origin\":\"528\",\"price_promotion\":\"0\",\"property_translated\":\"48;H\\u00ecnh;\",\"property\":\"48;H\\u00ecnh;\",\"data_value\":\"\",\"image_model\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"image_origin\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"shop_id\":\"shop57232790\",\"shop_name\":\"\",\"wangwang\":\"qq5314299\",\"quantity\":\"1\",\"stock\":\"1\",\"site\":\"TAOBAO\",\"comment\":\"test\",\"item_id\":\"557082156027\",\"link_origin\":\"https:\\/\\/world.taobao.com\\/item\\/557082156027.htm?fromSite=main&spm=5706.1529727.a31f1.4.58b254acMRPHXG&scm=1007.12883.24200.100200300000003&pvid=abaf9cfa-17bc-44ba-9971-efc18dcab8ee\",\"outer_id\":\"\",\"error\":\"0\",\"weight\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce6c5cdc68\"}', '1', '0', '1', '31', 'qq5314299', 'shop57232790'), ('86', '{\"title_origin\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"title_translated\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"price_origin\":\"528\",\"price_promotion\":\"0\",\"property_translated\":\"48;H\\u00ecnh;\",\"property\":\"48;H\\u00ecnh;\",\"data_value\":\"\",\"image_model\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"image_origin\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"shop_id\":\"shop57232790\",\"shop_name\":\"\",\"wangwang\":\"qq5314299\",\"quantity\":\"2\",\"stock\":\"1\",\"site\":\"TAOBAO\",\"comment\":\"\",\"item_id\":\"557082156027\",\"link_origin\":\"https:\\/\\/world.taobao.com\\/item\\/557082156027.htm?fromSite=main&spm=5706.1529727.a31f1.4.58b254acMRPHXG&scm=1007.12883.24200.100200300000003&pvid=abaf9cfa-17bc-44ba-9971-efc18dcab8ee\",\"outer_id\":\"\",\"error\":\"0\",\"weight\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce917848c8\"}', '2', '0', '1', '31', 'qq5314299', 'shop57232790'), ('87', '{\"title_origin\":\"2017 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng c\\u1ed9ng v\\u1edbi x\\u00e0 c\\u1ea1p nhung s\\u1ecdc d\\u00e0y! B\\u00e1n v\\u1edbi m\\u1ed9t s\\u1ef1 m\\u1ea5t m\\u00e1t! Khoan Chi\\u1ebfn \\u0111\\u1ea5u nh\\u00f3m \\u01b0a th\\u00edch\",\"title_translated\":\"2017 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng c\\u1ed9ng v\\u1edbi x\\u00e0 c\\u1ea1p nhung s\\u1ecdc d\\u00e0y! B\\u00e1n v\\u1edbi m\\u1ed9t s\\u1ef1 m\\u1ea5t m\\u00e1t! Khoan Chi\\u1ebfn \\u0111\\u1ea5u nh\\u00f3m \\u01b0a th\\u00edch\",\"price_origin\":\"18.80\",\"price_promotion\":\"18.80\",\"price_table\":\"[{}]\",\"property_translated\":\"S\\u1ecdc\\u0111en;T\\u1ea5tc\\u1ea3 s\\u00e2n (70-150) kg)\",\"property\":\"S\\u1ecdc\\u0111en;T\\u1ea5tc\\u1ea3 s\\u00e2n (70-150) kg)\",\"data_value\":\"\",\"image_model\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/444\\/692\\/4803296444_1480410558.150x150.jpg\",\"image_origin\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/444\\/692\\/4803296444_1480410558.150x150.jpg\",\"shop_id\":\"Yiwu Weicang nh\\u00e0 m\\u00e1y may m\\u1eb7c\",\"shop_name\":\"Yiwu Weicang nh\\u00e0 m\\u00e1y may m\\u1eb7c\",\"wangwang\":\"Yiwu Weicang nh\\u00e0 m\\u00e1y may m\\u1eb7c\",\"quantity\":\"4\",\"require_min\":\"2\",\"stock\":\"106850Tiaoc\\u00f3 th\\u1ec3 \\u0111\\u01b0\\u1ee3c b\\u00e1n\",\"site\":\"1688\",\"item_id\":\"557821781293\",\"link_origin\":\"https:\\/\\/detail.1688.com\\/offer\\/557821781293.html?spm=a26e3.8027625.1999173159.6.9swfdT\",\"outer_id\":\"\",\"weight\":\"0.3\",\"error\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce6ca99422\"}', '4', '0', '1', '31', 'Yiwu Weicang nhà máy may mặc', 'yiwu-weicang-nha-may-may-mac'), ('88', '{\"title_origin\":\"vr k\\u00ednh m\\u1ed9t m\\u00e1y 3d tai nghe oppo \\u00e2m nh\\u1ea1c nh\\u01b0 k\\u00ea M\\u1ef9 t\\u00e1o t\\u1ed5ng h\\u1ee3p \\u0111i\\u1ec7n tho\\u1ea1i di \\u0111\\u1ed9ng m\\u0169 b\\u1ea3o hi\\u1ec3m\",\"title_translated\":\"vr k\\u00ednh m\\u1ed9t m\\u00e1y 3d tai nghe oppo \\u00e2m nh\\u1ea1c nh\\u01b0 k\\u00ea M\\u1ef9 t\\u00e1o t\\u1ed5ng h\\u1ee3p \\u0111i\\u1ec7n tho\\u1ea1i di \\u0111\\u1ed9ng m\\u0169 b\\u1ea3o hi\\u1ec3m\",\"price_origin\":\"232\",\"price_promotion\":\"116\",\"property_translated\":\"\\u3010VR k\\u00ednh + tai nghe \\u0111\\u1ed9 n\\u00e9t cao + vr g\\u00f3i\\u3011 - \\u3010Standard Edition\\u3011;\",\"property\":\"\\u3010VR k\\u00ednh + tai nghe \\u0111\\u1ed9 n\\u00e9t cao + vr g\\u00f3i\\u3011 - \\u3010Standard Edition\\u3011;\",\"data_value\":\"1627207:3232483\",\"image_model\":\"%2F%2Fimg.alicdn.com%2Fbao%2Fuploaded%2Fi4%2F3017877290%2FTB2zX_Ua5afF1Jjy1zcXXcu5XXa_!!3017877290.jpg_150x150q90.jpg\",\"image_origin\":\"%2F%2Fimg.alicdn.com%2Fbao%2Fuploaded%2Fi4%2F3017877290%2FTB2zX_Ua5afF1Jjy1zcXXcu5XXa_!!3017877290.jpg_150x150q90.jpg\",\"shop_id\":\"fiitvr\",\"shop_name\":\"\",\"wangwang\":\"fiitvr\\u65d7\\u8230\\u5e97\",\"quantity\":\"2\",\"stock\":\"150\",\"site\":\"TMALL\",\"comment\":\"test\",\"item_id\":\"546448645388\",\"link_origin\":\"https:\\/\\/detail.tmall.com\\/item.htm?id=546448645388&toSite=main&skuId=3467082694723\",\"outer_id\":\"3232483\",\"error\":\"0\",\"weight\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce6c2554b8\"}', '2', '0', '1', '32', 'fiitvr旗舰店', 'fiitvr'), ('89', '{\"title_origin\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"title_translated\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"price_origin\":\"528\",\"price_promotion\":\"0\",\"property_translated\":\"48;H\\u00ecnh;\",\"property\":\"48;H\\u00ecnh;\",\"data_value\":\"\",\"image_model\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"image_origin\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"shop_id\":\"shop57232790\",\"shop_name\":\"\",\"wangwang\":\"qq5314299\",\"quantity\":\"1\",\"stock\":\"1\",\"site\":\"TAOBAO\",\"comment\":\"test\",\"item_id\":\"557082156027\",\"link_origin\":\"https:\\/\\/world.taobao.com\\/item\\/557082156027.htm?fromSite=main&spm=5706.1529727.a31f1.4.58b254acMRPHXG&scm=1007.12883.24200.100200300000003&pvid=abaf9cfa-17bc-44ba-9971-efc18dcab8ee\",\"outer_id\":\"\",\"error\":\"0\",\"weight\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce6c5cdc68\"}', '1', '0', '1', '32', 'qq5314299', 'shop57232790'), ('90', '{\"title_origin\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"title_translated\":\"Crown c\\u1eeda h\\u00e0ng Dickson \\/ DIKENI 532311325-309 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng windbreaker ch\\u1ec9 48 b\\u00e3i \\u00a5 4280\",\"price_origin\":\"528\",\"price_promotion\":\"0\",\"property_translated\":\"48;H\\u00ecnh;\",\"property\":\"48;H\\u00ecnh;\",\"data_value\":\"\",\"image_model\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"image_origin\":\"%2F%2Fgd1.alicdn.com%2Fbao%2Fuploaded%2Fi1%2F165160860%2FTB2L0hAXBrkJKJjSsphXXagMpXa-165160860.jpg_150x150.jpg\",\"shop_id\":\"shop57232790\",\"shop_name\":\"\",\"wangwang\":\"qq5314299\",\"quantity\":\"2\",\"stock\":\"1\",\"site\":\"TAOBAO\",\"comment\":\"\",\"item_id\":\"557082156027\",\"link_origin\":\"https:\\/\\/world.taobao.com\\/item\\/557082156027.htm?fromSite=main&spm=5706.1529727.a31f1.4.58b254acMRPHXG&scm=1007.12883.24200.100200300000003&pvid=abaf9cfa-17bc-44ba-9971-efc18dcab8ee\",\"outer_id\":\"\",\"error\":\"0\",\"weight\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce917848c8\"}', '2', '0', '1', '32', 'qq5314299', 'shop57232790');
-INSERT INTO `avt_order_items` VALUES ('91', '{\"title_origin\":\"2017 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng c\\u1ed9ng v\\u1edbi x\\u00e0 c\\u1ea1p nhung s\\u1ecdc d\\u00e0y! B\\u00e1n v\\u1edbi m\\u1ed9t s\\u1ef1 m\\u1ea5t m\\u00e1t! Khoan Chi\\u1ebfn \\u0111\\u1ea5u nh\\u00f3m \\u01b0a th\\u00edch\",\"title_translated\":\"2017 m\\u00f9a thu v\\u00e0 m\\u00f9a \\u0111\\u00f4ng c\\u1ed9ng v\\u1edbi x\\u00e0 c\\u1ea1p nhung s\\u1ecdc d\\u00e0y! B\\u00e1n v\\u1edbi m\\u1ed9t s\\u1ef1 m\\u1ea5t m\\u00e1t! Khoan Chi\\u1ebfn \\u0111\\u1ea5u nh\\u00f3m \\u01b0a th\\u00edch\",\"price_origin\":\"18.80\",\"price_promotion\":\"18.80\",\"price_table\":\"[{}]\",\"property_translated\":\"S\\u1ecdc\\u0111en;T\\u1ea5tc\\u1ea3 s\\u00e2n (70-150) kg)\",\"property\":\"S\\u1ecdc\\u0111en;T\\u1ea5tc\\u1ea3 s\\u00e2n (70-150) kg)\",\"data_value\":\"\",\"image_model\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/444\\/692\\/4803296444_1480410558.150x150.jpg\",\"image_origin\":\"https:\\/\\/cbu01.alicdn.com\\/img\\/ibank\\/2017\\/444\\/692\\/4803296444_1480410558.150x150.jpg\",\"shop_id\":\"Yiwu Weicang nh\\u00e0 m\\u00e1y may m\\u1eb7c\",\"shop_name\":\"Yiwu Weicang nh\\u00e0 m\\u00e1y may m\\u1eb7c\",\"wangwang\":\"Yiwu Weicang nh\\u00e0 m\\u00e1y may m\\u1eb7c\",\"quantity\":\"4\",\"require_min\":\"2\",\"stock\":\"106850Tiaoc\\u00f3 th\\u1ec3 \\u0111\\u01b0\\u1ee3c b\\u00e1n\",\"site\":\"1688\",\"item_id\":\"557821781293\",\"link_origin\":\"https:\\/\\/detail.1688.com\\/offer\\/557821781293.html?spm=a26e3.8027625.1999173159.6.9swfdT\",\"outer_id\":\"\",\"weight\":\"0.3\",\"error\":\"0\",\"step\":\"1\",\"tool\":\"Addon\",\"id\":\"59dce6ca99422\"}', '4', '0', '1', '32', 'Yiwu Weicang nhà máy may mặc', 'yiwu-weicang-nha-may-may-mac');
-COMMIT;
+-- --------------------------------------------------------
 
--- ----------------------------
---  Table structure for `avt_orders`
--- ----------------------------
-DROP TABLE IF EXISTS `avt_orders`;
+--
+-- Cấu trúc bảng cho bảng `avt_orders`
+--
+
 CREATE TABLE `avt_orders` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `order_code` varchar(255) DEFAULT NULL,
   `order_date` datetime DEFAULT NULL,
   `order_note` text,
@@ -150,22 +144,33 @@ CREATE TABLE `avt_orders` (
   `order_seller` varchar(255) DEFAULT NULL,
   `order_info_pay` text,
   `order_arises_price` varchar(255) DEFAULT NULL
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- ----------------------------
---  Records of `avt_orders`
--- ----------------------------
-BEGIN;
-INSERT INTO `avt_orders` VALUES ('18', 'Custommer-HN-06-10-2017', '2017-10-06 19:55:06', null, '4', '658.46', '2330948.4', '4', '2', '2', '1', '3', null, '{\"rest_percent\":20,\"has_pay\":1864758.72,\"rest_pay\":466189.68}'), ('23', 'Custommer-HN-06-10-2017', '2017-10-06 19:28:06', null, '1', '1988', '7037520', '0', '2', '1', '1', '3', null, '{\"rest_percent\":20,\"has_pay\":5630016,\"rest_pay\":1407504}'), ('24', 'Custommer-HN-06-10-2017', '2017-10-06 20:47:06', null, '13', '199', '704460', '0', '1', '1', '1', '3', null, null), ('25', 'Custommer-HN-06-10-2017', '2017-10-06 20:53:06', null, '12', '120', '424800', '0', '1', '1', '1', '3', null, null), ('26', 'Custommer-HN-06-10-2017', '2017-10-06 20:56:06', null, '13', '199', '704460', '9', '2', '2', '1', '3', null, '{\"rest_percent\":0,\"has_pay\":704460,\"rest_pay\":0}'), ('27', 'Custommer-HN-06-10-2017', '2017-10-06 20:00:06', null, '12', '120', '424800', '0', '1', '1', '1', '3', null, null), ('28', 'Custommer-HN-06-10-2017', '2017-10-06 20:44:06', null, '13', '199', '704460', '0', '1', '1', '1', '3', null, null), ('29', 'Custommer-HN-10-10-2017', '2017-10-10 23:35:10', null, '9', '2123.2', '7516128', '4', '2', '1', '1', '3', null, '{\"rest_percent\":0,\"has_pay\":7516128,\"rest_pay\":0}'), ('30', 'Custommer-HN-16-10-2017', '2017-10-16 01:27:16', null, '9', '2123.2', '7516128', '0', '2', '1', '1', '3', null, '{\"rest_percent\":0,\"has_pay\":7516128,\"rest_pay\":0}'), ('31', 'Custommer-HN-16-10-2017', '2017-10-16 01:14:16', null, '9', '2123.2', '7516128', '0', '2', '1', '1', '3', null, '{\"rest_percent\":0,\"has_pay\":7516128,\"rest_pay\":0}'), ('32', 'Custommer-HN-16-10-2017', '2017-10-16 01:14:16', null, '9', '2123.2', '7516128', '0', '2', '1', '1', '3', null, '{\"rest_percent\":0,\"has_pay\":7516128,\"rest_pay\":0}');
-COMMIT;
+-- --------------------------------------------------------
 
--- ----------------------------
---  Table structure for `avt_recharge`
--- ----------------------------
-DROP TABLE IF EXISTS `avt_recharge`;
+--
+-- Cấu trúc bảng cho bảng `avt_order_items`
+--
+
+CREATE TABLE `avt_order_items` (
+  `id` int(11) NOT NULL,
+  `order_item_content` longtext,
+  `order_item_quantity` int(11) DEFAULT NULL,
+  `order_item_real_purchase` int(11) DEFAULT NULL,
+  `order_item_status` tinyint(2) DEFAULT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `order_item_seller` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `order_item_seller_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `avt_recharge`
+--
+
 CREATE TABLE `avt_recharge` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `date` varchar(255) DEFAULT NULL,
   `price` varchar(255) DEFAULT NULL,
@@ -174,35 +179,30 @@ CREATE TABLE `avt_recharge` (
   `type` varchar(10) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `bank_id` int(11) DEFAULT NULL,
-  `code` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
-
--- ----------------------------
---  Records of `avt_recharge`
--- ----------------------------
-BEGIN;
-INSERT INTO `avt_recharge` VALUES ('1', 'le trung ha', '23/06/2017', '2000000', 'test', '1', 'ck', '3', '2', 'BCDAD'), ('2', 'le trung ha', '23/06/2017', '2000000', 'test', '1', 'ck', '3', '2', 'BCDAD'), ('3', 'le trung ha', '23/06/2017', '2000000', 'test', '2', 'ck', '3', '2', 'BCDAD'), ('4', 'le trung ha', '23/06/2017', '2000000', 'test', '2', 'ck', '3', '1', 'BCDAD'), ('5', 'le trung ha', '06/10/2017', '2000000', 'Nap tien ', '2', 'ck', '3', '1', '2017-10-06-83500'), ('6', 'User 1', '23/06/2017', '20000000', 'Test', '2', 'ck', '4', '3', '2017-10-06-696cf');
-COMMIT;
-
--- ----------------------------
---  Table structure for `avt_usermeta`
--- ----------------------------
-DROP TABLE IF EXISTS `avt_usermeta`;
-CREATE TABLE `avt_usermeta` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
-  `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`id`)
+  `code` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- ----------------------------
---  Table structure for `avt_users`
--- ----------------------------
-DROP TABLE IF EXISTS `avt_users`;
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `avt_usermeta`
+--
+
+CREATE TABLE `avt_usermeta` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `avt_users`
+--
+
 CREATE TABLE `avt_users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `user_name` varchar(255) DEFAULT NULL,
   `user_password` varchar(255) DEFAULT NULL,
   `user_email` varchar(255) DEFAULT NULL,
@@ -210,29 +210,136 @@ CREATE TABLE `avt_users` (
   `user_status` tinyint(2) DEFAULT NULL,
   `user_display_name` varchar(255) DEFAULT NULL,
   `user_role` tinyint(2) DEFAULT NULL,
-  `user_money` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
-DROP TABLE IF EXISTS `avt_notices`;
-CREATE TABLE `avt_notices` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `notice_title` varchar(255) DEFAULT NULL,
-  `notice_description` text,
-  `notice_sender` int(11) DEFAULT NULL,
-  `notice_receiver` int(11) DEFAULT NULL,
-  `notice_status` tinyint(2) DEFAULT NULL,
-  `notice_link` varchar(255) DEFAULT NULL,
-  `notice_type` varchar(30) DEFAULT NULL,
-  `notice_date` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `user_money` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- ----------------------------
---  Records of `avt_users`
--- ----------------------------
-BEGIN;
-INSERT INTO `avt_users` VALUES ('2', 'Admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@gmail.com', '2017-07-20 14:58:29', '1', 'Admin', '1', '0'), ('3', 'Custommer', '21232f297a57a5a743894a0e4a801fc3', 'a@gmail.com', '2017-07-20 14:58:29', '1', 'Custommer', '2', '385794596');
-COMMIT;
+--
+-- Đang đổ dữ liệu cho bảng `avt_users`
+--
 
-SET FOREIGN_KEY_CHECKS = 1;
+INSERT INTO `avt_users` (`id`, `user_name`, `user_password`, `user_email`, `user_registered`, `user_status`, `user_display_name`, `user_role`, `user_money`) VALUES
+(2, 'Admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@gmail.com', '2017-07-20 14:58:29', 1, 'Admin', 1, 0),
+(3, 'Custommer', '21232f297a57a5a743894a0e4a801fc3', 'a@gmail.com', '2017-07-20 14:58:29', 1, 'Custommer', 2, 384173306);
+
+--
+-- Chỉ mục cho các bảng đã đổ
+--
+
+--
+-- Chỉ mục cho bảng `avt_banks`
+--
+ALTER TABLE `avt_banks`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `avt_billoflading`
+--
+ALTER TABLE `avt_billoflading`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `avt_expenditure`
+--
+ALTER TABLE `avt_expenditure`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `avt_notices`
+--
+ALTER TABLE `avt_notices`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `avt_options`
+--
+ALTER TABLE `avt_options`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `avt_orders`
+--
+ALTER TABLE `avt_orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `avt_order_items`
+--
+ALTER TABLE `avt_order_items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `avt_recharge`
+--
+ALTER TABLE `avt_recharge`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `avt_usermeta`
+--
+ALTER TABLE `avt_usermeta`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `avt_users`
+--
+ALTER TABLE `avt_users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `avt_banks`
+--
+ALTER TABLE `avt_banks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT cho bảng `avt_billoflading`
+--
+ALTER TABLE `avt_billoflading`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+--
+-- AUTO_INCREMENT cho bảng `avt_expenditure`
+--
+ALTER TABLE `avt_expenditure`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT cho bảng `avt_notices`
+--
+ALTER TABLE `avt_notices`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT cho bảng `avt_options`
+--
+ALTER TABLE `avt_options`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT cho bảng `avt_orders`
+--
+ALTER TABLE `avt_orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+--
+-- AUTO_INCREMENT cho bảng `avt_order_items`
+--
+ALTER TABLE `avt_order_items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+--
+-- AUTO_INCREMENT cho bảng `avt_recharge`
+--
+ALTER TABLE `avt_recharge`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT cho bảng `avt_usermeta`
+--
+ALTER TABLE `avt_usermeta`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT cho bảng `avt_users`
+--
+ALTER TABLE `avt_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
