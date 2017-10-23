@@ -17,6 +17,7 @@ class Controller extends baseController{
 		$this->mdOption = new OptionModel;
 		$this->mdNotice = new NoticeModel;
 		$this->mdUser = new UserModel;
+		$this->getCurrencyOnline();
 		$this->currentcyRate = $this->mdOption->getOption('currency_rate');
 	}
 
@@ -56,7 +57,8 @@ class Controller extends baseController{
 				'cartInfo' => $cartInfo,
 				'listNotice' => $listNotice,
 				'totalNotice'=> count($listNotice),
-				'mdUser'     => $this->mdUser
+				'mdUser'     => $this->mdUser,
+				'currencyRate' => $this->currentcyRate
 			]
 
 		);

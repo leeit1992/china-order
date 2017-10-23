@@ -1,5 +1,5 @@
 //var host = "http://localhost/nhaphang24.com/public_html/";
-var host = "https://vanchuyen1688.com/";
+var host = "http://localhost:3000/project8/";
 var track_url = "";
 var add_to_cart_url = host+'user-tool/addToCartHttp2';
 var cart_url = host+'user-tool/cart';

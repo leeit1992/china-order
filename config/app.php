@@ -25,7 +25,7 @@ return [
     |
     */
 
-    'url' => array('APP_URL' => 'https://localhost:3000/project8'),
+    'url' => array('APP_URL' => 'http://localhost:3000/project8'),
 
     /*
     |--------------------------------------------------------------------------

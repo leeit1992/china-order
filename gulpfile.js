@@ -27,7 +27,7 @@ gulp.task('scss-watch', ['scss-complie'], browserSync.reload);
 
 gulp.task('watch', [], function() {
     browserSync.init({
-        proxy: 'https://localhost/project8',
+        proxy: 'http://localhost/project8',
         files: ['{app,resources}/**/*.php', '*.php'],
     });
 

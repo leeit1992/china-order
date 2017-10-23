@@ -54,7 +54,7 @@ var CommonTool = function() {
          }
          */
 
-        html += '<p><span style="float: right;"><a style="color:blue" href="h#">Project 8</a><b> phiên bản '+version+'</b></span></p>';
+        html += '<p><span style="float: right;"><a style="color:blue" href="https://vanchuyen1688.vn">Vận chuyển 1688</a><b> phiên bản '+version+'</b></span></p>';
 
         return html;
     };

@@ -113,7 +113,7 @@
             </div>
             <!-- Sidebar Navidation Menus-->
             <span class="heading">
-            <span class="rate">Tỷ giá: <strong>1 tệ</strong> = <strong>3.540 vnđ</strong></span>
+            <span class="rate">Tỷ giá: <strong>1 tệ</strong> = <strong><?php echo $currencyRate ?> vnđ</strong></span>
             </span>
             <!-- Sidebar Navidation Menus--><span class="heading">Chức năng </span>
             <?php echo $menuAdmin->menuNav(); ?>
