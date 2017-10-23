@@ -140,9 +140,9 @@ class CartController extends baseController
             'price_item' => ApiHandlePrice::getInstance()->formatPrice($priceItem),
             'total_item' => $countItem,
             'total_price' => ApiHandlePrice::getInstance()->formatPrice($totalPrice),
-            'total_price_vnd' => ApiHandlePrice::getInstance()->formatPrice($totalPrice * 3540),
+            'total_price_vnd' => ApiHandlePrice::getInstance()->formatPrice($totalPrice * $this->currentcyRate),
             'total_price_no_icon' => $totalPrice,
-            'total_price_vn_no_icon' => $totalPrice * 3540,
+            'total_price_vn_no_icon' => $totalPrice * $this->currentcyRate,
         ]);
     }
 
@@ -233,5 +233,9 @@ class CartController extends baseController
         }
         Session()->set('avt_cart', $listCart);
         redirect( url( '/user-tool/cart') );
+    }
+
+    public function exchange(){
+        echo $this->currentcyRate;
     }
 }

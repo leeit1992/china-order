@@ -31,6 +31,7 @@ $route->get('/user-tool', 'Frontend\MainController@main');
 
 $route->post('/user-tool/addToCartHttp', 'Frontend\CartController@addToCartHttp');
 $route->post('/user-tool/addToCartHttp2', 'Frontend\CartController@addToCart2');
+$route->post('/user-tool/exchange', 'Frontend\CartController@exchange');
 $route->get('/user-tool/cart', 'Frontend\CartController@cartManage');
 $route->post('/user-tool/updateCart', 'Frontend\CartController@updateCart');
 $route->post('/user-tool/add-order', 'Frontend\CartController@addToOrder');

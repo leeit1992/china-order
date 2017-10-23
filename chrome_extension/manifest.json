@@ -19,7 +19,7 @@
       "48": "icon.png"
    },
    "manifest_version": 2,
-   "name": "Công Cụ Đặt Hàng Project 8",
+   "name": "Công Cụ Đặt Hàng vanchuyen1688.com",
    "permissions": [ "http://*/*", "https://*/*", "storage", "tabs" ],
    "update_url": "https://clients2.google.com/service/update2/crx",
    "version": "1.0.0"
