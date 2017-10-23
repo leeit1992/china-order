@@ -116,6 +116,32 @@ class AdminDataMenu
                     ]
                 ]
             ],
+            'page' => [
+                'label'   => 'Bài viết',
+                'icon'    => '<i class="fa fa-file-text-o"></i>',
+                'conditionOpen' => ['Backend\PagesController'],
+                'display' => '',
+                'submenu' => [
+                    [
+                        'label' => 'Quản lý bài viết',
+                        'link'  => url('/admcp/page-manage'),
+                        'display' => '',
+                        'conditionOpen' => ['pageManage'],
+                    ],
+                    [
+                        'label' => 'Quản lý menu',
+                        'link'  => url('/admcp/menu-manage'),
+                        'display' => '',
+                        'conditionOpen' => ['menuManage'],
+                    ],
+                    [
+                        'label' => 'Tạo bài viết mới',
+                        'link'  => url('/admcp/page-add'),
+                        'display' => '',
+                        'conditionOpen' => ['handlePage'],
+                    ]
+                ]
+            ],
 
             'user' => [
                 'label'   => 'Tài khoản',

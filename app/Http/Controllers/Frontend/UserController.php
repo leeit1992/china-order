@@ -6,6 +6,7 @@ use App\Http\Components\Frontend\Controller as baseController;
 use Atl\Validation\Validation;
 use App\Model\UserModel;
 use App\Http\Components\ApiHandlePrice;
+use App\Model\NoticeModel;
 
 class UserController extends baseController
 {
@@ -16,6 +17,7 @@ class UserController extends baseController
 
         // Model data system.
         $this->mdUser = new UserModel;
+        $this->mdNotice = new NoticeModel;
     }
 
     public function login()
@@ -207,5 +209,21 @@ class UserController extends baseController
             Session()->getFlashBag()->set('noticeError', $message);
             redirect(url('/user-tool/user-update-profile'));
         }
+    }
+
+    public function noticeManage()
+    {
+        $this->loadTemplate('user/noticeManage.tpl', [
+            'listNotice' => $this->mdNotice->getBy( 'notice_receiver', Session()->get('avt_user_id')),
+            'noticeSuccess' => Session()->getFlashBag()->get('noticeSuccess')
+        ], ['path' => 'frontend/userTool/']);
+    }
+
+    public function deleteNotice( $id ){
+        // Remove user
+        $this->mdNotice->delete( $id );
+
+        Session()->getFlashBag()->set( 'noticeSuccess', 'Delete notice succes !' );
+        redirect( url('/user-tool/notice-manage') );
     }
 }
