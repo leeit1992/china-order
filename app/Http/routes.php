@@ -7,19 +7,11 @@
 
 // Main index
 $route->get('/', 'MainController@index');
-
-// Check method Get
-$route->get('/id/{id}', 'MainController@checkRouteGet');
-
-$route->get('/page/{id}', 'MainController@index');
+$route->get('/page/{slug}/{id}', 'MainController@singlePage');
 
 // Check method Post
 $route->post('/validate', 'MainController@checkRoutePost');
-
 $route->post('/status-notice','MainController@handleNoticeStatus');
-
-
-
 
 /**
  * USER TOOOL
@@ -53,6 +45,9 @@ $route->get('/user-tool/user-info', 'Frontend\UserController@userInfo');
 $route->post('/user-tool/validateLogin', 'Frontend\UserController@validateLogin');
 $route->post('/user-tool/changePass', 'Frontend\UserController@changePass');
 $route->post('/user-tool/validateUser','Frontend\UserController@validateUser' );
+
+$route->get('/user-tool/notice-manage', 'Frontend\UserController@noticeManage');
+$route->get('/user-tool/notice-delete/{id}','Frontend\UserController@deleteNotice' );
 
 /*=====  End of User  ======*/
 
@@ -168,6 +163,20 @@ $route->get('/admcp/notice-manage', 'Backend\UsersController@noticeManage');
 $route->get('/admcp/notice-delete/{id}','Backend\UsersController@deleteNotice' );
 
 /*=====  End of User  ======*/
+
+/*============================
+=            Page            =
+============================*/
+
+$route->get('/admcp/page-manage', 'Backend\PagesController@pageManage');
+$route->get('/admcp/menu-manage', 'Backend\PagesController@menuManage');
+$route->get('/admcp/page-add', 'Backend\PagesController@handlePage');
+$route->get('/admcp/page-edit/{id}', 'Backend\PagesController@handlePage');
+
+$route->post('/admcp/validate-page', 'Backend\PagesController@validatePage');
+$route->get('/admcp/page-delete/{id}','Backend\PagesController@deletePage' );
+
+/*=====  End of Page  ======*/
 
 /*============================
 =            Chat            =

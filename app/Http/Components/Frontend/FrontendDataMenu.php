@@ -133,7 +133,12 @@ class FrontendDataMenu
                         'display' => '',
                         'conditionOpen' => [''],
                     ],
-
+                    [
+                        'label' => 'Quản lý thông báo',
+                        'link'  => url('/user-tool/notice-manage'),
+                        'display' => '',
+                        'conditionOpen' => [''],
+                    ],
                     [
                         'label' => 'Đổi mật khẩu',
                         'link'  => url('/user-tool/user-update-profile'),
