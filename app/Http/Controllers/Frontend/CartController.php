@@ -195,7 +195,7 @@ class CartController extends baseController
         }
    
         redirect(url('/user-tool/order-success/'. $lastId));
-        // Session()->set('avt_cart', []);
+        Session()->set('avt_cart', []);
     }
 
     public function getSaleName( $name ){

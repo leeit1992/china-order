@@ -24,6 +24,58 @@
     <title>W&amp;M</title>
 </head>
 <body onload="hide_preloader();" class="home">
+
+<style type="text/css">
+    .extentsion {
+        border: 1px solid #d7d7d7;
+        border-radius: 5px;
+        background-color: #e5e5e5;
+        margin: 0 15px;
+        padding: 8px 5px;
+        padding-bottom: 4px;
+        margin-top: -10px;
+        width: 250px;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        z-index: 9;
+    }
+    .extentsion a {
+        text-decoration: none;
+        color: #757575;
+    }
+    .extentsion div {
+        display: inline-block;
+    }
+    .ext-icon {
+        padding: 0px 15px 0 10px;
+        border-right: 2px solid #d7d7d7;
+    }
+    .ext-text {
+        padding: 0px 10px 0 15px;
+    }
+    .extentsion h5 {
+        margin: 0;
+        margin-bottom: 5px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    .extentsion h6 {
+        margin: 0;
+        font-size: 13px;
+    }
+</style>
+<div class="extentsion">
+    <a href="https://chrome.google.com/webstore/detail/c%C3%B4ng-c%E1%BB%A5-%C4%91%E1%BA%B7t-h%C3%A0ng-vanchuye/jjoegifoajbfjnjjcbphcghlmgfgcehb" target="_blank">
+        <div class="ext-icon">
+            <img src="http://vanchuyenchina.com/wp-content/themes/accelerate/anh/extension.png" alt="" class="img-responsive">
+        </div>
+        <div class="text-center ext-text">
+            <h5 class="text-uppercase text-black">Công cụ đặt hàng</h5>
+            <h6>Trên trình duyệt Chrome</h6>
+        </div>
+    </a>
+</div>
 <!-- Page wrap -->
 <div id="page-wrap">
 
