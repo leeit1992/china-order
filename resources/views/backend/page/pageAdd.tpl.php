@@ -50,7 +50,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Mô tả (*)</label>
                                     <div class="col-sm-9">
-                                        <textarea  name="avt_page_description" cols="90" rows="5"><?php echo isset($infoPage['page_description']) ? $infoPage['page_description'] : ''; ?></textarea>
+                                        <textarea id="avt_page_description" name="avt_page_description" cols="90" rows="5"><?php echo isset($infoPage['page_description']) ? $infoPage['page_description'] : ''; ?></textarea>
                                     </div>
                                 </div>
                                 <div class="line"></div>
@@ -58,7 +58,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Nội dung (*)</label>
                                     <div class="col-sm-9">
-                                        <textarea  name="avt_page_content" cols="90" rows="5"><?php echo isset($infoPage['page_content']) ? $infoPage['page_content'] : ''; ?></textarea>
+                                        <textarea id="avt_page_content" name="avt_page_content" cols="90" rows="5"><?php echo isset($infoPage['page_content']) ? $infoPage['page_content'] : ''; ?></textarea>
                                     </div>
                                 </div>
                                 <div class="line"></div>
@@ -124,6 +124,28 @@
         </div>
     </section>
 </div>
+<script type="text/javascript">
+    tinymce.init({
+        selector: "#avt_page_content, #avt_page_description",
+        plugins: [
+             "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+             "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking",
+             "save contextmenu directionality emoticons template paste textcolor moxiemanager"
+        ],
+        branding: false,
+
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify bullist numlist forecolor | outdent indent | link | image", 
+        style_formats: [
+            {title: 'Bold text', inline: 'b'},
+            {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+            {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+            {title: 'Example 1', inline: 'span', classes: 'example1'},
+            {title: 'Example 2', inline: 'span', classes: 'example2'},
+            {title: 'Table styles'},
+            {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+        ]
+    });
+</script>
 <?php 
 registerScrips( array(
     'admcp-page-page' => assets('frontend/user-tool/js/admcp-page-page.min.js'),

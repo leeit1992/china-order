@@ -1,0 +1,111 @@
+
+.oqc-note{
+    display: none;
+}
+.div-block-price-book * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #111;
+}
+.div-block-price-book {
+    box-shadow: 0 0 4px #999;
+    background: none repeat scroll 0 0 #fefefe;
+    bottom: 10px;
+    overflow: auto;
+    position: fixed;
+    right: 10px;
+    width: 325px;
+    z-index: 9999999999999;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    list-style: none;
+}
+.div-block-price-book .add-book .note-img{
+    float: left;
+    width: 100%;
+    height: 50px;
+    background: url("http://orderqc.com/assets/images/add_on/not_translate.png") no-repeat ;
+}
+.div-block-price-book .add-book{
+    float: left;
+    width: 100%;
+}
+.div-block-price-book .add-book .add-button{
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+}
+.div-block-price-book .oqc-note .note-imgv2{
+    float: left;
+    width: 100%;
+    height: 50px;
+    background: url("http://orderqc.com/assets/images/add_on/exception_tool.png") no-repeat ;
+}
+.div-block-price-book .note-item{
+    float: left;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+.div-block-price-book .note-item span{
+    float: left;
+    width: 75px;
+}
+
+.div-block-price-book .note-item p input{
+    width: 100%;
+    padding: 3px 5px;
+}
+.div-block-price-book .note-text{
+    float: left;
+    width: 100%;
+    margin-top: 5px;
+}
+.div-block-price-book .note-text p{
+    margin-bottom: 5px;
+}
+.div-block-price-book .note-text textarea{
+    min-height: 45px;
+    width: 100%;
+    padding-top: 3px;
+    padding-left: 5px;
+}
+
+._loading{
+    background: none repeat scroll 0 0 #111111;
+    height: 100%;
+    opacity: 0.6;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2147483647;
+    text-align: center;
+}
+
+._loading div.content{
+    margin-top: 10%;
+    width: 100%;
+}
+
+#addToCart{
+    background: red;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    display: inline-block;
+    height: 42px;
+    width: 150px;
+    float: left;
+}
+.cart{
+    
+    background: green;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    display: inline-block;
+    height: 42px;
+    width: 150px;
+    float: left;
+    
+}
