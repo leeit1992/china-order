@@ -130,7 +130,7 @@
         plugins: [
              "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
              "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking",
-             "save contextmenu directionality emoticons template paste textcolor moxiemanager"
+             "save contextmenu directionality emoticons template paste textcolor"
         ],
         branding: false,
 
